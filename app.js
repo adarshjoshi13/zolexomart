@@ -48,7 +48,7 @@ app.post('/send-mail', async (req, res) => {
         secure: false, // true for 465, false for 587
         auth: {
             user: "adarsh@zolexomart.com",
-            pass: "Adarshjoshi13." // Password from the credentials you provided
+            pass: "xsen wxdq njfn zkvj"
         },
         tls: {
             rejectUnauthorized: false, // Add this for STARTTLS
