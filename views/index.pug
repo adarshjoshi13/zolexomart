@@ -84,7 +84,7 @@ html(lang="en")
             a(href="https://wa.me/9958575960")
                 img(src="./img/whatsapp.png" alt="WhatsApp")
 
-        .container-xxl.bg-white.p-0
+        .container-fluid.bg-white.p-0
             // Navbar & Hero Start
             .tophead
                 .nolist
@@ -117,42 +117,23 @@ html(lang="en")
                                 i.fa-brands.fa-instagram
 
                 #google_translate_element
-            div.container-xxl.position-relative.p-0
+            div.container-fluid.position-relative.p-0
                 include ./components/nav.pug
-                div.container-xxl.py-2.bg-primary.hero-header.mb-5.indexp
-                    div.container.my-5.addp.px-lg-5
-                        div.row.g-5.py-5
+                div.container-fluid.bg-primary.hero-header.mb-5.indexp
+                    div.container.addp.px-lg-5
+                        div.row.g-5
                             div.layer_img.blinker_anim
                                 img(src="" alt="" title="")
-                            div.col-lg-6.col-md-6.col-xs-12
+                            div.col-lg-5.col-md-5.col-xs-12
                                 img(src="./img/freep.png" alt="" class="imgbanner")
-                            div.col-lg-6.col-md-6.col-xs-12
-                                h1.bodh Best Digital Marketing Company For SME, MSME, B2B, B2C Professionals Businesses Owners And Institutions
+                            div.col-lg-7.col-md-7.col-xs-12
+                                h1.bodh Boost Your Online Presence with Expert Digital Marketing Services by Zolexo Mart Pvt. Ltd
                                 div.bod
                                     div.text Search
                                     span.typed-cursor | |
-            div.container-xxl.py-5
-                div.container.px-lg-5
-                    div.row.g-5
-                        div.col-lg-6.wow.fadeInUp(data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;")
-                            div.section-title.position-relative.mb-4.pb-2
-                                h6.position-relative.text-primary.ps-4 About Us
-                                h2.mt-2 About Zolexo Mart Pvt Ltd
-                            p.mb-4.addt At Zolexo Mart Pvt Ltd, We are Dedicated to Revolutionizing the Digital Marketing Landscape. With a deep Passion for Innovation and results, Our Mission is to help Businesses grow and thrive in the ever-evolving Digital World. We believe in creating Tailored Marketing Strategies that not only drive traffic but also Convert Leads into Loyal customers.
-
-                            div.d-flex.align-items-center.mt-4
-                                a.btn.btn-primary.rounded-pill.px-4.me-3.media(href="") Read More
-                                a.btn.btn-outline-primary.btn-square.me-3(href="")
-                                    i.fab.fa-facebook-f
-                                a.btn.btn-outline-primary.btn-square.me-3(href="")
-                                    i.fab.fa-twitter
-                                a.btn.btn-outline-primary.btn-square.me-3(href="")
-                                    i.fab.fa-instagram
-                                a.btn.btn-outline-primary.btn-square(href="")
-                                    i.fab.fa-linkedin-in
-
-                        div.col-lg-6
-                            img.img-fluid.wow.zoomIn(data-wow-delay="0.5s" src="img/group-three-modern-architects.png" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomIn;")
+                                div 
+                                  p.text-white.text-center Expert digital marketing services for SMEs, MSMEs, B2B, and B2C. We build responsive websites, enhance social media presence, and boost SEO rankings to help your business succeed in today's digital world.  
+            
         div.container-xxl.py-5
             div.container.px-lg-5
                 div.row.g-5
@@ -187,10 +168,10 @@ html(lang="en")
                         div.col-lg-4.col-md-6.wow.zoomIn(data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: zoomIn;")
                             div.service-item.d-flex.flex-column.justify-content-center.text-center.rounded
                                 div.service-icon.flex-shrink-0
-                                img(src=service.image alt="")
-                                h5.mb-3 #{service.serviceName}
-                                p #{service.description}
-                                a.btn.px-3.mt-auto.mx-auto(href="qualityverified.html") Read More
+                                  img(src=service.image alt="")
+                                  h5.mb-3 #{service.serviceName}
+                                  p #{service.description}
+                                  a.btn.px-3.mt-auto.mx-auto(href="qualityverified.html") Read More
 
 
 
@@ -202,23 +183,29 @@ html(lang="en")
                     .col-lg-4.col-md-6
                         .feature-item.wow.fadeInUp(data-wow-delay="0.1s")
                             .feature-icon.flex-shrink-0
-                            img(src="./img/7681811.jpg" alt="")
-                            h5.mt-3 Why you need Digital Marketing
-                            p Adipiscing elit. Eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            div.services-inner-img
+                              img(src="./img/icons/Support-Brand-Value.webp" alt="")
+                            div
+                              h5.mt-3 Why you need Digital Marketing
+                              p Adipiscing elit. Eiusmod tempor incididunt ut labore et dolore magna aliqua.
 
                     .col-lg-4.col-md-6
                         .feature-item.wow.fadeInUp(data-wow-delay="0.5s")
                             .feature-icon.flex-shrink-0
-                            img(src="./img/5767749.jpg" alt="")
-                            h5.mt-3 Get Targeted Traffic
-                            p Adipiscing elit. Eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            div.services-inner-img
+                              img(src="./img/icons/Support-Brand-Value.webp" alt="")
+                            div
+                              h5.mt-3 Get Targeted Traffic
+                              p Adipiscing elit. Eiusmod tempor incididunt ut labore et dolore magna aliqua.
 
                     .col-lg-4.col-md-6
                         .feature-item.wow.fadeInUp(data-wow-delay="0.8s")
                             .feature-icon.flex-shrink-0
-                            img(src="./img/5653428.jpg" alt="")
-                            h5.mt-3 Improve Conversion Rates
-                            p Adipiscing elit. Eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                            div.services-inner-img
+                              img(src="./img/icons/Support-Brand-Value.webp" alt="")
+                            div.s  
+                              h5.mt-3 Improve Conversion Rates
+                              p Adipiscing elit. Eiusmod tempor incididunt ut labore et dolore magna aliqua.
 
         .container-xxl.py-5.industry-new-block
             .container.px-lg-5
@@ -376,11 +363,13 @@ html(lang="en")
                     loop: true
                 };
                 new Typed('.text', options);
+
                 $('#carousel').owlCarousel({
                     loop: true,
                     margin: 10,
-                    nav: true,
+                    nav: false ,
                     dots: true,
+                    autoplay: true,
                     responsive: {
                         0: {
                             items: 1
@@ -389,8 +378,28 @@ html(lang="en")
                             items: 3
                         },
                         1000: {
-                            items: 5
+                            items: 3.5
+                        }
+                    }
+                });
+
+                $('#carouselblog').owlCarousel({
+                    loop: true,
+                    margin: 10,
+                    nav: false ,
+                    dots: true,
+                    autoplay: true,
+                    responsive: {
+                        0: {
+                            items: 1
+                        },
+                        600: {
+                            items: 3
+                        },
+                        1000: {
+                            items: 3
                         }
                     }
                 });
             });
+
