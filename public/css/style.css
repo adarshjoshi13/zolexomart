@@ -755,7 +755,7 @@ a {
     letter-spacing: -.02em;
     color: #fff;
     margin-top: 65px;
-    font-size: 32px;
+    font-size: 27px;
     font-style: normal;
     font-weight: 700;
     text-align: center;
@@ -1295,4 +1295,36 @@ background-size: 100% !important;
 }
 body{
     background: #fff;
+}
+
+.form-container label {
+    display: block;
+    font-weight: 600;
+    margin: 5px 0;
+    font-size: 18px;
+}
+.form-container input {
+    height: 45px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #c1c1c1;
+    padding-left: 15px;
+    font-size: 16px;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+}
+.form-container em {
+    color: red;
+}
+.form-container .btn {
+    width: 100%;
+    outline: none;
+    margin-top: 25px;
+    color: #fff;
+    background: #03c6d9;
+    border: none;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 5px;
 }

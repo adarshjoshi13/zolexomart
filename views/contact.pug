@@ -120,114 +120,85 @@ html(lang="en")
                 #google_translate_element
         div.container-xxl.position-relative.p-0
             include ./components/nav.pug
-
         .hero-header.bg
-            h1.text-white.animated.zoomIn About Us
-            p service
-            img(src="/img/about-us.jpg" alt="" width="100%")
-
-        .container-fluid
-            .row
-                .col-md-3.col-lg-3
-                    aside.widget-area.pbminfotech-sidebar(aria-label="Service Sidebar")
-                        aside#pbmit-list-all-posts-1.widget.pbmit_widget_list_all_posts
-                            h2.widget-title Our Services
-                            .pbmit-all-post-list-w
-                                ul.pbmit-all-post-list
-                                    each serviceItem in services
-                                        li(class=(serviceItem.id === service.id ? 'pbmit-post-active' : ''))
-                                            a(href=`/service/${serviceItem.id}`) #{serviceItem.serviceName}
-                .col-md-9.col-lg-9
-                    .imgheight(style="height: 480px; overflow: hidden;")
-                        img(src=service.Image, alt=service.serviceName)
-
-        .container-fluid.my-5
-            .row
-                .col-md-3.col-lg-3
-                    .contactservice
-                        a.connum(href="tel:9761407482") +91-9761407482
-                        h2 We Provide
-                        h1 Best Service
-                        p.num
-                            a(href="tel:9761407482") Contact Us Now
-                .col-md-9.col-lg-9
-                    .contectservice.mb-3
-                        h2 #{service.serviceName}
-                        p 
-                            | #{service.description1} #{service.description2}
-
-                    .row
-                        each card in service.card
-                            .col-md-4
-                                .pbmit-ihbox-headingicon
-                                    .pbmit-ihbox-icon
-                                        .pbmit-ihbox-icon-wrapper.pbmit-icon-type-icon
-                                            i.fa-brands.fa-facebook
-                                    .pbmit-ihbox-contents
-                                        h2.pbmit-element-title #{card.name}
-                                        p.pbmit-heading-desc #{card.desc}
-
-                    .row.my-5
-                        .col-md-6
-                            .imgheight
-                                img(src="https://assets.bairesdev.com//image/upload/c_limit,w_1920/dpr_auto/f_auto/q_auto/v1/www/core/silo_net_why-choose_itx8ge?_a=BAVAfVGd0")
-                        .col-md-6
-                            .contectservice
-                                h2 #{service.serviceName} Reception
-                                p 
-                                    | #{service.benefitsOfService.description}
-                                ol
-                                    each point, index in service.benefitsOfService.points
-                                        li #{point}
+            h1.text-white.animated.zoomIn Contact Us
+            img(src="./img/2149288184.jpg" alt="" width="100%")
+        .container-xxl.py-5
+            .container.px-lg-5
+                .row.justify-content-center
+                    .col-lg-7
+                        .section-title.position-relative.text-center.mb-5.pb-2.wow.fadeInUp(data-wow-delay="0.1s", style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;")
+                            h6.position-relative.d-inline.text-primary.ps-4 Contact Us
+                            h2.mt-2 Contact For Any Query
+                        .wow.fadeInUp(data-wow-delay="0.3s", style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;")
+                        .form-container
+                            form(method="post", name="emailContact", action="http://localhost:3000/send-mail")
+                            .input-row
+                                label Name<em>*</em>
+                                input.form-control(type="text", placeholder="Enter your Name", name="userName", required)
+                            .input-row
+                                label Email<em>*</em>
+                                input.form-control(type="email", placeholder="Enter your Email", name="userEmail", required)
+                            .input-row
+                                label Phone<em>*</em>
+                                input.form-control(type="tel", placeholder="Enter your Mobile Number", name="userPhone", required)
+                            .input-row
+                                label Message<em>*</em>
+                                textarea.form-control(name="userMessage", rows="4", required)
+                            .input-row
+                                input.btn(type="submit", name="send", value="Submit")
 
 
 
 
 
 
-        include ./components/footer.pug
 
-        // Scripts for Libraries
-        script(src="/lib/wow/wow.min.js")
-        script(src="/lib/easing/easing.min.js")
-        script(src="/lib/owlcarousel/owl.carousel.min.js")
-        script(src="/lib/lightbox/js/lightbox.min.js")
 
-        // Carousel JS
-        script(src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js")
 
-        // Template Scripts
-        script(src="/js/main.js")
+    include ./components/footer.pug
 
-        // Typed.js Initialization
-        script.
-            $(document).ready(function() {
-                var options = {
-                    strings: [
-                        "Search",
-                        "Google My Business",
-                        "Digital Marketing"
-                    ],
-                    typeSpeed: 50,
-                    backSpeed: 50,
-                    loop: true
-                };
-                new Typed('.text', options);
-                $('#carousel').owlCarousel({
-                    loop: true,
-                    margin: 10,
-                    nav: true,
-                    dots: true,
-                    responsive: {
-                        0: {
-                            items: 1
-                        },
-                        600: {
-                            items: 3
-                        },
-                        1000: {
-                            items: 5
-                        }
+    // Scripts for Libraries
+    script(src="/lib/wow/wow.min.js")
+    script(src="/lib/easing/easing.min.js")
+    script(src="/lib/owlcarousel/owl.carousel.min.js")
+    script(src="/lib/lightbox/js/lightbox.min.js")
+
+    // Carousel JS
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js")
+
+    // Template Scripts
+    script(src="/js/main.js")
+
+    // Typed.js Initialization
+    script.
+        $(document).ready(function() {
+            var options = {
+                strings: [
+                    "Search",
+                    "Google My Business",
+                    "Digital Marketing"
+                ],
+                typeSpeed: 50,
+                backSpeed: 50,
+                loop: true
+            };
+            new Typed('.text', options);
+            $('#carousel').owlCarousel({
+                loop: true,
+                margin: 10,
+                nav: true,
+                dots: true,
+                responsive: {
+                    0: {
+                        items: 1
+                    },
+                    600: {
+                        items: 3
+                    },
+                    1000: {
+                        items: 5
                     }
-                });
+                }
             });
+        });

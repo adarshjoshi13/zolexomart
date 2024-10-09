@@ -34,6 +34,10 @@ app.get('/', (req, res) => {
 app.get('/contact', (req, res) => {
     res.render('contact');
 });
+//contact route
+app.get('/about', (req, res) => {
+    res.render('about');
+});
 // Service route
 app.get('/service/:id', (req, res) => {
     const ServiceId = req.params.id - 1
