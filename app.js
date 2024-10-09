@@ -32,14 +32,16 @@ app.get('/', (req, res) => {
 });
 
 // Service route
-app.get('/service', (req, res) => {
-    res.render('service');
+app.get('/service/:id', (req, res) => {
+    const ServiceId = req.params.id - 1
+    const selectedService = data[ServiceId]
+    const allServices = data
+    res.render('service', { service: selectedService, services: allServices });
+
 });
 
 
 app.post('/send-mail', async (req, res) => {
-    console.log(req.body);
-    
     let Transporter = nodemailer.createTransport({
         host: "smtp.gmail.com",
         port: 587, // You can switch to 465 if you prefer
