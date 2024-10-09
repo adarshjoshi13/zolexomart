@@ -30,7 +30,10 @@ const PORT = process.env.PORT || 3000;
 app.get('/', (req, res) => {
     res.render('index', { Services: data });
 });
-
+//contact route
+app.get('/contact', (req, res) => {
+    res.render('contact');
+});
 // Service route
 app.get('/service/:id', (req, res) => {
     const ServiceId = req.params.id - 1
