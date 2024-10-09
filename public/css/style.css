@@ -715,13 +715,7 @@ ul {
 a {
   text-decoration: none;
 }
-h1 {
-    color: var(--white-color);
-    margin-top: 6rem;
-    font-size: 4em;
-    -webkit-text-stroke: 1px var(--primary-color);
-    color: rgba(255, 255, 255, 0.1);
-}
+
 
 
 
@@ -1158,4 +1152,136 @@ color: #000;
 }
 .goog-te-gadget .goog-te-combo{
     padding: 4px;
+}
+
+.success {
+    text-align: center;
+    padding: 20px;
+}
+.widget-title{
+    font-family: Quicksand, sans-serif;
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 30px;
+    letter-spacing: 0px;
+    text-align: center;
+    color: #001837;
+    text-transform: capitalize;
+    font-style: normal;
+}
+.widget-area a{
+    padding: 18px 3px 3px 3px;
+    display: block;
+    position: relative;
+    border-radius: 30px;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: .5px;
+    text-transform: uppercase;
+    color: var(--pbmit-xclean-blackish-color);
+    -webkit-transition: all .25s ease-in-out;
+    transition: all .25s ease-in-out;
+}
+#pbmit-list-all-posts-1{
+    padding: 30px;
+    margin-bottom: 45px;
+    border: 1px solid #00183726;
+    border-radius: 30px;
+    background-color: transparent;
+}
+.list{
+    padding: 0 30px;
+}
+.pbmit-all-post-list{
+    padding-left:0 ;
+    
+}
+.imgheight img{
+    width: 100%;
+    border-radius: 35px;
+}
+.imgheight{
+    border-radius: 35px;
+}
+
+.contactservice{
+    text-align: center;
+    padding: 100px 15px;
+    filter: brightness(0.7);
+background-size: 100% !important; 
+    background: url(../img/contavtimg.PNG);
+    border-radius: 20px;
+}
+.pbmit-element-title{
+    font-size: 24px;
+    line-height: 28px;
+    margin-top: 10px;
+    margin-bottom: 8px;
+}
+.pbmit-heading-desc{
+    font-size: 15px;
+
+}
+
+
+.pbmit-ihbox-icon-wrapper {
+    background: #f2f2f2;
+    display: inline;
+    padding: 10px;
+    border-radius: 26%;
+}
+.pbmit-ihbox-icon-wrapper i{
+    font-size: 20px;
+}
+.contectservice p{
+    font-size: 15px;
+}
+.contectservice h2{
+    font-family: Quicksand, sans-serif;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 46px;
+    letter-spacing: 0px;
+    color: #001837;
+    text-transform: none;
+    font-style: normal;
+}
+.connum{
+    padding: 5px;
+    color: #fff !important;
+    border-radius: 10px;
+    background: #00000066;
+    border: 1px solid #fff;
+
+}
+.contactservice h2{
+    font-size: 34px;
+    line-height: 34px;
+    margin-bottom: 0;
+    padding: 15px;
+    font-family: Quicksand, sans-serif;
+    color: #fff;
+}
+.contactservice h1{
+    color: #fba311;
+    font-family: Quicksand, sans-serif;
+    font-size: 34px;
+    padding: 0 0px 15px;
+    line-height: 34px;
+    margin-bottom: 0;
+}
+
+.num a{
+    background:#fba311;
+    padding: 10px;
+    color: #fff;
+    border-radius: 10px;
+}
+.contectservice ol li{
+    font-size: 15px;
+
+}
+body{
+    background: #fff;
 }
