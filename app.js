@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const cors = require('cors');
 const { Connection, MailInfo, Services } = require('./modals/index');
-const { data } = require('./data');
+const { where } = require('sequelize');
 const app = express()
 require('dotenv').config();
 
@@ -27,8 +27,15 @@ app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Home route
-app.get('/', (req, res) => {
+app.get('/', async (req, res) => {
 
+    const HomePageServices =  await Services.findAll({
+        raw: true,
+        where: {status:  1},
+        attributes:  ['id', 'serviceName', 'subImageUrl', 'mainImageUrl', 'subDescription']
+    })
+
+    console.log(HomePageServices, "check this")
     const BusinessNeeds = [
         { title: 'Support brand value', imgSrc: './img/icons/Support-Brand-Value.webp', description: 'Digital marketing firms assist your company in expanding its reach and making your offerings stand out in a competitive market.' },
         { title: 'Boost user relationships', imgSrc: './img/icons/Boost-User-Relationship.png', description: 'Our analytics helps to dig out the crucial and concise user needs and help you target the potential audience on the receiving end.' },
@@ -37,8 +44,9 @@ app.get('/', (req, res) => {
         { title: 'Increase in competition', imgSrc: './img/icons/Increase-in-competition.webp', description: 'Digital marketing experts help small to mid-sized enterprises to compete head-to-head with multinational firms.' },
         { title: 'Improve conversion rates', imgSrc: './img/icons/Improve-conversion-rate.webp', description: 'Attract numerous leads, businesses, conversions, opportunities, and users to your brand products and services.' }
     ]
+    res.send('dokiepokie')
 
-    res.render('index', { Services: data, businessNeeds: BusinessNeeds });
+    // res.render('index', { Services: HomePageServices, businessNeeds: BusinessNeeds });
 });
 
 //celebrity route
