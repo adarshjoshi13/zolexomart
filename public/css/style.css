@@ -920,6 +920,8 @@ p{
 }
 
 .lazyloaded {
+    height: 30px;
+    filter: invert(1);
     opacity: 1;
     transition: opacity 400ms;
 }
@@ -1061,6 +1063,7 @@ p{
     margin-bottom: 5rem;
     position: absolute;
     z-index: 99;
+    font-size: 55px;
     text-align: center;
     width: 100%;
 }

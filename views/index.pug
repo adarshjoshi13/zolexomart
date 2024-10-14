@@ -140,7 +140,7 @@ html(lang="en")
                     div.col-lg-6.wow.fadeInUp(data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;")
                         div.section-title.position-relative.mb-4.pb-2
                             h6.position-relative.text-primary.ps-4 About Us
-                            h2.mt-2 About Zolexo Mart Pvt Ltd
+                            h2.mt-2 Zolexo Mart Pvt Ltd
                         p.mb-4.addt
                             At Zolexo Mart Pvt Ltd, We are Dedicated to Revolutionizing the Digital Marketing Landscape. With a deep Passion for Innovation and results, Our Mission is to help Businesses grow and thrive in the ever-evolving Digital World. We believe in creating Tailored Marketing Strategies that not only drive traffic but also Convert Leads into Loyal customers.
 
@@ -173,6 +173,21 @@ html(lang="en")
                                   p #{service.subDescription}
                                   a.btn.px-3.mt-auto.mx-auto(href="qualityverified.html") Read More
 
+        section.mobileapp-dev
+            .container-xxl.py-5
+                .container.px-lg-5
+                .section-title.position-relative.text-center.mb-5.pb-2.wow.fadeInUp(data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;")
+                    h2.mt-2 Why Your Business Needs Digital Marketing Services?
+                
+                .container
+                    .row
+                        each service in businessNeeds
+                            .col-md-6.col-lg-4.wow.zoomIn(data-wow-delay="0.6s" style="visibility: visible; animation-delay: 0.6s; animation-name: zoomIn;")
+                                .services-wrapper
+                                    .services-inner-img
+                                        img( decoding="async" src=service.imgSrc alt=service.title class="entered lazyloaded")
+                                    h3= service.title
+                                    p= service.description
 
 
         .mobileapp-dev.container-xxl.py-5
