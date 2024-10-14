@@ -11,13 +11,13 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false
     },
-    subImage: {
+    subImageUrl: {
       type: DataTypes.STRING,
-      allowNull: true // Can be nullable if not every service has a subImage
+      allowNull: false
     },
-    mainImage: {
+    mainImageUrl: {
       type: DataTypes.STRING,
-      allowNull: true // Can be nullable if not every service has a mainImage
+      allowNull: false 
     },
     subDescription: {
       type: DataTypes.STRING,

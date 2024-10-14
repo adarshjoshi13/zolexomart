@@ -1331,3 +1331,34 @@ body{
     font-weight: 500;
     border-radius: 5px;
 }
+.pointer {
+    font-size: 20px;
+    font-weight: 600;
+    text-align: center;
+    color: #000;
+    margin-top: 20px;
+    border-right: 1px solid #a8a8a8;
+}
+.feature-steps {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, .2);
+    border-radius: 12px;
+    padding: 10px;
+    margin-bottom: 10px;
+    overflow: hidden;
+    background: #fff;
+    margin-top: 15px;
+}
+.feature-steps .pointer .stepno {
+    display: block;
+    font-size: 30px;
+    font-weight: 800;
+}
+.deliverablesConBox p {
+    color: #000;
+    font-size: 15px;
+    text-align: justify;
+}
+.addimgs img {
+    border-radius: 10px;
+    height: 300px;
+}
