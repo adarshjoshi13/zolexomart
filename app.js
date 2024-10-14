@@ -28,6 +28,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Home route
 app.get('/', (req, res) => {
+
     const BusinessNeeds = [
         { title: 'Support brand value', imgSrc: './img/icons/Support-Brand-Value.webp', description: 'Digital marketing firms assist your company in expanding its reach and making your offerings stand out in a competitive market.' },
         { title: 'Boost user relationships', imgSrc: './img/icons/Boost-User-Relationship.png', description: 'Our analytics helps to dig out the crucial and concise user needs and help you target the potential audience on the receiving end.' },
@@ -35,48 +36,63 @@ app.get('/', (req, res) => {
         { title: 'Stay on top', imgSrc: './img/icons/Stay-On-Top.webp', description: 'These marketing services allow you to use multiple channels with a consistent funnel to check for seamless connectivity.' },
         { title: 'Increase in competition', imgSrc: './img/icons/Increase-in-competition.webp', description: 'Digital marketing experts help small to mid-sized enterprises to compete head-to-head with multinational firms.' },
         { title: 'Improve conversion rates', imgSrc: './img/icons/Improve-conversion-rate.webp', description: 'Attract numerous leads, businesses, conversions, opportunities, and users to your brand products and services.' }
-      ]
-    
+    ]
+
     res.render('index', { Services: data, businessNeeds: BusinessNeeds });
 });
+
 //celebrity route
 app.get('/celebrity-endorsement', (req, res) => {
     res.render('celebrity-endorsement');
 });
+
 //contact route
 app.get('/contact', (req, res) => {
     res.render('contact');
 });
+
 //about route
 app.get('/about', (req, res) => {
     res.render('about');
 });
+
 //blog route
 app.get('/blog', (req, res) => {
     res.render('blog');
 });
+
 // Service route
 app.get('/service/:id', async (req, res) => {
-  try {
-    const { id } = req.params;
-    const OurServices = await Services.findByPk(id, { raw: true });
-    const Service = await Services.findByPk(id, { raw: true });
+    try {
+        const { id } = req.params;
 
-    if (!Service) {
-      return res.status(404).send('Service not found');
+        const OurServices = await Services.findAll({
+            attributes: ['id', 'serviceName'],
+            where: {
+                status: 1
+            },
+            limit: 6,
+            order: [['createdAt', 'DESC']],
+            raw: true
+        });
+
+        const Service = await Services.findByPk(id, { raw: true });
+
+        if (!Service) {
+            return res.status(404).send('Service not found');
+        }
+
+        Service.details = JSON.parse(Service.details);
+        Service.cards = JSON.parse(Service.cards);
+        Service.benefits = JSON.parse(Service.benefits);
+        Service.faq = JSON.parse(Service.faq);
+        console.log(Service.faq, "edit service data")
+
+        res.render('service', { OurServices, Service });
+    } catch (error) {
+        console.error('Error fetching service:', error);
+        res.status(500).send('Internal Server Error');
     }
-
-    Service.details = JSON.parse(Service.details);
-    Service.cards = JSON.parse(Service.cards);
-    Service.benefits = JSON.parse(Service.benefits);
-    Service.faq = JSON.parse(Service.faq);
-    console.log(Service, "edit service data")
-    
-    res.render('service', { Service });
-  } catch (error) {
-    console.error('Error fetching service:', error);
-    res.status(500).send('Internal Server Error');
-  }
 });
 
 app.post('/send-mail', async (req, res) => {
