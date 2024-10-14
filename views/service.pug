@@ -29,24 +29,19 @@ html(lang="en")
             // Navbar
             include ./components/nav.pug
 
-        .hero-header.bg
-            h1.text-white.animated.zoomIn #{Service.serviceName}
-            p #{Service.subDescription}
-            img(src=`/img/services/${Service.mainImage}` alt=Service.serviceName width="100%")
-
         .container-fluid
             .row
                 .col-md-3.col-lg-3
                     aside.widget-area
                         h2 Our Services
                         ul.pbmit-all-post-list
-                            each serviceItem in Service
+                            each serviceItem in OurServices
                                 li(class=(serviceItem.id === Service.id ? 'pbmit-post-active' : ''))
                                     a(href=`/service/${serviceItem.id}`) #{serviceItem.serviceName}
 
                 .col-md-9.col-lg-9
                     .imgheight(style="height: 480px; overflow: hidden;")
-                        img(src=`/img/services/${Service.subImage}`, alt=Service.serviceName)
+                        img(src=Service.mainImageUrl, alt=Service.serviceName)
 
         .container-fluid.my-5
             .row
@@ -80,7 +75,7 @@ html(lang="en")
                                 img(src="/img/sample-image.jpg" alt="Benefits Image")
                         .col-md-6
                             .contectservice
-                                h2 #{Service.serviceName} Benefits
+                                h2 Benefits Of  #{Service.serviceName} 
                                 p #{Service.benefits.description}
                                 ol
                                     each point in Service.benefits.points
@@ -89,11 +84,17 @@ html(lang="en")
         .container-fluid
             h2.text-center.mt-5 Frequently Asked Questions
             .row
-                each faq in Service.faq
+                // Display FAQ description once at the top
+                .col-12
+                    .faq-description
+                        p #{Service.faq.description}
+
+                // Loop through the 'qa' array to show each question and answer
+                each qa in Service.faq.qa
                     .col-md-6
                         .faq-section
-                            h4 #{faq.question}
-                            p #{faq.answer}
+                            h4 #{qa.question}
+                            p #{qa.answer}
 
         include ./components/footer.pug
 
