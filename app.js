@@ -3,10 +3,12 @@ const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
 const path = require('path');
 const cors = require('cors');
-const { Connection, MailInfo } = require('./modals/index');
+const { Connection, MailInfo, Services } = require('./modals/index');
 const { data } = require('./data');
 const app = express()
+require('dotenv').config();
 
+const PORT = process.env.PORT || 3000
 
 const corsOptions = {
     // origin: ['119.18.54.60', 'https://zolexomart.in'],  
@@ -24,37 +26,44 @@ app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 
-const PORT = process.env.PORT || 3000;
-
 // Home route
 app.get('/', (req, res) => {
     res.render('index', { Services: data });
 });
 
 // Service route
-app.get('/service/:id', (req, res) => {
-    const ServiceId = req.params.id - 1
-    const selectedService = data[ServiceId]
-    const allServices = data
-    res.render('service', { service: selectedService, services: allServices });
+app.get('/service/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const OurServices = await Services.findByPk(id, { raw: true });
+    const Service = await Services.findByPk(id, { raw: true });
 
+    if (!Service) {
+      return res.status(404).send('Service not found');
+    }
+
+    Service.details = JSON.parse(Service.details);
+    Service.cards = JSON.parse(Service.cards);
+    Service.benefits = JSON.parse(Service.benefits);
+    Service.faq = JSON.parse(Service.faq);
+    console.log(Service, "edit service data")
+    
+    res.render('service', { Service });
+  } catch (error) {
+    console.error('Error fetching service:', error);
+    res.status(500).send('Internal Server Error');
+  }
 });
 
-
 app.post('/send-mail', async (req, res) => {
+
     let Transporter = nodemailer.createTransport({
-        host: "smtp.gmail.com",
-        port: 587, // You can switch to 465 if you prefer
-        secure: false, // true for 465, false for 587
+        service: "gmail",
         auth: {
-            user: "adarsh@zolexomart.com",
-            pass: "xsen wxdq njfn zkvj"
-        },
-        tls: {
-            rejectUnauthorized: false, // Add this for STARTTLS
+            user: "khanmohdfaisal1985@gmail.com",
+            pass: "ieepdgpnfdqulogm"
         }
     });
-
 
     // Verify connection configuration
     Transporter.verify(function (error, success) {
@@ -62,7 +71,6 @@ app.post('/send-mail', async (req, res) => {
             console.log(error);
             return res.status(500).json({ ERROR: error });
         } else {
-            console.log("Server is ready to take our messages");
 
             let MailOption = {
                 from: 'adarsh@zolexomart.com',
@@ -98,7 +106,8 @@ app.post('/send-mail', async (req, res) => {
             Transporter.sendMail(MailOption)
                 .then(async (info) => {
                     if (info.accepted) {
-                        return res.status(200).json({ msg: `Email sent successfully to ${info.accepted}`, success: true });
+                        return res.redirect('/')
+                        // return res.status(200).json({ msg: `Email sent successfully to ${info.accepted}`, success: true });
                     }
                 })
                 .catch((err) => {
@@ -110,6 +119,10 @@ app.post('/send-mail', async (req, res) => {
 });
 
 // Start the server
-app.listen(PORT, () => {
-    console.log(`Server is running on ${PORT}`);
+Connection().then(() => {
+    try {
+        app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
+    } catch (err) {
+        next(err);
+    }
 });

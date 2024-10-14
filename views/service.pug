@@ -2,80 +2,21 @@ doctype html
 html(lang="en")
     head
         meta(charset="utf-8")
-        title Zolexo Mart Pvt Ltd
+        title #{Service.serviceName} - Zolexo Mart Pvt Ltd
         meta(name="viewport" content="width=device-width, initial-scale=1.0")
-        meta(name="description" content="Verified Quality Buyer Generation Services, Best Company in Verified Quality Buyer Generation, Dynamic Website, Customized Design, SEO services, Google My Business, Lead Generation, Best Company in Verified Quality Buyer Generation, Best Digital Marketing Company for Google My Business SEO")
-        meta(name="keywords" content="Verified Quality Buyer Generation, Local SEO, GMB SEO, Best Digital Marketing Company, Lead Generation, Website Design, Website Development, Customized Website, Responsive Website, E-commerce Website, Search Engine Optimization, Social Media Marketing, Best SEO Digital Marketing Company, Best Company in Verified Quality Buyer, Best Website Designing Company")
+        meta(name="description" content=Service.subDescription)
+        meta(name="keywords" content="Verified Quality Buyer Generation, Local SEO, GMB SEO, Best Digital Marketing Company, Lead Generation")
         meta(name="robots" content="index,follow")
         link(rel="canonical" href="https://zolexomart.in")
-        meta(property="og:title" content="Zolexo Mart Pvt Ltd | Website Development | Digital Marketing")
-        meta(property="og:site_name" content="https://zolexomart.in")
-        meta(property="og:url" content="https://zolexomart.in")
-        meta(property="og:description" content="Dynamic Website, Customized Design, SEO optimized, Landing Page & Blog Page Development")
-        meta(property="og:type" content="website")
-        meta(property="og:image" content="")
-
-        // Google tag (gtag.js)
-        script(async src="https://www.googletagmanager.com/gtag/js?id=G-QCW5M672FJ")
-        script.
-            window.dataLayer = window.dataLayer || [];
-            function gtag() { dataLayer.push(arguments); }
-            gtag('js', new Date());
-            gtag('config', 'G-QCW5M672FJ');
-
-        meta(name="google-site-verification" content="nXpMVKGyc0mkMAQ27vfXEjDtvsYrHygBnP9tX-vzsew")
+        meta(property="og:title" content=Service.serviceName)
+        meta(property="og:description" content=Service.subDescription)
         link(href="/img/Logo.jpg" rel="icon")
-
-        // Carousel CSS
         link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css")
-        link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css")
-
-        // Google Web Fonts
-        link(rel="preconnect" href="https://fonts.googleapis.com")
-        link(rel="preconnect" href="https://fonts.gstatic.com", crossorigin)
-        link(href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet")
-
-        // Fontawesome
-        link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer")
-        link(href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet")
-        link(href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet")
-
-        // Libraries Stylesheet
-        link(href="/lib/animate/animate.min.css" rel="stylesheet")
-        link(href="/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet")
-        link(href="/lib/lightbox/css/lightbox.min.css" rel="stylesheet")
-
-        // Customized Bootstrap Stylesheet
+        link(href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet")
         link(href="/css/bootstrap.min.css" rel="stylesheet")
-
-        // Template Stylesheet
         link(href="/css/style.css" rel="stylesheet")
 
-        // Font style
-        link(rel="preconnect" href="https://fonts.googleapis.com")
-        link(rel="preconnect" href="https://fonts.gstatic.com", crossorigin)
-        link(href="https://fonts.googleapis.com/css2?family=Playwrite+CU:wght@100..400&display=swap" rel="stylesheet")
-
-        // jQuery
-        script(src="https://code.jquery.com/jquery-3.4.1.min.js")
-
-        // Typed.js Script
-        script(src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js" integrity="sha512-BdHyGtczsUoFcEma+MfXc71KJLv/cd+sUsUaYYf2mXpfG/PtBjNXsPo78+rxWjscxUYN2Qr2+DbeGGiJx81ifg==" crossorigin="anonymous")
-
     body
-        // Start of Tawk.to Script
-        script(type="text/javascript"). 
-            var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
-            (function () {
-                var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
-                s1.async = true;
-                s1.src = 'https://embed.tawk.to/66e3ba6e50c10f7a00a93578/1i7kp0gnm';
-                s1.charset = 'UTF-8';
-                s1.setAttribute('crossorigin', '*');
-                s0.parentNode.insertBefore(s1, s0);
-            })();
-        // End of Tawk.to Script
-
         #customerQuery_btn_right
             a.modal-body.querypop-page-start.getfq(href="contact.php")
                 p.awesome Contact Us
@@ -85,61 +26,27 @@ html(lang="en")
                 img(src="/img/whatsapp.png" alt="WhatsApp")
 
         .container-xxl.bg-white.p-0
-
-            // Navbar & Hero Start
-            .tophead
-                .nolist
-                    ul
-                        li
-                            a(href="tel:+91-9958575960")
-                                i.fa.fa-phone-square(aria-hidden="true")
-                                | +91-9958575960
-                        li
-                            a(href="mailto:info@zolexomart.in")
-                                i.fa.fa-envelope(aria-hidden="true")
-                                | info@zolexomart.in
-
-                .foot-socials.headicon
-                    ul
-                        li
-                            a(href="/" target="_blank")
-                                i.fa-brands.fa-facebook
-                        li
-                            a(href="http://www.linkedin.com/in/zolexomart-pvt-ltd-a7b613328" target="_blank")
-                                i.fa-brands.fa-linkedin
-                        li
-                            a(href="/" target="_blank")
-                                i.fa-brands.fa-google-plus
-                        li
-                            a(href="/" target="_blank")
-                                i.fa-brands.fa-x-twitter
-                        li
-                            a(href="/" target="_blank")
-                                i.fa-brands.fa-instagram
-
-                #google_translate_element
-        div.container-xxl.position-relative.p-0
+            // Navbar
             include ./components/nav.pug
 
         .hero-header.bg
-            h1.text-white.animated.zoomIn About Us
-            p service
-            img(src="/img/about-us.jpg" alt="" width="100%")
+            h1.text-white.animated.zoomIn #{Service.serviceName}
+            p #{Service.subDescription}
+            img(src=`/img/services/${Service.mainImage}` alt=Service.serviceName width="100%")
 
         .container-fluid
             .row
                 .col-md-3.col-lg-3
-                    aside.widget-area.pbminfotech-sidebar(aria-label="Service Sidebar")
-                        aside#pbmit-list-all-posts-1.widget.pbmit_widget_list_all_posts
-                            h2.widget-title Our Services
-                            .pbmit-all-post-list-w
-                                ul.pbmit-all-post-list
-                                    each serviceItem in services
-                                        li(class=(serviceItem.id === service.id ? 'pbmit-post-active' : ''))
-                                            a(href=`/service/${serviceItem.id}`) #{serviceItem.serviceName}
+                    aside.widget-area
+                        h2 Our Services
+                        ul.pbmit-all-post-list
+                            each serviceItem in Service
+                                li(class=(serviceItem.id === Service.id ? 'pbmit-post-active' : ''))
+                                    a(href=`/service/${serviceItem.id}`) #{serviceItem.serviceName}
+
                 .col-md-9.col-lg-9
                     .imgheight(style="height: 480px; overflow: hidden;")
-                        img(src=service.Image, alt=service.serviceName)
+                        img(src=`/img/services/${Service.subImage}`, alt=Service.serviceName)
 
         .container-fluid.my-5
             .row
@@ -150,19 +57,19 @@ html(lang="en")
                         h1 Best Service
                         p.num
                             a(href="tel:9761407482") Contact Us Now
+
                 .col-md-9.col-lg-9
                     .contectservice.mb-3
-                        h2 #{service.serviceName}
+                        h2 #{Service.serviceName}
                         p 
-                            | #{service.description1} #{service.description2}
+                            | #{Service.details.description1} #{Service.details.description2}
 
                     .row
-                        each card in service.card
+                        each card in Service.cards
                             .col-md-4
                                 .pbmit-ihbox-headingicon
                                     .pbmit-ihbox-icon
-                                        .pbmit-ihbox-icon-wrapper.pbmit-icon-type-icon
-                                            i.fa-brands.fa-facebook
+                                        img(src=`/img/cards/${card.img}`, alt=card.name)
                                     .pbmit-ihbox-contents
                                         h2.pbmit-element-title #{card.name}
                                         p.pbmit-heading-desc #{card.desc}
@@ -170,64 +77,27 @@ html(lang="en")
                     .row.my-5
                         .col-md-6
                             .imgheight
-                                img(src="https://assets.bairesdev.com//image/upload/c_limit,w_1920/dpr_auto/f_auto/q_auto/v1/www/core/silo_net_why-choose_itx8ge?_a=BAVAfVGd0")
+                                img(src="/img/sample-image.jpg" alt="Benefits Image")
                         .col-md-6
                             .contectservice
-                                h2 #{service.serviceName} Reception
-                                p 
-                                    | #{service.benefitsOfService.description}
+                                h2 #{Service.serviceName} Benefits
+                                p #{Service.benefits.description}
                                 ol
-                                    each point, index in service.benefitsOfService.points
+                                    each point in Service.benefits.points
                                         li #{point}
 
-
-
-
-
+        .container-fluid
+            h2.text-center.mt-5 Frequently Asked Questions
+            .row
+                each faq in Service.faq
+                    .col-md-6
+                        .faq-section
+                            h4 #{faq.question}
+                            p #{faq.answer}
 
         include ./components/footer.pug
 
-        // Scripts for Libraries
-        script(src="/lib/wow/wow.min.js")
-        script(src="/lib/easing/easing.min.js")
+        // Scripts
+        script(src="https://code.jquery.com/jquery-3.4.1.min.js")
         script(src="/lib/owlcarousel/owl.carousel.min.js")
-        script(src="/lib/lightbox/js/lightbox.min.js")
-
-        // Carousel JS
-        script(src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js")
-
-        // Template Scripts
         script(src="/js/main.js")
-
-        // Typed.js Initialization
-        script.
-            $(document).ready(function() {
-                var options = {
-                    strings: [
-                        "Search",
-                        "Google My Business",
-                        "Digital Marketing"
-                    ],
-                    typeSpeed: 50,
-                    backSpeed: 50,
-                    loop: true
-                };
-                new Typed('.text', options);
-                $('#carousel').owlCarousel({
-                    loop: true,
-                    margin: 10,
-                    nav: true,
-                    dots: true,
-                    responsive: {
-                        0: {
-                            items: 1
-                        },
-                        600: {
-                            items: 3
-                        },
-                        1000: {
-                            items: 5
-                        }
-                    }
-                });
-            });
