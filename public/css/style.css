@@ -266,12 +266,12 @@ h6,
 
 .service-item .service-icon {
     margin: 0 auto 20px auto;
-    width: 90px;
+    flex-direction: column;
     height: 90px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--light);
+    color: #000;
     /* background: url(../img/icon-shape-primary.png) center center no-repeat; */
     transition: .5s;
 }
@@ -529,7 +529,9 @@ h6,
 /* custom css section */
 
 .addp{
-    padding-top: 20px;
+    padding: 53px 0;
+
+
 }
 .navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link.active{
     color:#03c6d9 !important;
@@ -737,7 +739,8 @@ a {
     -webkit-text-fill-color: transparent;
   }
   .bod{
-   
+    height: 50px;
+
     display: flex;
     font-weight: 700;
 
@@ -752,11 +755,11 @@ a {
     letter-spacing: -.02em;
     color: #fff;
     margin-top: 65px;
-    font-size: 30px;
+    font-size: 27px;
     font-style: normal;
     font-weight: 700;
     text-align: center;
-    font-size: 35px;
+   
     line-height: normal;
     letter-spacing: -.02em;
     color: #fff;
@@ -768,14 +771,15 @@ a {
 .dropdown-toggle::after{
     display: none;
 }
-.indexp{
+/* .indexp{
     height: 100vh;
-}
+} */
 .imgbanner{
-    position: absolute;
-   
-    width: 480px;
-    left: 60px;
+    position: relative;
+    bottom: -53px;
+    left: -79px;
+    /* height: 79vh; */
+    width: 105%;
 }
 .layer_img {
     position: absolute;
@@ -891,6 +895,13 @@ p{
     border-radius: 16px;
     background: #03c6d9 ;
 }
+.services-inner-img{
+
+    display: inline-block;
+    padding: 10px;
+    border-radius: 16px;
+    background: #03c6d9;
+}
 .services-wrapper {
     border-radius: 16px;
     border: 1px solid rgba(0,0,0,.1);
@@ -901,7 +912,7 @@ p{
     height: 92%;
     position: relative;
 }
-.services-inner-img img {
+.feature-item img {
     filter: brightness(0) invert(1);
     width: 40px;
     height: 40px;
@@ -1284,4 +1295,36 @@ background-size: 100% !important;
 }
 body{
     background: #fff;
+}
+
+.form-container label {
+    display: block;
+    font-weight: 600;
+    margin: 5px 0;
+    font-size: 18px;
+}
+.form-container input {
+    height: 45px;
+    width: 100%;
+    outline: none;
+    border-radius: 5px;
+    border: 1px solid #c1c1c1;
+    padding-left: 15px;
+    font-size: 16px;
+    border-bottom-width: 2px;
+    transition: all 0.3s ease;
+}
+.form-container em {
+    color: red;
+}
+.form-container .btn {
+    width: 100%;
+    outline: none;
+    margin-top: 25px;
+    color: #fff;
+    background: #03c6d9;
+    border: none;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 5px;
 }

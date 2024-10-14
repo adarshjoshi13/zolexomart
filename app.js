@@ -30,7 +30,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.get('/', (req, res) => {
     res.render('index', { Services: data });
 });
-
+//contact route
+app.get('/contact', (req, res) => {
+    res.render('contact');
+});
+//contact route
+app.get('/about', (req, res) => {
+    res.render('about');
+});
 // Service route
 app.get('/service/:id', async (req, res) => {
   try {

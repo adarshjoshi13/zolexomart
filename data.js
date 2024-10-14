@@ -2,11 +2,11 @@ const data = [
     {
         id: 1,
         serviceName: 'Verified Quality Buyers Generation',
-        subImage: '/img/verified-quality-buyers-sub.jpg',
+        subImage: '/./img/Lead-Generation-1.png',
         subDescription: 'Verified buyers help streamline your sales and improve conversion rates.',
         Image: '/img/verified-quality-buyers.jpg',
-        description1: `Connecting with the right buyers is essential for success in today's competitive market.`,
-        description2: `Our verified buyers are pre-screened to ensure quality and boost your sales.`,
+        description1: 'Connecting with the right buyers is essential for success in todays competitive market',
+        description2: 'Our verified buyers are pre- screened to ensure quality and boost your sales.',
         card: {
             CardOne: {
                 name: 'Verified Leads',
@@ -54,11 +54,11 @@ const data = [
     {
         id: 2,
         serviceName: 'SEO Service',
-        subImage: '/img/seo-service-sub.jpg',
+        subImage: './img/Lead-Generation-1.png',
         subDescription: 'Our SEO services boost your online visibility and drive organic traffic.',
         Image: '/img/seo-service.jpg',
-        description1: `Boost your website’s visibility with our proven SEO strategies.`,
-        description2: `Our SEO experts help you rank higher and reach your target audience.`,
+        description1: 'Boost your website’s visibility with our proven SEO strategies.',
+        description2: 'Our SEO experts help you rank higher and reach your target audience.',
         card: {
             CardOne: {
                 img: '/img/card1.jpg',
@@ -106,11 +106,11 @@ const data = [
     {
         id: 3,
         serviceName: 'SMO Service',
-        subImage: '/img/smo-service-sub.jpg',
+        subImage: './img/Lead-Generation-1.png',
         subDescription: 'Leverage the power of social media to grow your audience and increase engagement.',
         Image: '/img/smo-service.jpg',
-        description1: `Our SMO service helps you connect with your audience on social media.`,
-        description2: `We provide strategies to boost your social media presence and engagement.`,
+        description1: 'Our SMO service helps you connect with your audience on social media.',
+        description2: 'We provide strategies to boost your social media presence and engagement.',
         card: {
             CardOne: {
                 img: '/img/card1.jpg',
@@ -158,11 +158,11 @@ const data = [
     {
         id: 4,
         serviceName: 'Website Development',
-        subImage: '/img/website-development-sub.jpg',
+        subImage: './img/Lead-Generation-1.png',
         subDescription: 'We build websites that convert visitors into customers.',
         Image: '/img/website-development.jpg',
-        description1: `Your website is the first point of contact with potential customers.`,
-        description2: `We create user-friendly websites optimized for performance and conversion.`,
+        description1: 'Your website is the first point of contact with potential customers.',
+        description2: 'We create user - friendly websites optimized for performance and conversion.',
         card: {
             CardOne: {
                 img: '/img/card1.jpg',
@@ -210,11 +210,11 @@ const data = [
     {
         id: 5,
         serviceName: 'Celebrity Endorsement',
-        subImage: '/img/celebrity-endorsement-sub.jpg',
+        subImage: './img/Lead-Generation-1.png',
         subDescription: 'Enhance your brand’s credibility with the power of celebrity endorsements.',
         Image: '/img/celebrity-endorsement.jpg',
-        description1: `Celebrity endorsements can elevate your brand’s reputation and attract new customers.`,
-        description2: `We connect you with celebrities who align with your brand values and vision.`,
+        description1: ' Celebrity endorsements can elevate your brand’s reputation and attract new customers.',
+        description2: ' We connect you with celebrities who align with your brand values and vision.',
         card: {
             CardOne: {
                 img: '/img/card1.jpg',
@@ -262,11 +262,11 @@ const data = [
     {
         id: 6,
         serviceName: 'GMB SEO',
-        subImage: '/img/gmb-seo-sub.jpg',
+        subImage: './img/Lead-Generation-1.png',
         subDescription: 'Optimize your Google My Business listing to attract local customers.',
         Image: '/img/gmb-seo.jpg',
-        description1: `Boost your local search rankings with our GMB SEO service.`,
-        description2: `We optimize your GMB profile to improve visibility in local searches.`,
+        description1: 'Boost your local search rankings with our GMB SEO service.',
+        description2: 'We optimize your GMB profile to improve visibility in local searches.',
         card: {
             CardOne: {
                 img: '/img/card1.jpg',
