@@ -9,8 +9,8 @@ const data = [
         description2: 'Our verified buyers are pre- screened to ensure quality and boost your sales.',
         card: {
             CardOne: {
-                img: '/img/card1.jpg',
                 name: 'Verified Leads',
+                img: '/img/card1.jpg',
                 desc: 'Access top-quality leads that have been thoroughly vetted.'
             },
             CardTwo: {
