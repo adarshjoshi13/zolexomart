@@ -4,7 +4,6 @@ const bodyParser = require('body-parser');
 const path = require('path');
 const cors = require('cors');
 const { Connection, MailInfo, Services } = require('./modals/index');
-const { where } = require('sequelize');
 const app = express()
 require('dotenv').config();
 
@@ -26,16 +25,26 @@ app.set('view engine', 'pug');
 app.set('views', path.join(__dirname, 'views'));
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(async (req, res, next) => {
+    try {
+        const HomePageServices = await Services.findAll({
+            raw: true,
+            where: { status: 1 },
+            attributes: ['id', 'serviceName', 'subImageUrl', 'mainImageUrl', 'subDescription']
+        });
+
+        // Make the services available in all views
+        res.locals.Services = HomePageServices;
+        next();
+    } catch (error) {
+        console.error('Error fetching services:', error);
+        next(error);
+    }
+});
+
 // Home route
 app.get('/', async (req, res) => {
 
-    const HomePageServices =  await Services.findAll({
-        raw: true,
-        where: {status:  1},
-        attributes:  ['id', 'serviceName', 'subImageUrl', 'mainImageUrl', 'subDescription']
-    })
-
-    console.log(HomePageServices, "check this")
     const BusinessNeeds = [
         { title: 'Support brand value', imgSrc: './img/icons/Support-Brand-Value.webp', description: 'Digital marketing firms assist your company in expanding its reach and making your offerings stand out in a competitive market.' },
         { title: 'Boost user relationships', imgSrc: './img/icons/Boost-User-Relationship.png', description: 'Our analytics helps to dig out the crucial and concise user needs and help you target the potential audience on the receiving end.' },
@@ -44,9 +53,42 @@ app.get('/', async (req, res) => {
         { title: 'Increase in competition', imgSrc: './img/icons/Increase-in-competition.webp', description: 'Digital marketing experts help small to mid-sized enterprises to compete head-to-head with multinational firms.' },
         { title: 'Improve conversion rates', imgSrc: './img/icons/Improve-conversion-rate.webp', description: 'Attract numerous leads, businesses, conversions, opportunities, and users to your brand products and services.' }
     ]
-    // res.send('dokiepokie')
 
-    res.render('index', { Services: HomePageServices, businessNeeds: BusinessNeeds });
+    res.render('index', { businessNeeds: BusinessNeeds });
+});
+
+// Service route
+app.get('/service/:id', async (req, res) => {
+    try {
+
+        const { id } = req.params;
+
+        const OurServices = await Services.findAll({
+            attributes: ['id', 'serviceName'],
+            where: {
+                status: 1
+            },
+            limit: 6,
+            order: [['createdAt', 'DESC']],
+            raw: true
+        });
+
+        const Service = await Services.findByPk(id, { raw: true });
+
+        if (!Service) {
+            return res.status(404).send('Service not found');
+        }
+
+        Service.details = JSON.parse(Service.details);
+        Service.cards = JSON.parse(Service.cards);
+        Service.benefits = JSON.parse(Service.benefits);
+        Service.faq = JSON.parse(Service.faq);
+
+        res.render('service', { OurServices, Service });
+    } catch (error) {
+        console.error('Error fetching service:', error);
+        res.status(500).send('Internal Server Error');
+    }
 });
 
 //celebrity route
@@ -102,42 +144,10 @@ app.get('/msmes-blog', (req, res) => {
 app.get('/digital-marketing-blog', (req, res) => {
     res.render('digital-marketing-blog');
 });
+
 //digital-marketing-blog
 app.get('/industry', (req, res) => {
     res.render('industry');
-});
-// Service route
-app.get('/service/:id', async (req, res) => {
-    try {
-        const { id } = req.params;
-
-        const OurServices = await Services.findAll({
-            attributes: ['id', 'serviceName'],
-            where: {
-                status: 1
-            },
-            limit: 6,
-            order: [['createdAt', 'DESC']],
-            raw: true
-        });
-
-        const Service = await Services.findByPk(id, { raw: true });
-
-        if (!Service) {
-            return res.status(404).send('Service not found');
-        }
-
-        Service.details = JSON.parse(Service.details);
-        Service.cards = JSON.parse(Service.cards);
-        Service.benefits = JSON.parse(Service.benefits);
-        Service.faq = JSON.parse(Service.faq);
-        console.log(Service.faq, "edit service data")
-
-        res.render('service', { OurServices, Service });
-    } catch (error) {
-        console.error('Error fetching service:', error);
-        res.status(500).send('Internal Server Error');
-    }
 });
 
 app.post('/send-mail', async (req, res) => {

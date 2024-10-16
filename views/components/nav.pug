@@ -7,48 +7,20 @@ div.container-fluid.position-relative.p-0
         div.collapse.navbar-collapse(id="navbarCollapse")
             div.navbar-nav.ms-auto.py-0
                 a(href="/" class="nav-item nav-link active") Home
-                a(href="about" class="nav-item nav-link") About
+                a(href="/about" class="nav-item nav-link") About
                 div.nav-item.dropdown.mainnav
                     a(href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false") Services
                         svg(xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16")
                             path(fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z")
                     div.dropdown-menu.m-0
-                        a(href="websitedevelopment.html" class="dropdown-item")
-                            img(src="./img/digital-services.png" alt="Website Development" title="Website Development")
-                            span.menuInfo
-                                span.menuTitle Website Developments
-                        a(href="gmb.html" class="dropdown-item")
-                            img(src="./img/business-and-financ.png" alt="GMB SEO" title="GMB SEO")
-                            span.menuInfo
-                                span.menuTitle GMB SEO
-                        a(href="socialmedia.html" class="dropdown-item")
-                            img(src="./img/social-media.png" alt="Social Media Marketing" title="Social Media Marketing")
-                            span.menuInfo
-                                span.menuTitle Social Media Marketing
-                        a(href="seo.html" class="dropdown-item")
-                            img(src="./img/search-engine-optimisation.png" alt="Search Engine Optimization" title="Search Engine Optimization")
-                            span.menuInfo
-                                span.menuTitle Search Engine Optimization
-                        a(href="qualityverified.html" class="dropdown-item")
-                            img(src="./img/quality.png" alt="Verified Quality Buyers Generation" title="Verified Quality Buyers Generation")
-                            span.menuInfo
-                                span.menuTitle Verified Quality Buyers Generation
-                        a(href="leadgeneration.html" class="dropdown-item")
-                            img(src="./img/user-engagement.png" alt="Lead Generation" title="Lead Generation")
-                            span.menuInfo
-                                span.menuTitle Lead Generation
-                        a(href="ppc.html" class="dropdown-item")
-                            img(src="./img/pay-per-click.png" alt="PPC" title="PPC")
-                            span.menuInfo
-                                span.menuTitle PPC
-                        a(href="360digital.html" class="dropdown-item")
-                            img(src="./img/brand-identity.png" alt="360° Digital Branding" title="360° Digital Branding")
-                            span.menuInfo
-                                span.menuTitle 360° Digital Branding
+                        each service in Services
+                            a(href=`/service/${service.id}` class="dropdown-item")
+                                span.menuInfo
+                                    span.menuTitle #{service.serviceName}
                 
-                a(href="celebrity-endorsement" class="nav-item nav-link") Celebrity Endorsement
-                a(href="blogs" class="nav-item nav-link") Blogs
-                a(href="contact" class="nav-item nav-link") Contact
+                a(href="/celebrity-endorsement" class="nav-item nav-link") Celebrity Endorsement
+                a(href="/blogs" class="nav-item nav-link") Blogs
+                a(href="/contact" class="nav-item nav-link") Contact
 
         script.
             $(document).ready(function() {
