@@ -326,14 +326,24 @@ h6,
 .newsletter,
 .testimonial {
     background:
-        url(../img/bg-top.png),
-        url(../img/bg-bottom.png);
+        url(../img/testimonial.jpg);
+        background-size: 100% 100%;   
     background-position:
         left top,
         right bottom;
     background-repeat: no-repeat;
 }
+.newbtn a{
+    background: #03c3d5;
+    color: #fff;
+    border-radius: 5px;
+    padding: 12px;
+}
+.newbtn{
+    margin: 40px 0;
+    text-align: center;
 
+}
 .testimonial-carousel .owl-item .testimonial-item,
 .testimonial-carousel .owl-item.center .testimonial-item * {
     transition: .5s;
@@ -349,7 +359,7 @@ h6,
 }
 
 .testimonial-carousel .owl-item.center .testimonial-item i {
-    color: var(--primary) !important;
+    color:#03c3d5 !important;
 }
 
 .testimonial-carousel .owl-item.center .testimonial-item h6 {
@@ -1070,19 +1080,33 @@ p{
     margin-bottom: 20px;
 }
 #carouselblog  .indus-btn{
-padding: 10px;
+padding: 5px;
 color: #000;
+}
+#carouselblog .owl-stage-outer{
+        
+        padding-top: 5px;
+        height: 330px;
 }
 #carouselblog img {
     height: 250px;
     border-radius: 10px;
 }
-#carouselblog .item{
-    padding: 15px;
-    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-}
-#carouselblog .owl-height{
+
+/* #carouselblog .owl-height{
     height: 450px !important;
+} */
+#carouselblog .newindus-slide{
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    background: #fff;
+    flex: 1;
+    border-radius: 8px;
+    box-shadow: 0 0 16px 0 rgba(0, 0, 0, .09) !important;
+    overflow: hidden;
 }
 
 /* media Query  */
@@ -1163,9 +1187,9 @@ color: #000;
     padding: 7px;
     border-radius: 5px;
 }
-#google_translate_element{
+/* #google_translate_element{
     margin-top: 17px;
-}
+} */
 .goog-te-gadget .goog-te-combo{
     padding: 4px;
 }
@@ -1186,18 +1210,23 @@ color: #000;
     font-style: normal;
 }
 .widget-area a{
-    padding: 18px 3px 3px 3px;
+    padding: 18px 3px 12px 3px;
     display: block;
     position: relative;
     border-radius: 30px;
     text-align: center;
+    color: #000;
     font-size: 13px;
     font-weight: 600;
     letter-spacing: .5px;
     text-transform: uppercase;
-    color: var(--pbmit-xclean-blackish-color);
+  
     -webkit-transition: all .25s ease-in-out;
     transition: all .25s ease-in-out;
+}
+.widget-area a:hover{
+    background-color: #03c6d9;
+    color: #fff;
 }
 #pbmit-list-all-posts-1{
     padding: 30px;
@@ -1236,7 +1265,9 @@ background-size: 100% !important;
     margin-bottom: 8px;
 }
 .pbmit-heading-desc{
-    font-size: 15px;
+    color: #000;
+    font-size: 16px;
+    
 
 }
 
@@ -1251,7 +1282,9 @@ background-size: 100% !important;
     font-size: 20px;
 }
 .contectservice p{
-    font-size: 15px;
+    color: #000;
+    font-size: 16px;
+    text-align: justify;
 }
 .contectservice h2{
     font-family: Quicksand, sans-serif;
@@ -1297,7 +1330,9 @@ background-size: 100% !important;
     border-radius: 10px;
 }
 .contectservice ol li{
-    font-size: 15px;
+    color: #000;
+    font-size: 16px;
+   
 
 }
 body{
@@ -1382,7 +1417,7 @@ body{
     border-radius: 10px;
     padding: 15px;
     display: inline;
-    background: #d3e3fd;
+    background: #f1f1f1;
 }
 .pbmit-ihbox-icon img{
     height: 35px;
@@ -1450,7 +1485,9 @@ ul.accordion-list {
     cursor: pointer;
   }
   .faq-description p{
-    padding: 20px;
+    color: #000;
+    font-size: 16px;
+    
   }
   ul.accordion-list li div.answer p {
     position: relative;
@@ -1458,7 +1495,7 @@ ul.accordion-list {
     font-weight: 300;
     padding: 10px 0 0 0;
     cursor: pointer;
-    color: #000;
+    color: #fff;
     line-height: 150%;
     margin: 0 0 15px 0;
     font-size: 14px;
@@ -1547,3 +1584,21 @@ ul.accordion-list {
   .image-section {
     padding: 0 10%;
 }
+.textadd {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* number of lines to show */
+            line-clamp: 2; 
+    -webkit-box-orient: vertical;
+ }
+ .testimonial img{
+    border-radius: 10px;
+ }
+ .social{
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+ }
+ .social img {
+    height: 35px;
+ }
