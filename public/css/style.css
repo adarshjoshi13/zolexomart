@@ -1223,7 +1223,7 @@ color: #000;
 
 .contactservice{
     text-align: center;
-    padding: 100px 15px;
+    padding: 150px 15px;
     /* filter: brightness(0.7); */
 background-size: 100% !important; 
     background: url(../img/contavtimg.PNG);
@@ -1480,7 +1480,7 @@ ul.accordion-list {
 .pdfsection{
     background: #f2f2f2;
     border-radius: 20px;
-    padding: 15px;
+    padding:50px  15px;
 
 }
 .sectionadd h1{

@@ -11,11 +11,24 @@ html(lang="en")
         meta(property="og:title" content=Service.serviceName)
         meta(property="og:description" content=Service.subDescription)
         link(href="/img/Logo.jpg" rel="icon")
-        link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css")
-        link(href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" rel="stylesheet")
+
+        // Fontawesome
+        link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer")
+        link(href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet")
+        link(href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet")
+
+        // Customized Bootstrap Stylesheet
         link(href="/css/bootstrap.min.css" rel="stylesheet")
+
+        // Template Stylesheet
         link(href="/css/style.css" rel="stylesheet")
 
+        // Font style
+        link(rel="preconnect" href="https://fonts.googleapis.com")
+        link(rel="preconnect" href="https://fonts.gstatic.com", crossorigin)
+        link(href="https://fonts.googleapis.com/css2?family=Playwrite+CU:wght@100..400&display=swap" rel="stylesheet")
+
+        script(src="https://code.jquery.com/jquery-3.6.0.min.js")
     body
         #customerQuery_btn_right
             a.modal-body.querypop-page-start.getfq(href="contact")
@@ -80,12 +93,11 @@ html(lang="en")
                             | #{Service.details.description1} #{Service.details.description2}
 
                     .row.gap
-                        each card in Service.cards
+                        each card, index in Service.cards
                             .col-md-4
                                 .pbmit-ihbox-headingicon
                                     .pbmit-ihbox-icon
-                                        //- img(src=`/img/cards/${card.img}`, alt=card.name)
-                                        img(src=`https://i.postimg.cc/FzcRK25G/digital-services.png`, alt=card.name)
+                                        img(src=ServiceBenefitsIcons[index], alt='pookie')
                                     .pbmit-ihbox-contents
                                         h2.pbmit-element-title #{card.name}
                                         p.pbmit-heading-desc #{card.desc}
@@ -121,9 +133,16 @@ html(lang="en")
 
         include ./components/footer.pug
 
-        // Scripts
-        script(src="https://code.jquery.com/jquery-3.4.1.min.js")
-        script(src="/lib/owlcarousel/owl.carousel.min.js")
+        // Scripts for Libraries
+        script(src="/lib/wow/wow.min.js")
+
+        // Customized Bootstrap Scripts
+        script(src="/js/bootstrap.bundle.min.js")
+
+        // Carousel JS
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js")
+
+        // Template Scripts
         script(src="/js/main.js")
         script.
             $(document).ready(function() {

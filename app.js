@@ -149,6 +149,41 @@ app.get('/digital-marketing-blog', (req, res) => {
 app.get('/industry', (req, res) => {
     res.render('industry');
 });
+// Service route
+app.get('/service/:id', async (req, res) => {
+    try {
+        const { id } = req.params;
+
+        const ServiceBenefitsIcons = ['/img/icons/graph.png', '/img/icons/liability.png', '/img/icons/reach.png']
+
+        const OurServices = await Services.findAll({
+            attributes: ['id', 'serviceName'],
+            where: {
+                status: 1
+            },
+            limit: 6,
+            order: [['createdAt', 'DESC']],
+            raw: true
+        });
+
+        const Service = await Services.findByPk(id, { raw: true });
+
+        if (!Service) {
+            return res.status(404).send('Service not found');
+        }
+
+        Service.details = JSON.parse(Service.details);
+        Service.cards = JSON.parse(Service.cards);
+        Service.benefits = JSON.parse(Service.benefits);
+        Service.faq = JSON.parse(Service.faq);
+        console.log(Service.faq, "edit service data")
+
+        res.render('service', { OurServices, Service, ServiceBenefitsIcons });
+    } catch (error) {
+        console.error('Error fetching service:', error);
+        res.status(500).send('Internal Server Error');
+    }
+});
 
 app.post('/send-mail', async (req, res) => {
 
