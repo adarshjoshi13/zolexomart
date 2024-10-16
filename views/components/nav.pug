@@ -1,13 +1,13 @@
 div.container-fluid.position-relative.p-0
     nav.navbar.navbar-expand-lg.navbar-light.px-4.px-lg-5.py-3.py-lg-0
         a(href="/" class="navbar-brand p-0")
-            img(src="./img/Logo.png" alt="Logo")
+            img(src="../img/Logo.png" alt="Logo")
         button.navbar-toggler(type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse")
             span.fa.fa-bars
         div.collapse.navbar-collapse(id="navbarCollapse")
             div.navbar-nav.ms-auto.py-0
                 a(href="/" class="nav-item nav-link active") Home
-                a(href="about.html" class="nav-item nav-link") About
+                a(href="about" class="nav-item nav-link") About
                 div.nav-item.dropdown.mainnav
                     a(href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false") Services
                         svg(xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16")
@@ -46,6 +46,17 @@ div.container-fluid.position-relative.p-0
                             span.menuInfo
                                 span.menuTitle 360° Digital Branding
                 
-                a(href="celebrity.html" class="nav-item nav-link") Celebrity Endorsement
-                a(href="blogs.html" class="nav-item nav-link") Blogs
-                a(href="contact.html" class="nav-item nav-link") Contact
+                a(href="celebrity-endorsement" class="nav-item nav-link") Celebrity Endorsement
+                a(href="blogs" class="nav-item nav-link") Blogs
+                a(href="contact" class="nav-item nav-link") Contact
+
+        script.
+            $(document).ready(function() {
+                $('.navbar-toggler').on('click', function() {
+                    $('.navbar-collapse').toggle('show');
+                });
+
+                $('.dropdown-toggle').on('click', function() {
+                    $('.dropdown-menu').toggle('show');
+                });
+            });

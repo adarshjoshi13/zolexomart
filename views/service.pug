@@ -18,8 +18,9 @@ html(lang="en")
 
     body
         #customerQuery_btn_right
-            a.modal-body.querypop-page-start.getfq(href="contact.php")
-                p.awesome Contact Us
+            a.modal-body.querypop-page-start.getfq(href="contact")
+                span.pulse-button 
+                    img(src="/img/icons/contact-us.png" )
 
         .whatsaap
             a(href="https://wa.me/9958575960")
@@ -28,12 +29,14 @@ html(lang="en")
         .container-xxl.bg-white.p-0
             // Navbar
             include ./components/nav.pug
-
+        .hero-header.bgservice.bg
+            h1.text-white.animated.zoomIn Our Services
+            img(src="../img/2149256145.jpg", alt="", width="100%")
         .container-fluid
-            .row
-                .col-md-3.col-lg-3
+            .row.pd
+                .col-md-3.col-lg-3.borderr
                     aside.widget-area
-                        h2 Our Services
+                        h2.text-center Our Services
                         ul.pbmit-all-post-list
                             each serviceItem in OurServices
                                 li(class=(serviceItem.id === Service.id ? 'pbmit-post-active' : ''))
@@ -46,25 +49,43 @@ html(lang="en")
         .container-fluid.my-5
             .row
                 .col-md-3.col-lg-3
-                    .contactservice
-                        a.connum(href="tel:9761407482") +91-9761407482
+                    .contactservice.mb-5
+                        a.connum(href="tel:9958575960") +91-9958575960
                         h2 We Provide
                         h1 Best Service
                         p.num
-                            a(href="tel:9761407482") Contact Us Now
-
+                            a(href="tel:9958575960") Contact Us Now
+                    .pdfsection
+                        h2.text-center.mb-4 Company Profile
+                        div.sectionadd.mb-4(style="border-bottom: 1px solid #c1c1c1;") 
+                            div 
+                                img(src="../img/icons/pdf.png")        
+                            div 
+                                h1 Document of Bussiness
+                                    p Broucher  
+                            div        
+                                <i class="fa-solid fa-download"></i>
+                        div.sectionadd 
+                            div 
+                                img(src="../img/icons/word.png")        
+                            div 
+                                h1 Download Word File
+                                    p Broucher  
+                            div        
+                                <i class="fa-solid fa-download"></i>
                 .col-md-9.col-lg-9
-                    .contectservice.mb-3
+                    .contectservice.mb-5
                         h2 #{Service.serviceName}
                         p 
                             | #{Service.details.description1} #{Service.details.description2}
 
-                    .row
+                    .row.gap
                         each card in Service.cards
                             .col-md-4
                                 .pbmit-ihbox-headingicon
                                     .pbmit-ihbox-icon
-                                        img(src=`/img/cards/${card.img}`, alt=card.name)
+                                        //- img(src=`/img/cards/${card.img}`, alt=card.name)
+                                        img(src=`https://i.postimg.cc/FzcRK25G/digital-services.png`, alt=card.name)
                                     .pbmit-ihbox-contents
                                         h2.pbmit-element-title #{card.name}
                                         p.pbmit-heading-desc #{card.desc}
@@ -72,7 +93,7 @@ html(lang="en")
                     .row.my-5
                         .col-md-6
                             .imgheight
-                                img(src="/img/sample-image.jpg" alt="Benefits Image")
+                                img(src="../img/0.jpg" alt="Benefits Image")
                         .col-md-6
                             .contectservice
                                 h2 Benefits Of  #{Service.serviceName} 
@@ -80,21 +101,23 @@ html(lang="en")
                                 ol
                                     each point in Service.benefits.points
                                         li #{point}
-
-        .container-fluid
-            h2.text-center.mt-5 Frequently Asked Questions
-            .row
-                // Display FAQ description once at the top
-                .col-12
-                    .faq-description
-                        p #{Service.faq.description}
-
-                // Loop through the 'qa' array to show each question and answer
-                each qa in Service.faq.qa
-                    .col-md-6
-                        .faq-section
-                            h4 #{qa.question}
-                            p #{qa.answer}
+                    .container-fluid
+                        h2.text-center.mt-5 Frequently Asked Questions
+                        .row
+                            // Display FAQ description once at the top
+                            .col-12
+                                .faq-description
+                                    p #{Service.faq.description}
+                        ul.accordion-list
+                            each qa in Service.faq.qa
+                                li
+                                    h3 #{qa.question}
+                                    .answer
+                                        p #{qa.answer}
+                            
+                    
+        
+           
 
         include ./components/footer.pug
 
@@ -102,3 +125,18 @@ html(lang="en")
         script(src="https://code.jquery.com/jquery-3.4.1.min.js")
         script(src="/lib/owlcarousel/owl.carousel.min.js")
         script(src="/js/main.js")
+        script.
+            $(document).ready(function() {
+                $('.accordion-list > li > .answer').hide();
+
+                $('.accordion-list > li').click(function() {
+                if ($(this).hasClass("active")) {
+                    $(this).removeClass("active").find(".answer").slideUp();
+                } else {
+                    $(".accordion-list > li.active .answer").slideUp();
+                    $(".accordion-list > li.active").removeClass("active");
+                    $(this).addClass("active").find(".answer").slideDown();
+                }
+                return false;
+                });
+            });

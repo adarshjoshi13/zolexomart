@@ -44,9 +44,9 @@ app.get('/', async (req, res) => {
         { title: 'Increase in competition', imgSrc: './img/icons/Increase-in-competition.webp', description: 'Digital marketing experts help small to mid-sized enterprises to compete head-to-head with multinational firms.' },
         { title: 'Improve conversion rates', imgSrc: './img/icons/Improve-conversion-rate.webp', description: 'Attract numerous leads, businesses, conversions, opportunities, and users to your brand products and services.' }
     ]
-    res.send('dokiepokie')
+    // res.send('dokiepokie')
 
-    // res.render('index', { Services: HomePageServices, businessNeeds: BusinessNeeds });
+    res.render('index', { Services: HomePageServices, businessNeeds: BusinessNeeds });
 });
 
 //celebrity route
@@ -65,10 +65,47 @@ app.get('/about', (req, res) => {
 });
 
 //blog route
-app.get('/blog', (req, res) => {
-    res.render('blog');
+app.get('/blogs', (req, res) => {
+    res.render('blogs');
+});
+//seo blog route
+app.get('/seo-blog', (req, res) => {
+    res.render('seo-blog');
+});
+//buyer leadblog route
+app.get('/buyer-lead-blog', (req, res) => {
+    res.render('buyer-lead-blog');
 });
 
+//business-blog
+app.get('/business-blog', (req, res) => {
+    res.render('business-blog');
+});
+
+//development-blog
+app.get('/development-blog', (req, res) => {
+    res.render('development-blog');
+});
+//smo-blog
+app.get('/smo-blog', (req, res) => {
+    res.render('smo-blog');
+});
+//gmb-blog-blog
+app.get('/gmb-blog', (req, res) => {
+    res.render('gmb-blog');
+});
+//msmes-blog-blog
+app.get('/msmes-blog', (req, res) => {
+    res.render('msmes-blog');
+});
+//digital-marketing-blog
+app.get('/digital-marketing-blog', (req, res) => {
+    res.render('digital-marketing-blog');
+});
+//digital-marketing-blog
+app.get('/industry', (req, res) => {
+    res.render('industry');
+});
 // Service route
 app.get('/service/:id', async (req, res) => {
     try {
