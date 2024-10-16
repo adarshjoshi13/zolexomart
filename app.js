@@ -30,7 +30,7 @@ app.use(async (req, res, next) => {
         const HomePageServices = await Services.findAll({
             raw: true,
             where: { status: 1 },
-            attributes: ['id', 'serviceName', 'subImageUrl', 'mainImageUrl', 'subDescription']
+            attributes: ['id', 'serviceName', 'subImageUrl', 'mainImageUrl', 'subDescription', 'route']
         });
 
         // Make the services available in all views
@@ -58,7 +58,7 @@ app.get('/', async (req, res) => {
 });
 
 // Service route
-app.get('/service/:id', async (req, res) => {
+app.get('/service/:id/:route', async (req, res) => {
     try {
 
         const { id } = req.params;
@@ -85,6 +85,7 @@ app.get('/service/:id', async (req, res) => {
         Service.cards = JSON.parse(Service.cards);
         Service.benefits = JSON.parse(Service.benefits);
         Service.faq = JSON.parse(Service.faq);
+        Service.seo = JSON.parse(Service.seo);
 
         res.render('service', { OurServices, Service, ServiceBenefitsIcons });
     } catch (error) {

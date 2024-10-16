@@ -2,15 +2,15 @@ doctype html
 html(lang="en")
     head
         meta(charset="utf-8")
-        title #{Service.serviceName} - Zolexo Mart Pvt Ltd
+        title #{Service.seo.metaTitle} - Zolexo Mart Pvt Ltd
         meta(name="viewport" content="width=device-width, initial-scale=1.0")
-        meta(name="description" content=Service.subDescription)
-        meta(name="keywords" content="Verified Quality Buyer Generation, Local SEO, GMB SEO, Best Digital Marketing Company, Lead Generation")
-        meta(name="robots" content="index,follow")
-        link(rel="canonical" href="https://zolexomart.in")
+        meta(name="description" content=Service.seo.metaDescription)
+        meta(name="keywords" content=Service.seo.metaKeywords)
+        meta(name="robots" content=Service.seo.robots)
+        link(rel="canonical" href=Service.seo.canonical)
         meta(property="og:title" content=Service.serviceName)
         meta(property="og:description" content=Service.subDescription)
-        link(href="/img/Logo.jpg" rel="icon")
+        link(href="/img/Logo.png" rel="icon")
 
         // Fontawesome
         link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer")
@@ -44,7 +44,7 @@ html(lang="en")
             include ./components/nav.pug
         .hero-header.bgservice.bg
             h1.text-white.animated.zoomIn Our Services
-            img(src="../img/2149256145.jpg", alt="", width="100%")
+            img(src="/img/2149256145.jpg", alt="", width="100%")
         .container-fluid
             .row.pd
                 .col-md-3.col-lg-3.borderr
@@ -72,7 +72,7 @@ html(lang="en")
                         h2.text-center.mb-4 Company Profile
                         div.sectionadd.mb-4(style="border-bottom: 1px solid #c1c1c1;") 
                             div 
-                                img(src="../img/icons/pdf.png")        
+                                img(src="/img/icons/pdf.png")        
                             div 
                                 h1 Document of Bussiness
                                     p Broucher  
@@ -80,7 +80,7 @@ html(lang="en")
                                 <i class="fa-solid fa-download"></i>
                         div.sectionadd 
                             div 
-                                img(src="../img/icons/word.png")        
+                                img(src="/img/icons/word.png")        
                             div 
                                 h1 Download Word File
                                     p Broucher  
@@ -107,7 +107,7 @@ html(lang="en")
                     .row.my-5
                         .col-md-6
                             .imgheight
-                                img(src="../img/0.jpg" alt="Benefits Image")
+                                img(src="/img/0.jpg" alt="Benefits Image")
                         .col-md-6
                             .contectservice
                                 h2 Benefits Of  #{Service.serviceName} 

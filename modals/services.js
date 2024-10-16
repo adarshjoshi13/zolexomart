@@ -7,6 +7,16 @@ module.exports = (sequelize) => {
       autoIncrement: true,
       primaryKey: true
     },
+    status: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 1 
+    },
+    code: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true 
+    },
     serviceName: {
       type: DataTypes.STRING,
       allowNull: false
@@ -39,15 +49,13 @@ module.exports = (sequelize) => {
       type: DataTypes.JSON, // Storing FAQs as JSON array
       allowNull: true
     },
-    status: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-      defaultValue: 1 // Default to 1 (active)
+    seo: {
+      type: DataTypes.JSON, // Storing SEO data as JSON
+      allowNull: true
     },
-    code: {
+    route: {
       type: DataTypes.STRING,
-      allowNull: false,
-      unique: true // Ensure each service code is unique
-    }
+      allowNull: false
+    },
   });
 };

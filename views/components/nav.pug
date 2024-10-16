@@ -1,7 +1,7 @@
 div.container-fluid.position-relative.p-0
     nav.navbar.navbar-expand-lg.navbar-light.px-4.px-lg-5.py-3.py-lg-0
         a(href="/" class="navbar-brand p-0")
-            img(src="../img/Logo.png" alt="Logo")
+            img(src="/img/Logo.png" alt="Logo")
         button.navbar-toggler(type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse")
             span.fa.fa-bars
         div.collapse.navbar-collapse(id="navbarCollapse")
@@ -14,7 +14,7 @@ div.container-fluid.position-relative.p-0
                             path(fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z")
                     div.dropdown-menu.m-0
                         each service in Services
-                            a(href=`/service/${service.id}` class="dropdown-item")
+                            a(href=`/service/${service.id}/${service.route}` class="dropdown-item")
                                 span.menuInfo
                                     span.menuTitle #{service.serviceName}
                 
