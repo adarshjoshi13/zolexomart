@@ -63,6 +63,8 @@ app.get('/service/:id', async (req, res) => {
 
         const { id } = req.params;
 
+        const ServiceBenefitsIcons = ['/img/icons/graph.png', '/img/icons/liability.png', '/img/icons/reach.png']
+        
         const OurServices = await Services.findAll({
             attributes: ['id', 'serviceName'],
             where: {
@@ -84,7 +86,7 @@ app.get('/service/:id', async (req, res) => {
         Service.benefits = JSON.parse(Service.benefits);
         Service.faq = JSON.parse(Service.faq);
 
-        res.render('service', { OurServices, Service });
+        res.render('service', { OurServices, Service, ServiceBenefitsIcons });
     } catch (error) {
         console.error('Error fetching service:', error);
         res.status(500).send('Internal Server Error');

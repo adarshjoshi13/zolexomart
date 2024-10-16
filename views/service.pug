@@ -89,8 +89,10 @@ html(lang="en")
                 .col-md-9.col-lg-9
                     .contectservice.mb-5
                         h2 #{Service.serviceName}
-                        p 
-                            | #{Service.details.description1} #{Service.details.description2}
+                        p #{Service.details.description1} 
+                        if (Service.details.description2)
+                            br
+                            p #{Service.details.description2}
 
                     .row.gap
                         each card, index in Service.cards
