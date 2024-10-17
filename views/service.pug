@@ -74,7 +74,7 @@ html(lang="en")
                         ul.pbmit-all-post-list
                             each serviceItem in OurServices
                                 li(class=(serviceItem.id === Service.id ? 'pbmit-post-active' : ''))
-                                    a(href=`/service/${serviceItem.id}`) #{serviceItem.serviceName}
+                                    a(href=`/service/${serviceItem.id}/${serviceItem.route}`) #{serviceItem.serviceName}
 
                 .col-md-9.col-lg-9
                     .imgheight(style="height: 480px; overflow: hidden;")

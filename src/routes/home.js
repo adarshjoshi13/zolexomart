@@ -28,7 +28,7 @@ router.get('/service/:id/:route', async (req, res) => {
         const ServiceBenefitsIcons = ['/img/icons/graph.png', '/img/icons/liability.png', '/img/icons/reach.png']
         
         const OurServices = await Services.findAll({
-            attributes: ['id', 'serviceName'],
+            attributes: ['id', 'serviceName', 'route'],
             where: {
                 status: 1
             },

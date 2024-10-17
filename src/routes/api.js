@@ -82,9 +82,8 @@ router.post('/send-mail', async (req, res) => {
 });
 
 router.post('/to-download-companypdf', (req, res) => {
-    // Construct the absolute path to the demo.pdf file
-    const filePath = path.join(__dirname, '../demo.pdf'); // Adjust the path according to your structure
-    res.download(filePath, 'demo.pdf', (err) => {
+    const filePath = path.join(__dirname, '../ZolexoMartDocs.zip');
+    res.download(filePath, 'ZolexoMartDocs.zip', (err) => {
         if (err) {
             console.error('Error downloading the file:', err);
             res.status(500).send('Internal Server Error');
