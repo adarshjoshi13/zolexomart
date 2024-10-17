@@ -88,8 +88,8 @@ router.post('/to-download-companypdf', (req, res) => {
         if (err) {
             console.error('Error downloading the file:', err);
             res.status(500).send('Internal Server Error');
-        }
-    });
+        } 
+    });
 });
 
 module.exports = router;
