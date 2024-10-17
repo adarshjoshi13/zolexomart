@@ -44,11 +44,11 @@ div.container-fluid.position-relative.p-0
                             path(fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z")
                     div.dropdown-menu.m-0
                         each service in Services
-                            a(href=`/service/${service.id}` class="dropdown-item")
+                            a(href=`/service/${service.id}/${service.route}` class="dropdown-item")
                                 span.menuInfo
                                     span.menuTitle #{service.serviceName}
                 
-                a(href="/celebrity-endorsement" class="nav-item nav-link") Celebrity Endorsement
+                //- a(href="/celebrity-endorsement" class="nav-item nav-link") Celebrity Endorsement
                 a(href="/blogs" class="nav-item nav-link") Blogs
                 a(href="/contact" class="nav-item nav-link") Contact
 
