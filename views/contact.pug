@@ -14,6 +14,8 @@ html(lang="en")
         meta(property="og:description" content="Dynamic Website, Customized Design, SEO optimized, Landing Page & Blog Page Development")
         meta(property="og:type" content="website")
         meta(property="og:image" content="")
+        meta(name="google-site-verification" content="nXpMVKGyc0mkMAQ27vfXEjDtvsYrHygBnP9tX-vzsew")
+        link(href="/img/Logo.jpg" rel="icon")
 
         // Google tag (gtag.js)
         script(async src="https://www.googletagmanager.com/gtag/js?id=G-QCW5M672FJ")
@@ -22,9 +24,6 @@ html(lang="en")
             function gtag() { dataLayer.push(arguments); }
             gtag('js', new Date());
             gtag('config', 'G-QCW5M672FJ');
-
-        meta(name="google-site-verification" content="nXpMVKGyc0mkMAQ27vfXEjDtvsYrHygBnP9tX-vzsew")
-        link(href="/img/Logo.jpg" rel="icon")
 
         // Carousel CSS
         link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css")
@@ -47,24 +46,16 @@ html(lang="en")
 
         // Customized Bootstrap Stylesheet
         link(href="/css/bootstrap.min.css" rel="stylesheet")
-
+        
         // Template Stylesheet
         link(href="/css/style.css" rel="stylesheet")
-
-        // Font style
-        link(rel="preconnect" href="https://fonts.googleapis.com")
-        link(rel="preconnect" href="https://fonts.gstatic.com", crossorigin)
-        link(href="https://fonts.googleapis.com/css2?family=Playwrite+CU:wght@100..400&display=swap" rel="stylesheet")
 
         // jQuery
         script(src="https://code.jquery.com/jquery-3.4.1.min.js")
 
-        // Typed.js Script
-        script(src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js" integrity="sha512-BdHyGtczsUoFcEma+MfXc71KJLv/cd+sUsUaYYf2mXpfG/PtBjNXsPo78+rxWjscxUYN2Qr2+DbeGGiJx81ifg==" crossorigin="anonymous")
-
     body
         // Start of Tawk.to Script
-        script(type="text/javascript"). 
+        script(type="text/javascript").
             var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
             (function () {
                 var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
@@ -79,98 +70,47 @@ html(lang="en")
         #customerQuery_btn_right
             a.modal-body.querypop-page-start.getfq(href="contact")
                 span.pulse-button 
-                    img(src="/img/icons/contact-us.png" )
+                    img(src="/img/icons/contact-us.png")
 
-        .whatsaap
+        .whatsapp
             a(href="https://wa.me/9958575960")
                 img(src="/img/whatsapp.png" alt="WhatsApp")
 
         .container-xxl.bg-white.p-0
+            #google_translate_element
+            div.container-xxl.position-relative.p-0
+                include ./components/nav.pug
+            .hero-header.bg
+                h1.text-white.animated.zoomIn Contact Us
+                img(src="./img/2149288184.jpg" alt="" width="100%")
+            .container-xxl.py-5
+                .container.px-lg-5
+                    .row.justify-content-center
+                        .col-lg-7
+                            .section-title.position-relative.text-center.mb-5.pb-2.wow.fadeInUp(data-wow-delay="0.1s", style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;")
+                                h6.position-relative.d-inline.text-primary.ps-4 Contact Us
+                                h2.mt-2 Contact For Any Query
+                            .form-container
+                                form(method="post", name="emailContact", action="/api/send-mail")
+                                    .input-row
+                                        label Name<em>*</em>
+                                        input.form-control(type="text", placeholder="Enter your Name", name="userName", required)
+                                    .input-row
+                                        label Email<em>*</em>
+                                        input.form-control(type="email", placeholder="Enter your Email", name="userEmail", required)
+                                    .input-row
+                                        label Phone<em>*</em>
+                                        input.form-control(type="number", placeholder="Enter your Mobile Number", name="userPhone", required)
+                                    .input-row
+                                        label Message<em>*</em>
+                                        textarea.form-control(name="userMessage", rows="4", required)
+                                    .input-row
+                                        input.btn(type="submit", name="send", value="Submit")
 
-          
+        include ./components/footer.pug
 
-                #google_translate_element
-        div.container-xxl.position-relative.p-0
-            include ./components/nav.pug
-        .hero-header.bg
-            h1.text-white.animated.zoomIn Contact Us
-            img(src="./img/2149288184.jpg" alt="" width="100%")
-        .container-xxl.py-5
-            .container.px-lg-5
-                .row.justify-content-center
-                    .col-lg-7
-                        .section-title.position-relative.text-center.mb-5.pb-2.wow.fadeInUp(data-wow-delay="0.1s", style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;")
-                            h6.position-relative.d-inline.text-primary.ps-4 Contact Us
-                            h2.mt-2 Contact For Any Query
-                        .wow.fadeInUp(data-wow-delay="0.3s", style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;")
-                        .form-container
-                            form(method="post", name="emailContact", action="http://localhost:3000/send-mail")
-                            .input-row
-                                label Name<em>*</em>
-                                input.form-control(type="text", placeholder="Enter your Name", name="userName", required)
-                            .input-row
-                                label Email<em>*</em>
-                                input.form-control(type="email", placeholder="Enter your Email", name="userEmail", required)
-                            .input-row
-                                label Phone<em>*</em>
-                                input.form-control(type="tel", placeholder="Enter your Mobile Number", name="userPhone", required)
-                            .input-row
-                                label Message<em>*</em>
-                                textarea.form-control(name="userMessage", rows="4", required)
-                            .input-row
-                                input.btn(type="submit", name="send", value="Submit")
-
-
-
-
-
-
-
-
-
-    include ./components/footer.pug
-
-    // Scripts for Libraries
-    script(src="/lib/wow/wow.min.js")
-    script(src="/lib/easing/easing.min.js")
-    script(src="/lib/owlcarousel/owl.carousel.min.js")
-    script(src="/lib/lightbox/js/lightbox.min.js")
-
-    // Carousel JS
-    script(src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js")
-
-    // Template Scripts
-    script(src="/js/main.js")
-
-    // Typed.js Initialization
-    script.
-        $(document).ready(function() {
-            var options = {
-                strings: [
-                    "Search",
-                    "Google My Business",
-                    "Digital Marketing"
-                ],
-                typeSpeed: 50,
-                backSpeed: 50,
-                loop: true
-            };
-            new Typed('.text', options);
-            $('#carousel').owlCarousel({
-                loop: true,
-                margin: 10,
-                nav: true,
-                dots: true,
-                responsive: {
-                    0: {
-                        items: 1
-                    },
-                    600: {
-                        items: 3
-                    },
-                    1000: {
-                        items: 5
-                    }
-                }
-            });
-        });
+        // Scripts for Libraries
+        script(src="/lib/wow/wow.min.js")
+        
+        // Template Scripts
+        script(src="/js/main.js")
