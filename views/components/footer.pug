@@ -19,18 +19,12 @@ div.container-fluid.bg-dark.text-light.footer.wow.fadeIn(data-wow-delay="0.1s" s
               h5.text-white.mb-4 Popular Link
               a.btn.btn-link(href="about") About Us
               a.btn.btn-link(href="contact") Contact Us
-              a.btn.btn-link(href="celebrity-endorsement") Celebrity Endorsement
-              a.btn.btn-link(href="technology.html") Technology
               a.btn.btn-link(href="/") Blogs
 
           div.col-md-6.col-lg-3
               h5.text-white.mb-4 Our Services
-              a.btn.btn-link(href="socialmedia.html") Social Media Marketing
-              a.btn.btn-link(href="websitedevelopment.html") Website Development
-              a.btn.btn-link(href="qualityverified.html") Verified Quality Buyers Generation
-              a.btn.btn-link(href="ppc.html") PPC
-              a.btn.btn-link(href="360digital.html") 360° Degree Branding
-              a.btn.btn-link(href="leadgeneration.html") Lead Generation
+                each service in Services
+                    a.btn.btn-link(href=`/service/${service.id}/${service.route}`) #{service.serviceName}
 
           div.col-md-6.col-lg-3.addc
               h5.text-white.mb-4 Contact Us
