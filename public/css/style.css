@@ -808,6 +808,7 @@ a {
 }
 #navbarCollapse img{
     height: 32px;
+    width: 50px;
     border-radius: 3px;
 }
 
@@ -841,7 +842,7 @@ a {
 
 .tophead {
     display: flex;
-    justify-content: flex-end;
+    /* justify-content: flex-end; */
     gap: 15px;
     width: 100%;
     align-items: center;
@@ -867,7 +868,10 @@ a {
     margin-top: 15px;
 }
 .headicon {
-    margin-top: 0 !important;
+    margin-top: 7px !important;
+}
+.headicon img{
+    height: 25px;
 }
 .foot-socials {
     position: relative;
@@ -1682,4 +1686,10 @@ ul.accordion-list {
   .menuInfo{
     display: flex;
     gap: 5px;
+  }
+  .google{
+    position: absolute;
+    right: 0;
+    width: 200px;
+    overflow: hidden;
   }
