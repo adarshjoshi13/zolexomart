@@ -92,33 +92,23 @@ html(lang="en")
                 #google_translate_element
         div.container-xxl.position-relative.p-0
             include ./components/nav.pug
-        .hero-header.bg
-            h1.text-white.animated.zoomIn Contact Us
-            img(src="./img/2149288184.jpg" alt="" width="100%")
+        //- .hero-header.bg
+        //-     h1.text-white.animated.zoomIn Contact Us
+        //-     img(src="./img/2149288184.jpg" alt="" width="100%")
         .container-xxl.py-5
-            .container.px-lg-5
-                .row.justify-content-center
-                    .col-lg-7
-                        .section-title.position-relative.text-center.mb-5.pb-2.wow.fadeInUp(data-wow-delay="0.1s", style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;")
-                            h6.position-relative.d-inline.text-primary.ps-4 Contact Us
-                            h2.mt-2 Contact For Any Query
-                        .wow.fadeInUp(data-wow-delay="0.3s", style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;")
-                        .form-container
-                            form(method="post", name="emailContact", action="/api/send-mail")
-                            .input-row
-                                label Name<em>*</em>
-                                input.form-control(type="text", placeholder="Enter your Name", name="userName", required)
-                            .input-row
-                                label Email<em>*</em>
-                                input.form-control(type="email", placeholder="Enter your Email", name="userEmail", required)
-                            .input-row
-                                label Phone<em>*</em>
-                                input.form-control(type="tel", placeholder="Enter your Mobile Number", name="userPhone", required)
-                            .input-row
-                                label Message<em>*</em>
-                                textarea.form-control(name="userMessage", rows="4", required)
-                            .input-row
-                                input.btn(type="submit", name="send", value="Submit")
+            div.container.px-lg-5
+                div.section-title.position-relative.text-center.mb-5.pb-2.wow.fadeInUp(data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;")
+                    h6.position-relative.d-inline.text-primary.ps-4 Our Services
+                    h2.mt-2 What Solutions We Provide
+                div.row.g-4
+                    each service in Services
+                        div.col-lg-4.col-md-6.wow.zoomIn(data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: zoomIn;")
+                            div.service-item.d-flex.flex-column.justify-content-center.text-center.rounded
+                                div.service-icon.flex-shrink-0
+                                  img(src=service.subImageUrl alt="not image")
+                                  h5.mb-3 #{service.serviceName}
+                                  p #{service.subDescription}
+                                  a.btn.px-3.mt-auto.mx-auto(href=`/service/${service.id}/${service.route}`) Read More
 
 
 

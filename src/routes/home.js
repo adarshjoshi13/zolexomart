@@ -114,6 +114,10 @@ router.get('/digital-marketing-blog', (req, res) => {
 router.get('/industry', (req, res) => {
     res.render('industry');
 });
+//All Services
+router.get('/all-services', (req, res) => {
+    res.render('all-services');
+});
 // Service route
 router.get('/service/:id', async (req, res) => {
     try {
