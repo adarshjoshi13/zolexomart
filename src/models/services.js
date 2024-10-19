@@ -25,37 +25,51 @@ module.exports = (sequelize) => {
       type: DataTypes.STRING,
       allowNull: false
     },
+    bannerImageUrl: {
+      type: DataTypes.STRING,
+      allowNull: false 
+    },
     mainImageUrl: {
       type: DataTypes.STRING,
       allowNull: false 
     },
     subDescription: {
       type: DataTypes.STRING,
-      allowNull: true // Can be nullable if not every service has a mainImage
+      allowNull: true
     },
     details: {
-      type: DataTypes.JSON, // Storing details as JSON
+      type: DataTypes.JSON,
       allowNull: true
     },
     cards: {
-      type: DataTypes.JSON, // Storing card information as JSON array
+      type: DataTypes.JSON,
       allowNull: true
     },
     benefits: {
-      type: DataTypes.JSON, // Storing benefits as JSON
+      type: DataTypes.JSON,
+      allowNull: true
+    },
+    ourApproach: {
+      type: DataTypes.JSON,
+      allowNull: true
+    },
+    userFriendly: {
+      type: DataTypes.JSON,
       allowNull: true
     },
     faq: {
-      type: DataTypes.JSON, // Storing FAQs as JSON array
+      type: DataTypes.JSON,
       allowNull: true
     },
     seo: {
-      type: DataTypes.JSON, // Storing SEO data as JSON
+      type: DataTypes.JSON,
       allowNull: true
     },
     route: {
       type: DataTypes.STRING,
       allowNull: false
     },
+  }, {
+    timestamps: true, 
   });
 };
