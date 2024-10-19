@@ -118,6 +118,10 @@ router.get('/industry', (req, res) => {
 router.get('/all-services', (req, res) => {
     res.render('all-services');
 });
+//PAy now
+router.get('/paynow', (req, res) => {
+    res.render('paynow');
+});
 // Service route
 router.get('/service/:id', async (req, res) => {
     try {

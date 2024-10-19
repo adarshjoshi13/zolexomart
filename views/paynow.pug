@@ -87,50 +87,44 @@ html(lang="en")
 
         .container-xxl.bg-white.p-0
 
-         
+          
 
                 
         div.container-xxl.position-relative.p-0
             include ./components/nav.pug
-        .hero-header.bg
-            h1.text-white.animated.zoomIn Buyer Leads
-            img(src="./img/bloglead.jpg", alt="", width="100%")
+        //- .hero-header.bg
+        //-     h1.text-white.animated.zoomIn Contact Us
+        //-     img(src="./img/2149288184.jpg" alt="" width="100%")
         .container-xxl.py-5
             .container.px-lg-5
-                .row.g-5
-                    .col-lg-12.wow.fadeInUp(data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;")
-                        .section-title.position-relative.mb-4.pb-2
-                            h2.mt-2 Buyer Leads Impact on Revenue and Reasons to Invest in Them
-                        p.mb-4 
-                            | Buyer leads are a critical asset for those businesses that want to grow and increase revenue. We, at Zolexomart provide comprehensive Quality Verified Buyer Generation Package.
-                            br
-                            | In this article, we'll explore what buyer leads are, their impact on business revenue, and why purchasing them can be a smart strategy for growing your business.
-                        
-                        .section-title.position-relative.mb-4.pb-2
-                            h2.mt-2 Why Buy Buyer Leads?
-                        p 
-                            | While generating leads organically through marketing campaigns can be effective, it is often time-consuming and resource-intensive. Thus, Buying buyer leads is a quick solution for businesses to boost revenue quickly. This is where we, at Zolexomart step in and help you out.
-                        
-                        .section-title.position-relative.mb-4.pb-2
-                            h2.mt-2 Benefits of Buying Buyer Leads:
+                .row
+                    .col-lg-6 
+                        div.qrcode.wow.fadeInUp(data-wow-delay="0.1s", style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;") 
+                            img(src="./img/scanqr.jpg")
+                    .col-lg-6
+                        .section-title.position-relative.text-center.mb-5.pb-2.wow.fadeInUp(data-wow-delay="0.1s", style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;")
+                            //- h6.position-relative.d-inline.text-primary.ps-4 Contact Us
+                            h2.mt-2 Contact For Any Query
+                        .wow.fadeInUp(data-wow-delay="0.3s", style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;")
+                        .form-container
+                            form(method="post", name="emailContact", action="/api/send-mail")
+                            .input-row
+                                label Name<em>*</em>
+                                input.form-control(type="text", placeholder="Enter your Name", name="userName", required)
+                            .input-row
+                                label Email<em>*</em>
+                                input.form-control(type="email", placeholder="Enter your Email", name="userEmail", required)
+                            .input-row
+                                label Phone<em>*</em>
+                                input.form-control(type="tel", placeholder="Enter your Mobile Number", name="userPhone", required)
+                            .input-row
+                                label Message<em>*</em>
+                                textarea.form-control(name="userMessage", rows="4", required)
+                            .input-row
+                                input.btn(type="submit", name="send", value="Submit")
 
-                        ol
-                            li 
-                                b Efficiency: 
-                                | Lead that make purchases saves the time and money required to develop extensive marketing campaigns and content to attract potential buyers. With pre-qualified buyer leads, you can skip the initial stages of the buyer’s journey and focus directly on conversion.
-                            li 
-                                b Access to High-Quality Prospects: 
-                                | Many lead providers specialize in gathering leads that meet specific criteria, such as industry, job role, or geographic location. This ensures you are targeting the right audience for your offered product or service.
-                            li 
-                                b Improved Conversion Rates: 
-                                | Buying pre-qualified leads ensures that you're getting in contact with individuals who are already interested in your offerings, which increases the chances of making a sale.
 
-                        p 
-                            | Thus it is clear that buyer leads are essential to boost the revenue of the business and also to drive the growth of the business. There are bigger chances of buyer leads to transform into buying customers. Buyer leads increase the efficiency of marketing efforts and improve the ROI. Generating leads organically is effective but a very gradual and time consuming process. Purchasing buyer leads can fast-track your business’s sales process by providing pre-qualified prospects ready to engage with your brand. By investing in the right lead providers and strategies, you can ensure that your business thrives in an increasingly competitive marketplace.
-                            br
-                            | KeyWords: Buyer Leads, Generating Buyer Leads, Zolexomart
-                            br
-                            | Tags: Business Growth, Revenue Boost Up, Buyer Leads
+
 
 
 
@@ -151,18 +145,4 @@ html(lang="en")
     // Template Scripts
     script(src="/js/main.js")
 
-    // Typed.js Initialization
-    script.
-        $(document).ready(function() {
-            var options = {
-                strings: [
-                    "Search",
-                    "Google My Business",
-                    "Digital Marketing"
-                ],
-                typeSpeed: 50,
-                backSpeed: 50,
-                loop: true
-            };
-            new Typed('.text', options);
-            
+   
