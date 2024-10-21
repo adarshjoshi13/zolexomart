@@ -1712,3 +1712,8 @@ ul.accordion-list {
     background-color: #03c6d9;
     border-color:#03c6d9;
 }
+.listscroll{
+    left: -110px;
+    overflow-y: scroll;
+    height: 400px;
+}
