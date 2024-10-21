@@ -1684,7 +1684,7 @@ ul.accordion-list {
     justify-content: center;
   }
   .newbtn a{
-    background: red;
+    /* background: red; */
     width: 50%;
     color: #fff;
   }
@@ -1707,3 +1707,8 @@ ul.accordion-list {
   .pulse a{
     margin-bottom: 0 !important;
   }
+  .btn-outline-primary:hover {
+    color: #fff;
+    background-color: #03c6d9;
+    border-color:#03c6d9;
+}
