@@ -540,7 +540,7 @@ h6,
 
 .addp{
     padding: 53px 0;
-
+   
 
 }
 .navbar-light .navbar-nav .nav-link:hover, .navbar-light .navbar-nav .nav-link.active{
@@ -812,12 +812,12 @@ a {
     border-radius: 3px;
 }
 
-/* .mainnav .show{
+.mainnav .show{
     display: grid;
     grid-template-columns: auto auto;
     position: absolute;
     right: -100px;
-} */
+}
 .dropdown-item{
     padding: 1rem 1rem;
 }
@@ -1745,7 +1745,7 @@ border-radius: 10px;
 
 
 /* bannnerr */
-body{
+.bgbanner{
     /* background: #162561; */
     background-image: radial-gradient(
         circle at 20% 100%,
@@ -1821,8 +1821,8 @@ body{
   
   .swiper {
     position: relative;
-    width: 400px;
-    height: 490px;
+    width: 350px;
+    height: 400px;
   }
   
   .swiper-slide {
@@ -1853,7 +1853,7 @@ body{
   
   .swiper-slide img {
     width: 100%;
-    height: 100%;
+    height: 260px;
     border-radius: 20px;
   }
   
@@ -1867,7 +1867,8 @@ body{
     width: 100%;
     height: 150px;
     padding: 10px 20px;
-    background: rgba(93, 95, 145, 0.2);
+    background: #0000008f;
+
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
     border-top: 1px solid rgba(255, 255, 255, 0.3);
@@ -1878,6 +1879,7 @@ body{
   .overlayadd h1 {
     font-size: clamp(1.2rem, 4vw, 1.5rem);
     font-weight: 600;
+    color: #fff;
   }
   
   .overlayadd p {
@@ -1966,3 +1968,23 @@ body{
       height: 400px;
     }
   }
+  .textadd {
+    overflow: hidden;
+    color: #fff !important;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* number of lines to show */
+            line-clamp: 2; 
+    -webkit-box-orient: vertical;
+ }
+ .text1{
+    overflow: hidden;
+    color: #fff !important;
+    display: -webkit-box;
+    -webkit-line-clamp: 1; /* number of lines to show */
+            line-clamp: 1; 
+    -webkit-box-orient: vertical;
+ }
+ .bt{
+    color: #fff;
+    background: #03c6d9;
+ }
