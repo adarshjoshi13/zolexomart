@@ -2,7 +2,7 @@ doctype html
 html(lang="en")
     head
         meta(charset="utf-8")
-
+        meta(name="google-site-verification" content="5F6C0wjuPFdfdu3gS-9ToS5dEJE89q4h3rfx-uIOkJw")
         meta(name="viewport" content="width=device-width, initial-scale=1.0")
         title Lead Generation, SEO, PPC, SMM and Web Development Services in India | Zolexo Mart Pvt. Ltd. | Contact Us: 9958575960
 
@@ -17,7 +17,13 @@ html(lang="en")
         meta(property="og:description" content="Zolexo Mart provites Best Technology Services in all over india, Lead Generation Services, Search Engine Optimization Services, Social Media Marketing Services, Verified Quality Buyer Generation Services, GMB SEO Services, Pay Per Click Services, Web Development Services, Mobile Apps Development Services, CRM Development Services.")
         meta(property="og:site_name" content="Zolexo Mart Pvt. Ltd.")
         meta(property="og:url" content="https://www.zolexomart.in")
-
+        // Google tag (gtag.js)
+        script(async src="https://www.googletagmanager.com/gtag/js?id=G-YP8NGZ84S2")
+        script.
+            window.dataLayer = window.dataLayer || [];
+            function gtag() { dataLayer.push(arguments); }
+            gtag('js', new Date());
+            gtag('config', 'G-YP8NGZ84S2');
         script(type="application/ld+json").
             {
                 "@context": "https://schema.org/",
@@ -50,20 +56,20 @@ html(lang="en")
 
 
 
-        // Google tag (gtag.js)
-        script(async src="https://www.googletagmanager.com/gtag/js?id=G-QCW5M672FJ")
-        script.
-            window.dataLayer = window.dataLayer || [];
-            function gtag() { dataLayer.push(arguments); }
-            gtag('js', new Date());
-            gtag('config', 'G-QCW5M672FJ');
+        
 
-        meta(name="google-site-verification" content="nXpMVKGyc0mkMAQ27vfXEjDtvsYrHygBnP9tX-vzsew")
+        
         link(href="/img/Logo.jpg" rel="icon")
 
         // Carousel CSS
         link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css")
         link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css")
+
+
+        link(rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css")
+        link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css")
+
+
 
         // Google Web Fonts
         link(rel="preconnect" href="https://fonts.googleapis.com")
@@ -121,19 +127,64 @@ html(lang="en")
 
         .container-fluid.bg-white.p-0
             // Navbar & Hero Start
-
-
-
             div.container-fluid.position-relative.p-0
                 include ./components/nav.pug
-                div.container-fluid.hero-header.mb-5.indexp
+        .container-fluid.bgbanner#tsparticle
+            div.container-fluid.hero-header.mb-5
+              
                     div.container.addp.px-lg-5
                         div.row.g-5
-                            div.layer_img.blinker_anim
-                                img(src="" alt="" title="")
+                            //- div.layer_img.blinker_anim
+                            //-     img(src="" alt="" title="")
                             div.col-lg-5.col-md-5.col-xs-12
-                                img(src="/img/freep.png" alt="" class="imgbanner")
-                            div.col-lg-7.col-md-7.col-xs-12
+                                //- img(src="/img/freep.png" alt="" class="imgbanner")
+                                div
+                                    section.sectionadd
+                                        div.swiper
+                                            div.swiper-wrapper
+                                                div.swiper-slide
+                                                    img( src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/49db1b5f-09f6-4433-be57-51687585600c")
+                                                    div.cost from $230 per group
+                                                    div.overlayadd
+                                                        h1 Walking Tour in Florence
+                                                        p Discover the fascinating beauty of this historic city by  strolling through the rich cultural tapestry that makes Florence a timeless destination.
+                                                        .ratings
+                                                            .stars
+                                                            ion-icon.star(name="star")
+                                                            ion-icon.star(name="star")
+                                                            ion-icon.star(name="star")
+                                                            ion-icon.star(name="star")
+                                                            ion-icon.star-half-outline(name="star-half-outline")
+                                                            span 138 reviews
+                                                .swiper-slide
+                                                    img(src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/2d165721-fe2e-4cf0-a63e-20bc5bc3f847")
+                                                    .cost from $380 per group
+                                                    .overlayadd
+                                                        h1 Edinburgh Guided Tour
+                                                        p Explore the city's majestic castles and fascinating history by joining our guided tour for an unforgettable journey through Scotland's capital.
+                                                        .ratings
+                                                            .stars
+                                                                ion-icon.star(name="star")
+                                                                ion-icon.star(name="star")
+                                                                ion-icon.star(name="star")
+                                                                ion-icon.star(name="star")
+                                                                ion-icon.star(name="star")
+                                                            span 307 reviews
+                                                .swiper-slide
+                                                    img(src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/d311d1de-7382-4c03-b083-5f7e88458158")
+                                                    .cost from $99 per adult
+                                                    .overlayadd
+                                                        h1 Edinburgh Guided Tour
+                                                        p Explore the city's majestic castles and fascinating history by
+                                                        .ratings
+                                                            .stars
+                                                                ion-icon.star(name="star")
+                                                                ion-icon.star(name="star")
+                                                                ion-icon.star(name="star")
+                                                                ion-icon.star(name="star")
+                                                                ion-icon.star(name="star")
+                                                            span 1152 reviews
+                            div.col-lg-7.col-md-7.col-xs-12.phone
                                 h1.bodh Best Digital Marketing Company for SME,MSME,B2B,B2C and Professional
                                 div.bod
                                     div.text Search
@@ -162,8 +213,8 @@ html(lang="en")
                             a.btn.btn-outline-primary.btn-square(href="https://www.linkedin.com/company/zolexomart/")
                                 i.fab.fa-linkedin-in
 
-                    div.col-lg-6.addimgs
-                        img.img-fluid.wow.zoomIn(data-wow-delay="0.5s" src="/img/homepaghe.jpg" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomIn;")
+                    div.col-lg-6.border-radias
+                        img.img-fluid.wow.zoomIn(data-wow-delay="0.5s" src="/img/digital-marketing.png" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomIn;")
 
         .container-xxl.py-5
             div.container.px-lg-5
@@ -396,6 +447,11 @@ html(lang="en")
         script(src="lib/easing/easing.min.js")
         script(src="lib/owlcarousel/owl.carousel.min.js")
         script(src="lib/lightbox/js/lightbox.min.js")
+        script( src="https://cdn.jsdelivr.net/npm/tsparticles@1.26.0/dist/tsparticles.min.js")
+        script( src="https://unpkg.com/swiper/swiper-bundle.min.js")
+        script(src="./js/new.js")
+  
+
 
         // Customized Bootstrap Scripts
         script(src="js/bootstrap.bundle.min.js")
