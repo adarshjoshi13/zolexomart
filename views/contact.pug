@@ -2,21 +2,21 @@ doctype html
 html(lang="en")
     head
         meta(charset="utf-8")
-        
+
         meta(name="viewport" content="width=device-width, initial-scale=1.0")
         title Contact US | Digital Marketing Services | Zolexo Mart Pvt. Ltd. | Contact Us: 9958575960
 
-        meta(name="Description", content="Contact Us Zolexo Mart for assistance with orders, products, or inquiries. Our team is ready to help you. Reach out today!")
-        meta(name="Keywords", content="Digital Marketing Services, SEO Services, SMM Services, Web Development Services, Website Optimization Services in India.")
-        meta(name="robots", content="Index, follow")
-        link(rel="canonical", href="https://www.zolexomart.in/contact")
+        meta(name="Description" content="Contact Us Zolexo Mart for assistance with orders, products, or inquiries. Our team is ready to help you. Reach out today!")
+        meta(name="Keywords" content="Digital Marketing Services, SEO Services, SMM Services, Web Development Services, Website Optimization Services in India.")
+        meta(name="robots" content="Index, follow")
+        link(rel="canonical" href="https://www.zolexomart.in/contact")
 
-        meta(property="og:locale", content="en_IN")
-        meta(property="og:type", content="Website")
-        meta(property="og:title", content="Contact US | Digital Marketing Services | Zolexo Mart Pvt. Ltd. | Contact Us: 9958575960")
-        meta(property="og:description", content="Contact Us Zolexo Mart for assistance with orders, products, or inquiries. Our team is ready to help you. Reach out today!")
-        meta(property="og:site_name", content="Zolexo Mart Pvt. Ltd.")
-        meta(property="og:url", content="https://www.zolexomart.in/contact")
+        meta(property="og:locale" content="en_IN")
+        meta(property="og:type" content="Website")
+        meta(property="og:title" content="Contact US | Digital Marketing Services | Zolexo Mart Pvt. Ltd. | Contact Us: 9958575960")
+        meta(property="og:description" content="Contact Us Zolexo Mart for assistance with orders, products, or inquiries. Our team is ready to help you. Reach out today!")
+        meta(property="og:site_name" content="Zolexo Mart Pvt. Ltd.")
+        meta(property="og:url" content="https://www.zolexomart.in/contact")
 
         link(href="/img/Logo.jpg" rel="icon")
 
@@ -81,9 +81,9 @@ html(lang="en")
 
         .container-xxl.bg-white.p-0
 
-          
 
-                
+
+
         div.container-xxl.position-relative.p-0
             include ./components/nav.pug
         .hero-header.bg
@@ -93,26 +93,26 @@ html(lang="en")
             .container.px-lg-5
                 .row
                     .col-lg-8
-                        .section-title.position-relative.text-center.mb-5.pb-2.wow.fadeInUp(data-wow-delay="0.1s", style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;")
+                        .section-title.position-relative.text-center.mb-5.pb-2.wow.fadeInUp(data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;")
                             h6.position-relative.d-inline.text-primary.ps-4 Contact Us
                             h2.mt-2 Contact For Any Query
-                        .wow.fadeInUp(data-wow-delay="0.3s", style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;")
+                        .wow.fadeInUp(data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;")
                         .form-container
-                            form(method="post", name="emailContact", action="/api/send-mail")
-                            .input-row
-                                label Name<em>*</em>
-                                input.form-control(type="text", placeholder="Enter your Name", name="userName", required)
-                            .input-row
-                                label Email<em>*</em>
-                                input.form-control(type="email", placeholder="Enter your Email", name="userEmail", required)
-                            .input-row
-                                label Phone<em>*</em>
-                                input.form-control(type="tel", placeholder="Enter your Mobile Number", name="userPhone", required)
-                            .input-row
-                                label Message<em>*</em>
-                                textarea.form-control(name="userMessage", rows="4", required)
-                            .input-row
-                                input.btn(type="submit", name="send", value="Submit")
+                            form(method="post" name="emailContact" action="/api/send-mail")
+                                .input-row
+                                    label Name<em>*</em>
+                                    input.form-control(type="text" placeholder="Enter your Name" name="userName", required)
+                                .input-row
+                                    label Email<em>*</em>
+                                    input.form-control(type="email" placeholder="Enter your Email" name="userEmail", required)
+                                .input-row
+                                    label Phone<em>*</em>
+                                    input.form-control(type="tel" placeholder="Enter your Mobile Number" name="userPhone", required)
+                                .input-row
+                                    label Message<em>*</em>
+                                    textarea.form-control(name="userMessage" rows="4", required)
+                                .input-row
+                                    input.btn(type="submit" name="send" value="Submit")
                     .col-md-4
                         img(src="./img/contactimage.png")
 
@@ -137,4 +137,4 @@ html(lang="en")
     // Template Scripts
     script(src="/js/main.js")
 
-   
+
