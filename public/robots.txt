@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+Allow: /sitemap.html
+Sitemap: https://www.zolexomart.in/sitemap.xml
