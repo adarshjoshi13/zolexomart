@@ -6,8 +6,10 @@ require('dotenv').config();
 
 const router = express.Router();
 
-router.post('/send-mail', async (req, res) => {
-    console.log(req.body)
+router.post('/send-mail/:recipientEmail', async (req, res) => {
+    console.log(req.params.recipientEmail)
+    console.log(req.body, "data")
+    const recipientList = (req.params.recipientEmail == 'info@zolexomart.in' ? req.params.recipientEmail : ['info@zolexomart.in', req.params.recipientEmail])
 
     let Transporter = nodemailer.createTransport({
         service: "gmail",
@@ -23,10 +25,9 @@ router.post('/send-mail', async (req, res) => {
             console.log(error);
             return res.status(500).json({ ERROR: error });
         } else {
-
             let MailOption = {
-                from: 'adarsh@zolexomart.com',
-                to: 'info@zolexomart.in',
+                from: 'khanmohdfaisal1985@gmail.com',
+                to: recipientList,
                 subject: 'Hi! New Customer Query',
                 html: `
                 <div style="font-family: Arial, sans-serif; color: #333; line-height: 1.6;">
@@ -70,8 +71,8 @@ router.post('/send-mail', async (req, res) => {
                             console.log('Database Error:', dbError);
                             return res.status(500).json({ ERROR: 'Failed to save data to database' });
                         }
-
-                        return res.redirect('/'); 
+                        console.log('Mail sent successfully');
+                        return res.redirect('/');
                     }
                 })
                 .catch((err) => {
@@ -88,8 +89,8 @@ router.post('/to-download-companypdf', (req, res) => {
         if (err) {
             console.error('Error downloading the file:', err);
             res.status(500).send('Internal Server Error');
-        } 
-    });
+        }
+    });
 });
 
 module.exports = router;
