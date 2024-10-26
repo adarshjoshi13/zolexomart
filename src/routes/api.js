@@ -2,6 +2,7 @@ const express = require('express');
 const nodemailer = require('nodemailer');
 const { MailInfo } = require('../models/index');
 const path = require('path');
+const url = require('url');
 require('dotenv').config();
 
 const router = express.Router();
@@ -10,6 +11,11 @@ router.post('/send-mail/:recipientEmail', async (req, res) => {
     console.log(req.params.recipientEmail)
     console.log(req.body, "data")
     const recipientList = (req.params.recipientEmail == 'info@zolexomart.in' ? req.params.recipientEmail : ['info@zolexomart.in', req.params.recipientEmail])
+
+
+    const referer = req.headers.referer || '/';
+    const parsedUrl = url.parse(referer, true);
+    const redirectBase = `${parsedUrl.protocol}//${parsedUrl.host}`;
 
     let Transporter = nodemailer.createTransport({
         service: "gmail",
@@ -72,7 +78,7 @@ router.post('/send-mail/:recipientEmail', async (req, res) => {
                             return res.status(500).json({ ERROR: 'Failed to save data to database' });
                         }
                         console.log('Mail sent successfully');
-                        return res.redirect('/');
+                        return res.redirect(redirectBase);
                     }
                 })
                 .catch((err) => {

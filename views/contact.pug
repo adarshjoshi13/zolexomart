@@ -98,7 +98,7 @@ html(lang="en")
                             h2.mt-2 Contact For Any Query
                         .wow.fadeInUp(data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;")
                         .form-container
-                            form(method="post" name="emailContact" action="/api/send-mail")
+                            form(method="post" name="emailContact" action="/api/send-mail/info@zolexomart.in" onsubmit="return validatePhoneNumber()")
                                 .input-row
                                     label Name<em>*</em>
                                     input.form-control(type="text" placeholder="Enter your Name" name="userName", required)
@@ -107,7 +107,7 @@ html(lang="en")
                                     input.form-control(type="email" placeholder="Enter your Email" name="userEmail", required)
                                 .input-row
                                     label Phone<em>*</em>
-                                    input.form-control(type="tel" placeholder="Enter your Mobile Number" name="userPhone", required)
+                                    input.form-control(type="text" placeholder="Enter your Mobile Number" name="userPhone" required)
                                 .input-row
                                     label Message<em>*</em>
                                     textarea.form-control(name="userMessage" rows="4", required)
@@ -115,13 +115,6 @@ html(lang="en")
                                     input.btn(type="submit" name="send" value="Submit")
                     .col-md-4
                         img(src="./img/contactimage.png")
-
-
-
-
-
-
-
 
     include ./components/footer.pug
 
@@ -136,5 +129,17 @@ html(lang="en")
 
     // Template Scripts
     script(src="/js/main.js")
+    script.
+        function validatePhoneNumber() {
+            const phoneInput = document.forms['emailContact']['userPhone'];
+            const phoneNumber = phoneInput.value;
+
+            if (phoneNumber.length !== 10) {
+                alert("Please enter exactly 10 digits for the phone number.");
+                phoneInput.focus();
+                return false; // Prevent form submission
+            }
+            return true; // Allow form submission
+        }
 
 
