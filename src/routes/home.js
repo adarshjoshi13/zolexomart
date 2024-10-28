@@ -125,6 +125,26 @@ router.get('/view-all-services', (req, res) => {
 router.get('/paynow', (req, res) => {
     res.render('paynow');
 });
+//small-business-websites 
+router.get('/small-business-websites', (req, res) => {
+    res.render('small-business-websites');
+});
+//business-websites 
+router.get('/business-websites', (req, res) => {
+    res.render('business-websites');
+});
+//e-commerce-websites 
+router.get('/e-commerce', (req, res) => {
+    res.render('e-commerce');
+});
+//e-commerce-websites 
+router.get('/city-digital-seo', (req, res) => {
+    res.render('city-digital-seo');
+});
+//send Query
+router.get('/send-query', (req, res) => {
+    res.render('send-query');
+});
 // Service route
 router.get('/service/:id', async (req, res) => {
     try {
