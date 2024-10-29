@@ -94,8 +94,8 @@ html(lang="en")
             .container
                 .row
                     .col-md-8
-                        .resume-form
-                            form(method="post" action="https://www.ezrankings.com/thank-you.html" id="get_guote_form" onsubmit="formSubmit(event,this)")
+                        .resume-form 
+                            form(method="post" action="/api/send-quote" id="get_guote_form")
                                 .row
                                     .col-md-12
                                         h1 Request A Quote
@@ -133,7 +133,7 @@ html(lang="en")
                                             option(value="Other") Other
                                     .form-group.col-md-6
                                         label Select Package
-                                        select(name="experience" class="form-control" required)
+                                        select(name="package" class="form-control" required)
                                             option(value="Basic") Basic
                                             option(value="Star") Star
                                             option(value="Silver") Silver
@@ -145,10 +145,6 @@ html(lang="en")
                                         textarea(class="form-control" cols="10" name="message")
                                 .row
                                     .form-group.col-md-4
-                                        input(type="hidden" name="form_title" value="Get a Quote")
-                                        input(type="hidden" name="form_id" value="blogconnect_form")
-                                        input(type="hidden" name="ez_key" value="e6ed9b37f19d1f983c73a54aee89f87d")
-                                        input(type="hidden" name="current_page_url" value="https://www.ezrankings.com//get-a-quote.html")
                                         input(type="submit" class="btn btn-info")
                                         input(type="hidden" name="action" value="submit")
                                         br
