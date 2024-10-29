@@ -137,9 +137,13 @@ router.get('/business-websites', (req, res) => {
 router.get('/e-commerce', (req, res) => {
     res.render('e-commerce');
 });
-//e-commerce-websites 
+//city-digital-seo
 router.get('/city-digital-seo', (req, res) => {
     res.render('city-digital-seo');
+});
+//digital-booster-package 
+router.get('/digital-booster-package', (req, res) => {
+    res.render('digital-booster-package');
 });
 //send Query
 router.get('/send-query', (req, res) => {
