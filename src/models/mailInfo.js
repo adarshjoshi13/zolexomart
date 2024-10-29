@@ -22,7 +22,6 @@ module.exports = function (sequelize, DataTypes) {
         mobile: {
             type: DataTypes.BIGINT,
             allowNull: false,
-            unique: true,
             validate: {
                 notEmpty: true,
                 isInt: true,  
@@ -32,7 +31,6 @@ module.exports = function (sequelize, DataTypes) {
         email: {
             type: DataTypes.STRING(100),
             allowNull: false,
-            unique: true, 
             validate: {
                 notEmpty: true,
                 isEmail: true, 

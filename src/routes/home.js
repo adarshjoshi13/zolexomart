@@ -149,6 +149,10 @@ router.get('/digital-booster-package', (req, res) => {
 router.get('/send-query', (req, res) => {
     res.render('send-query');
 });
+//send Query
+router.get('/city-wise-seo', (req, res) => {
+    res.render('city-wise-seo');
+});
 // Service route
 router.get('/service/:id', async (req, res) => {
     try {

@@ -2285,36 +2285,37 @@ section.get-aquote-page h4 {
     border-radius: 25px;
 } */
 .sila a{
-    background: #6783e3;
+    background: #03d940;
     color: #fff;
     padding: 12px 30px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 25px;
 }
 .stara a{
-    background: #03d940;
+    background: red;
     color: #fff;
     padding: 12px 30px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 25px; 
 }
 .basea a{
-    background: red;
+    background:#6783e3;
+   
     color: #fff;
     padding: 12px 30px;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border-radius: 25px; 
 }
 .basic{
-    background: red;
+    background:#6783e3;
     color: #fff;
 }
 .star{
-    background: #03d940;
+    background:red;
     color: #fff;
 }
 .silver{
-    background: #6783e3;
+    background: #03d940;
     color: #fff;
 
 }
@@ -2357,4 +2358,15 @@ table .fa-times{
     text-align: center;
     margin: 0 auto;
     border-radius: 50px;
+}
+.btm{
+    width: 100%;
+    outline: none;
+    margin-top: 25px;
+    color: #fff;
+    background: #03c6d9;
+    border: none;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 5px;
 }
