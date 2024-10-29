@@ -12,6 +12,7 @@ const sequelize = new Sequelize(process.env.DB_NAME, process.env.DB_USER,   proc
 
 const Services = require('./services')(sequelize, Sequelize);
 const MailInfo = require('./mailInfo')(sequelize, Sequelize);
+const Queries = require('./queries')(sequelize, Sequelize);
 const Users = require('./users')(sequelize, Sequelize);
 
 const Connection = async () => {
@@ -32,4 +33,4 @@ const Connection = async () => {
     }
 };
 
-module.exports = { Connection, Services, MailInfo, Users };
+module.exports = { Connection, Services, MailInfo, Users, Queries };

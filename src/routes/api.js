@@ -1,15 +1,39 @@
 const express = require('express');
 const nodemailer = require('nodemailer');
-const { MailInfo } = require('../models/index');
+const { MailInfo, Queries } = require('../models/index');
 const path = require('path');
 const url = require('url');
 require('dotenv').config();
 
 const router = express.Router();
 
+router.post('/send-quote', async (req, res) => {
+    console.log(req.body, "query data");
+
+    // Extract the relevant fields from the request body
+    const { name, lname, phone, email, service, package, message } = req.body;
+    const query = {
+        fullname: name + lname,
+        phone: phone,
+        email: email,
+        service: service,
+        package: package,
+        message: message,
+    }
+    try {
+        // Create a new record in the Queries table
+        const newQuery = await Queries.create(query);
+
+        // If successful, send a response
+        return res.redirect('/')
+    } catch (err) {
+        console.error('Error saving query:', err);
+        return res.status(500).json({ error: 'Failed to submit query' });
+    }
+});
+
+
 router.post('/send-mail/:recipientEmail', async (req, res) => {
-    console.log(req.params.recipientEmail)
-    console.log(req.body, "data")
     const recipientList = (req.params.recipientEmail == 'info@zolexomart.in' ? req.params.recipientEmail : ['info@zolexomart.in', req.params.recipientEmail])
 
 
