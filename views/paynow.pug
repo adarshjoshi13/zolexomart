@@ -44,6 +44,7 @@ html(lang="en")
         link(href="/lib/animate/animate.min.css" rel="stylesheet")
         link(href="/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet")
         link(href="/lib/lightbox/css/lightbox.min.css" rel="stylesheet")
+        link(href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css", rel="stylesheet")
 
         // Customized Bootstrap Stylesheet
         link(href="/css/bootstrap.min.css" rel="stylesheet")
@@ -76,6 +77,19 @@ html(lang="en")
             })();
         // End of Tawk.to Script
 
+        // Place this at the bottom of paynow.pug
+        div#thankYouModal.modal.fade(role="dialog")
+            .modal-dialog.modal-dialog-centered
+                .modal-content(style="border-radius: 8px; overflow: hidden;")
+                    .modal-header.text-center(style="background-color: #28a745; color: white;")
+                        h5.modal-title(style="width: 100%; font-weight: bold;") 🎉 Thank You!
+                        button.close(type="button", data-dismiss="modal", style="color: white;") &times;
+                    .modal-body.text-center
+                        p(style="font-size: 1.2em; margin: 15px 0;") Your payment was successful! We appreciate your business.
+                    .modal-footer.justify-content-center(style="border-top: none; padding-top: 0;")
+                        button.btn.btn-success(type="button", data-dismiss="modal", style="padding: 10px 20px; border-radius: 5px; font-size: 1em;") Close
+
+
         #customerQuery_btn_right
             a.modal-body.querypop-page-start.getfq(href="contact")
                 span.pulse-button 
@@ -85,11 +99,6 @@ html(lang="en")
             a(href="https://wa.me/9958575960")
                 img(src="/img/whatsapp.png" alt="WhatsApp")
 
-        .container-xxl.bg-white.p-0
-
-          
-
-                
         div.container-xxl.position-relative.p-0
             include ./components/nav.pug
         //- .hero-header.bg
@@ -107,29 +116,24 @@ html(lang="en")
                             h2.mt-2 Contact For Any Query
                         .wow.fadeInUp(data-wow-delay="0.3s", style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;")
                         .form-container
-                            form(method="post", name="emailContact", action="/api/send-mail")
-                            .input-row
-                                label Name<em>*</em>
-                                input.form-control(type="text", placeholder="Enter your Name", name="userName", required)
-                            .input-row
-                                label Email<em>*</em>
-                                input.form-control(type="email", placeholder="Enter your Email", name="userEmail", required)
-                            .input-row
-                                label Phone<em>*</em>
-                                input.form-control(type="tel", placeholder="Enter your Mobile Number", name="userPhone", required)
-                            .input-row
-                                label Message<em>*</em>
-                                textarea.form-control(name="userMessage", rows="4", required)
-                            .input-row
-                                input.btn(type="submit", name="send", value="Submit")
-
-
-
-
-
-
-
-
+                            form(method="post", name="emailContact", action="/api/pay", onsubmit="startPayment(event)")
+                                .input-row
+                                    label Name<em>*</em>
+                                    input.form-control(type="text", placeholder="Enter your Name", name="userName", required)
+                                .input-row
+                                    label Email<em>*</em>
+                                    input.form-control(type="email", placeholder="Enter your Email", name="userEmail", required)
+                                .input-row
+                                    label Payment<em>*</em>
+                                    input.form-control(type="number", placeholder="Enter your Amount", name="userPayment", required)
+                                .input-row
+                                    label Phone<em>*</em>
+                                    input.form-control(type="tel", placeholder="Enter your Mobile Number", name="userPhone", required)
+                                .input-row
+                                    label Message<em>*</em>
+                                    textarea.form-control(name="userMessage", rows="4", required)
+                                .input-row
+                                    input.btn(type="submit", name="send", value="Submit")
 
     include ./components/footer.pug
 
@@ -138,11 +142,57 @@ html(lang="en")
     script(src="/lib/easing/easing.min.js")
     script(src="/lib/owlcarousel/owl.carousel.min.js")
     script(src="/lib/lightbox/js/lightbox.min.js")
+    script(src="https://code.jquery.com/jquery-3.5.1.min.js")
+    script(src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js")
+
 
     // Carousel JS
     script(src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js")
-
+    script(src="https://checkout.razorpay.com/v1/checkout.js")
     // Template Scripts
     script(src="/js/main.js")
+    script.
+        function startPayment(event) {
+            event.preventDefault();
+            console.log('working')
+            const form = document.forms.emailContact;
 
-   
+            // Fetch payment details
+            fetch('/api/pay', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    userName: form.userName.value,
+                    userEmail: form.userEmail.value,
+                    userPayment: form.userPayment.value,
+                    userPhone: form.userPhone.value,
+                    userMessage: form.userMessage.value
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                const options = {
+                    key: data.key,
+                    amount: data.amount,
+                    currency: data.currency,
+                    name: "Zolexo Mart Pvt Ltd",
+                    description: "Test Transaction",
+                    image: "/path/to/logo.png",
+                    order_id: data.id,
+                    handler: function (response) {
+                        $('#thankYouModal').modal('show');
+                    },
+                    prefill: {
+                        name: data.userName,
+                        email: data.userEmail,
+                        contact: data.userPhone
+                    },
+                    theme: {
+                        color: "#3399cc"
+                    }
+                };
+                const rzp1 = new Razorpay(options);
+                rzp1.open();
+            })
+            .catch(error => console.error('Payment error:', error));
+        }

@@ -3,9 +3,45 @@ const nodemailer = require('nodemailer');
 const { MailInfo, Queries } = require('../models/index');
 const path = require('path');
 const url = require('url');
+const Razorpay = require('razorpay');
 require('dotenv').config();
 
 const router = express.Router();
+
+const razorpay = new Razorpay({
+    key_id: process.env.RAZORPAY_KEY_ID,
+    key_secret: process.env.RAZORPAY_KEY_SECRET,
+});
+
+
+router.post('/pay', async (req, res) => {
+    try {
+        const { userName, userEmail, userPayment, userPhone, userMessage } = req.body;
+
+        // Create Razorpay order
+        const options = {
+            amount: userPayment * 100, // Amount in smallest currency unit (e.g., 5000 paise for 50 INR)
+            currency: 'INR',
+            receipt: `receipt_order_${Math.random() * 1000000}`,
+            payment_capture: 1, // Auto-capture payment after authorization
+        };
+
+        const order = await razorpay.orders.create(options);
+
+        res.json({
+            id: order.id,
+            currency: order.currency,
+            amount: order.amount,
+            userName,
+            userEmail,
+            userPhone,
+            userMessage,
+        });
+    } catch (error) {
+        console.error('Error creating Razorpay order:', error);
+        res.status(500).send('Internal Server Error');
+    }
+});
 
 router.post('/send-quote', async (req, res) => {
     console.log(req.body, "query data");
@@ -31,7 +67,6 @@ router.post('/send-quote', async (req, res) => {
         return res.status(500).json({ error: 'Failed to submit query' });
     }
 });
-
 
 router.post('/send-mail/:recipientEmail', async (req, res) => {
     const recipientList = (req.params.recipientEmail == 'info@zolexomart.in' ? req.params.recipientEmail : ['info@zolexomart.in', req.params.recipientEmail])
