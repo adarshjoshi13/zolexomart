@@ -36,11 +36,13 @@ div.container-fluid.position-relative.p-0(style="z-index:9999999999999")
             span.fa.fa-bars
         div.collapse.navbar-collapse(id="navbarCollapse")
             div.navbar-nav.ms-auto.py-0
-                a(href="/" class="nav-item nav-link active") Home
+                a(href="/" class="nav-item nav-link active")
+                    <i class="fa-solid fa-house"></i> Home
                 
                 .dropdown.navbar-nav.py-0.desk
                     
-                    a(href="#" class="nav-item nav-link") Packages
+                    a(href="#" class="nav-item nav-link") 
+                        <i class="fa-solid fa-suitcase"></i> Packages
                         svg(xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16")
                             path(fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z")
                     div
@@ -66,7 +68,8 @@ div.container-fluid.position-relative.p-0(style="z-index:9999999999999")
                             b
                                 a(href="/digital-growth-package") Digital Growth Packages
                 .dropdown.navbar-nav.py-0.phone                
-                    a(href="#" class="nav-item nav-link") Packages
+                    a(href="#" class="nav-item nav-link") 
+                        <i class="fa-solid fa-suitcase"></i> Packages
                         svg(xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16")
                             path(fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z")
                     div
@@ -93,7 +96,8 @@ div.container-fluid.position-relative.p-0(style="z-index:9999999999999")
                                
                        
                 div.nav-item.dropdown.mainnav
-                    a(href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false") Services
+                    a(href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false") 
+                        <i class="fa-brands fa-servicestack"></i> Services
                         svg(xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16")
                             path(fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z")
                     div.dropdown-menu.m-0
@@ -104,9 +108,12 @@ div.container-fluid.position-relative.p-0(style="z-index:9999999999999")
                                     span.menuTitle #{service.serviceName}
                
                 //- a(href="/celebrity-endorsement" class="nav-item nav-link") Celebrity Endorsement
-                a(href="/about" class="nav-item nav-link") About
-                a(href="/blogs" class="nav-item nav-link") Blogs
-                a(href="/contact" class="nav-item nav-link") Contact
+                a(href="/about" class="nav-item nav-link") 
+                    <i class="fa-solid fa-address-card icons"></i> About
+                a(href="/blogs" class="nav-item nav-link") 
+                    <i class="fa-solid fa-blog"></i> Blogs
+                a(href="/contact" class="nav-item nav-link") 
+                    <i class="fa-solid fa-address-book"></i> Contact
 
         script.
             $(document).ready(function() {

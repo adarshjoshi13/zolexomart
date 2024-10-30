@@ -106,14 +106,18 @@ html(lang="en")
         //-     img(src="./img/2149288184.jpg" alt="" width="100%")
         .container-xxl.py-5
             .container.px-lg-5
-                .row(style='display: flex; justify-content: center;')
-                    
-                    .col-lg-6
-                        .section-title.position-relative.text-center.mb-5.pb-2.wow.fadeInUp(data-wow-delay="0.1s", style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;")
+                .row
+                    .section-title.position-relative.text-center.mb-5.pb-2.wow.fadeInUp(data-wow-delay="0.1s", style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;")
                             //- h6.position-relative.d-inline.text-primary.ps-4 Contact Us
                             h2.mt-2 Pay Now
-                        .wow.fadeInUp(data-wow-delay="0.3s", style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;")
-                        .form-container
+                    .col-lg-6 
+                       
+                        div.qrcode.wow.fadeInUp(data-wow-delay="0.1s", style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;") 
+                            img(src="./img/payment.png", )
+                    .col-lg-6
+                        
+                        
+                        .form-container.wow.fadeInUp(data-wow-delay="0.3s", style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;")
                             form(method="post", name="emailContact", action="/api/pay", onsubmit="startPayment(event)")
                                 .input-row
                                     label Name<em>*</em>

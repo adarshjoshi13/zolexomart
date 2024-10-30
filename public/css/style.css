@@ -1134,7 +1134,7 @@ color: #000;
     overflow: hidden;
 }
 .qrcode img{
-    width: 80%;
+    width: 95%;
   }
   .imgheight{
     height: 480px; 
@@ -1476,16 +1476,16 @@ body{
     display: block;
     font-weight: 600;
     margin: 5px 0;
-    font-size: 18px;
+    font-size: 13px;
 }
 .form-container input {
-    height: 45px;
+    height: 38px;
     width: 100%;
     outline: none;
     border-radius: 5px;
     border: 1px solid #c1c1c1;
     padding-left: 15px;
-    font-size: 16px;
+    font-size: 13px;
     border-bottom-width: 2px;
     transition: all 0.3s ease;
 }
@@ -2376,4 +2376,9 @@ table .fa-times{
 }
 .paybtn img{
     height: 25px;
+}
+.fa-star{
+    color: red;
+    font-size: 8px;
+
 }
