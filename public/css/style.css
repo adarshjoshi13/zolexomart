@@ -2370,3 +2370,10 @@ table .fa-times{
     font-weight: 500;
     border-radius: 5px;
 }
+.paybtn{
+    border: none;
+    background: none;
+}
+.paybtn img{
+    height: 25px;
+}
