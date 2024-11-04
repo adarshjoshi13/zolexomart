@@ -2382,3 +2382,35 @@ table .fa-times{
     font-size: 8px;
 
 }
+@media(max-width:768px){
+    .sila a{
+        background: initial;
+        color: #fff;
+        padding: initial;
+        box-shadow:initial;
+        border-radius: initial;
+    }
+    .stara a{
+        background: initial;
+        color: #fff;
+        padding: initial;
+        box-shadow:initial;
+        border-radius: initial;
+    }
+    .basea a{
+        background: initial;
+        color: #fff;
+        padding: initial;
+        box-shadow:initial;
+        border-radius: initial;
+    }
+    .stara{
+background: red;
+    }
+    .sila{
+        background:#03d940 ;
+    }
+    .basea{
+background: #6783e3;
+    }
+}
