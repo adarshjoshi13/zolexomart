@@ -22,7 +22,7 @@ router.post('/pay', async (req, res) => {
             amount: userPayment * 100, // Amount in smallest currency unit (e.g., 5000 paise for 50 INR)
             currency: 'INR',
             receipt: `receipt_order_${Math.random() * 1000000}`,
-            payment_capture: 1, // Auto-capture payment after authorization
+            payment_capture: 1
         };
 
         const order = await razorpay.orders.create(options);
@@ -36,6 +36,7 @@ router.post('/pay', async (req, res) => {
             userPhone,
             userMessage,
         });
+        
     } catch (error) {
         console.error('Error creating Razorpay order:', error);
         res.status(500).send('Internal Server Error');

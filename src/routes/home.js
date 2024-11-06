@@ -50,8 +50,10 @@ router.get('/service/:id/:route', async (req, res) => {
         Service.seo = JSON.parse(Service.seo);
         Service.ourApproach = JSON.parse(Service.ourApproach);
         Service.userFriendly = JSON.parse(Service.userFriendly);
-        console.log(Service, "this is the service")
+        Service.seo.keywordsPlanner = Service.seo.keywordsPlanner.split(',').map(keyword => keyword.trim());
 
+        // console.log(Service, "this is the service")
+        
         res.render('service', { Service, OurServices, ServiceBenefitsIcons });
     } catch (error) {
         console.error('Error fetching service:', error);
