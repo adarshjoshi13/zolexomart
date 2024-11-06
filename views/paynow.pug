@@ -44,7 +44,6 @@ html(lang="en")
         link(href="/lib/animate/animate.min.css" rel="stylesheet")
         link(href="/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet")
         link(href="/lib/lightbox/css/lightbox.min.css" rel="stylesheet")
-        link(href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css", rel="stylesheet")
 
         // Customized Bootstrap Stylesheet
         link(href="/css/bootstrap.min.css" rel="stylesheet")
@@ -83,7 +82,8 @@ html(lang="en")
                 .modal-content(style="border-radius: 8px; overflow: hidden;")
                     .modal-header.text-center(style="background-color: #28a745; color: white;")
                         h5.modal-title(style="width: 100%; font-weight: bold;") 🎉 Thank You!
-                        button.close(type="button", data-dismiss="modal", style="color: white;") &times;
+                        button.close.paybtn(type="button", data-dismiss="modal", style="color: white;") 
+                            img(src="https://i.postimg.cc/TwrWp7Pp/remove.png" alt="")
                     .modal-body.text-center
                         p(style="font-size: 1.2em; margin: 15px 0;") Your payment was successful! We appreciate your business.
                     .modal-footer.justify-content-center(style="border-top: none; padding-top: 0;")
@@ -107,15 +107,17 @@ html(lang="en")
         .container-xxl.py-5
             .container.px-lg-5
                 .row
-                    .col-lg-6 
-                        div.qrcode.wow.fadeInUp(data-wow-delay="0.1s", style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;") 
-                            img(src="./img/scanqr.jpg")
-                    .col-lg-6
-                        .section-title.position-relative.text-center.mb-5.pb-2.wow.fadeInUp(data-wow-delay="0.1s", style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;")
+                    .section-title.position-relative.text-center.mb-5.pb-2.wow.fadeInUp(data-wow-delay="0.1s", style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;")
                             //- h6.position-relative.d-inline.text-primary.ps-4 Contact Us
-                            h2.mt-2 Contact For Any Query
-                        .wow.fadeInUp(data-wow-delay="0.3s", style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;")
-                        .form-container
+                            h2.mt-2 Pay Now
+                    .col-lg-6 
+                       
+                        div.qrcode.wow.fadeInUp(data-wow-delay="0.1s", style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;") 
+                            img(src="./img/payment.png", )
+                    .col-lg-6
+                        
+                        
+                        .form-container.wow.fadeInUp(data-wow-delay="0.3s", style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;")
                             form(method="post", name="emailContact", action="/api/pay", onsubmit="startPayment(event)")
                                 .input-row
                                     label Name<em>*</em>
@@ -128,7 +130,7 @@ html(lang="en")
                                     input.form-control(type="number", placeholder="Enter your Amount", name="userPayment", required)
                                 .input-row
                                     label Phone<em>*</em>
-                                    input.form-control(type="tel", placeholder="Enter your Mobile Number", name="userPhone", required)
+                                    input.form-control(type="tel", placeholder="Enter your Mobile Number", name="userPhone",  required)
                                 .input-row
                                     label Message<em>*</em>
                                     textarea.form-control(name="userMessage", rows="4", required)
@@ -152,6 +154,7 @@ html(lang="en")
     // Template Scripts
     script(src="/js/main.js")
     script.
+     
         function startPayment(event) {
             event.preventDefault();
             console.log('working')

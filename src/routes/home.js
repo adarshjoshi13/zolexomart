@@ -144,16 +144,20 @@ router.get('/city-digital-seo', (req, res) => {
     res.render('city-digital-seo');
 });
 //digital-booster-package 
-router.get('/digital-booster-package', (req, res) => {
-    res.render('digital-booster-package');
+router.get('/digital-growth-package', (req, res) => {
+    res.render('digital-growth-package');
 });
 //send Query
 router.get('/send-query', (req, res) => {
     res.render('send-query');
 });
-//send Query
+//city-wise-seo
 router.get('/city-wise-seo', (req, res) => {
     res.render('city-wise-seo');
+});
+//domestic-seo
+router.get('/domestic-seo', (req, res) => {
+    res.render('domestic-seo');
 });
 // Service route
 router.get('/service/:id', async (req, res) => {
