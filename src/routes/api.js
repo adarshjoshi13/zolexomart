@@ -13,7 +13,6 @@ const razorpay = new Razorpay({
     key_secret: process.env.RAZORPAY_KEY_SECRET,
 });
 
-
 router.post('/pay', async (req, res) => {
     try {
         const { userName, userEmail, userPayment, userPhone, userMessage } = req.body;

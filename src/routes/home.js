@@ -127,15 +127,15 @@ router.get('/paynow', (req, res) => {
 });
 //small-business-websites 
 router.get('/small-business-websites', (req, res) => {
-    res.render('small-business-websites');
+    res.render('packages/websites/small-business.pug');
 });
 //business-websites 
 router.get('/business-websites', (req, res) => {
-    res.render('business-websites');
+    res.render('packages/websites/business.pug');
 });
 //e-commerce-websites 
 router.get('/e-commerce', (req, res) => {
-    res.render('e-commerce');
+    res.render('packages/websites/e-commerce.pug');
 });
 //city-digital-seo
 router.get('/city-digital-seo', (req, res) => {
@@ -143,54 +143,21 @@ router.get('/city-digital-seo', (req, res) => {
 });
 //digital-booster-package 
 router.get('/digital-growth-package', (req, res) => {
-    res.render('digital-growth-package');
+    res.render('packages/digital-growth.pug');
 });
 //send Query
 router.get('/send-query', (req, res) => {
     res.render('send-query');
 });
+
 //city-wise-seo
 router.get('/city-wise-seo', (req, res) => {
-    res.render('city-wise-seo');
+    res.render('packages/seo/city-wise.pug');
 });
+
 //domestic-seo
 router.get('/domestic-seo', (req, res) => {
-    res.render('domestic-seo');
-});
-// Service route
-router.get('/service/:id', async (req, res) => {
-    try {
-        const { id } = req.params;
-
-        const ServiceBenefitsIcons = ['/img/icons/graph.png', '/img/icons/liability.png', '/img/icons/reach.png']
-
-        const OurServices = await Services.findAll({
-            attributes: ['id', 'serviceName'],
-            where: {
-                status: 1
-            },
-            limit: 6,
-            order: [['createdAt', 'DESC']],
-            raw: true
-        });
-
-        const Service = await Services.findByPk(id, { raw: true });
-
-        if (!Service) {
-            return res.status(404).send('Service not found');
-        }
-
-        Service.details = JSON.parse(Service.details);
-        Service.cards = JSON.parse(Service.cards);
-        Service.benefits = JSON.parse(Service.benefits);
-        Service.faq = JSON.parse(Service.faq);
-        console.log(Service.faq, "edit service data")
-
-        res.render('service', { OurServices, Service, ServiceBenefitsIcons });
-    } catch (error) {
-        console.error('Error fetching service:', error);
-        res.status(500).send('Internal Server Error');
-    }
+    res.render('packages/seo/domestic');
 });
 
 module.exports = router;
