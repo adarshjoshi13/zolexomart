@@ -168,41 +168,51 @@ html(lang="en")
                     ul.contectul
                         each point in Service.benefits.points
                             li #{point}
-                    
+
 
         .container-xxl.py-5.bglight
             .container.px-lg-5
                 .row.g-5
                     .col-lg-6(style="margin-top: 50px; text-align: center;")
-                        img.img-fluid.wow(zoomIn, data-wow-delay="0.5s", src=Service.ourApproach.image, width="100%", style="visibility: visible; animation-delay: 0.5s; animation-name: zoomIn")
-                    .col-lg-6.wow.fadeInUp(data-wow-delay="0.1s", style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp")
+                        img.img-fluid.wow(zoomIn, data-wow-delay="0.5s", src=Service.ourApproach.image, width="100%" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomIn")
+                    .col-lg-6.wow.fadeInUp(data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp")
                         .section-title.position-relative.mb-4.pb-2
                             h2.mt-2 Our Approach For #{Service.serviceName}
                         p.mb-4.addt= Service.ourApproach.description
         .container-xxl.py-5
             .container.px-lg-5
                 .row.g-5
-                    .col-lg-6.wow.fadeInUp(data-wow-delay="0.1s", style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp")
+                    .col-lg-6.wow.fadeInUp(data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp")
                         .section-title.position-relative.mb-4.pb-2
                             h2.mt-2 User-Friendly #{Service.serviceName}
                         p.mb-4.addt= Service.userFriendly.description
                     .col-lg-6(style="margin-top: 50px; text-align: center;")
-                        img.img-fluid.wow(zoomIn, data-wow-delay="0.5s", src=Service.userFriendly.image, width="100%", style="visibility: visible; animation-delay: 0.5s; animation-name: zoomIn")
+                        img.img-fluid.wow(zoomIn, data-wow-delay="0.5s", src=Service.userFriendly.image, width="100%" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomIn")
         .container
-                        h2.text-center.mt-5 Frequently Asked Questions
-                        .row
-                            // Display FAQ description once at the top
-                            .col-12
-                                .faq-description
-                                    p #{Service.faq.description}
-                        ul.accordion-list
-                            each qa in Service.faq.qa
-                                li
-                                    h3 #{qa.question}
-                                    .answer
-                                        p #{qa.answer}
+            h2.text-center.mt-5 Frequently Asked Questions
+            .row
+                // Display FAQ description once at the top
+                .col-12
+                    .faq-description
+                        p #{Service.faq.description}
+            ul.accordion-list
+                each qa in Service.faq.qa
+                    li
+                        h3 #{qa.question}
+                        .answer
+                            p #{qa.answer}
 
 
+        // Key Planner Section
+        .container-xxl.py-5.bglight
+            .container.px-lg-5
+                h2.text-center.mt-5.mb-4 Key Planner
+                p.text-center.mb-4 Here are the main keywords used on this page:
+                .row.justify-content-center
+                    .col-md-10
+                        .d-flex.flex-wrap.gap-2
+                            each keyword in Service.seo.keywordsPlanner
+                                .badge.bg-primary.text-light.p-2.mb-2= keyword
 
         include ./components/footer.pug
 
@@ -222,7 +232,7 @@ html(lang="en")
                 $('.accordion-list > li > .answer').hide();
 
                 $('.accordion-list > li').click(function() {
-                    
+
                 if ($(this).hasClass("active")) {
                     $(this).removeClass("active").find(".answer").slideUp();
                 } else {
@@ -232,7 +242,7 @@ html(lang="en")
                 }
                 return false;
                 });
-            
+
                 $('#emailContact').on('submit', function(event) {
                     event.preventDefault(); // Prevent default form submission
 
