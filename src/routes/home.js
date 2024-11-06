@@ -52,7 +52,7 @@ router.get('/service/:id/:route', async (req, res) => {
         Service.userFriendly = JSON.parse(Service.userFriendly);
         Service.seo.keywordsPlanner = Service.seo.keywordsPlanner.split(',').map(keyword => keyword.trim());
 
-        console.log(Service, "this is the service")
+        // console.log(Service, "this is the service")
         
         res.render('service', { Service, OurServices, ServiceBenefitsIcons });
     } catch (error) {
