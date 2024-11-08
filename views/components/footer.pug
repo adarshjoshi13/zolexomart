@@ -24,7 +24,7 @@ div.container-fluid.bg-dark.text-light.footer.wow.fadeIn(data-wow-delay="0.1s" s
                 a.btn.btn-link(href="paynow") Pay Now  
           div.col-md-6.col-lg-3
               h5.text-white.mb-4 Our Services
-                each service in Services
+                each service in Services.slice(0, 6)
                     a.btn.btn-link(href=`/service/${service.id}/${service.route}`) #{service.serviceName}
 
           div.col-md-6.col-lg-3.addc
