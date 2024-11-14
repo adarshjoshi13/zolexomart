@@ -36,7 +36,7 @@ router.post('/pay', async (req, res) => {
             userPhone,
             userMessage,
         });
-        
+
     } catch (error) {
         console.error('Error creating Razorpay order:', error);
         res.status(500).send('Internal Server Error');
@@ -71,10 +71,13 @@ router.post('/send-quote', async (req, res) => {
 router.post('/send-mail/:recipientEmail', async (req, res) => {
     const recipientList = (req.params.recipientEmail == 'info@zolexomart.in' ? req.params.recipientEmail : ['info@zolexomart.in', req.params.recipientEmail])
 
+    console.log(req.body,"working")
 
     const referer = req.headers.referer || '/';
     const parsedUrl = url.parse(referer, true);
+    // console.log(parsedUrl, "parsedUrl")
     const redirectBase = `${parsedUrl.protocol}//${parsedUrl.host}`;
+    // console.log(redirectBase, "redirectBase")
 
     let Transporter = nodemailer.createTransport({
         service: "gmail",
@@ -137,7 +140,7 @@ router.post('/send-mail/:recipientEmail', async (req, res) => {
                             return res.status(500).json({ ERROR: 'Failed to save data to database' });
                         }
                         console.log('Mail sent successfully');
-                        return res.redirect(redirectBase);
+                        return res.status(200).send({ message: 'Mail sent successfully', success: true });
                     }
                 })
                 .catch((err) => {
