@@ -71,7 +71,7 @@ router.post('/send-quote', async (req, res) => {
 router.post('/send-mail/:recipientEmail', async (req, res) => {
     const recipientList = (req.params.recipientEmail == 'info@zolexomart.in' ? req.params.recipientEmail : ['info@zolexomart.in', req.params.recipientEmail])
 
-    console.log(req.body,"working")
+    console.log(req.body, "working")
 
     const referer = req.headers.referer || '/';
     const parsedUrl = url.parse(referer, true);
@@ -140,7 +140,11 @@ router.post('/send-mail/:recipientEmail', async (req, res) => {
                             return res.status(500).json({ ERROR: 'Failed to save data to database' });
                         }
                         console.log('Mail sent successfully');
-                        return res.status(200).send({ message: 'Mail sent successfully', success: true });
+                        if (req.params.recipientEmail == 'info@zolexomart.in') {
+                            return res.redirect('/')
+                        } else {
+                            return res.status(200).send({ message: 'Mail sent successfully', success: true });
+                        }
                     }
                 })
                 .catch((err) => {

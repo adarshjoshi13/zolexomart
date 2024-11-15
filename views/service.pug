@@ -53,26 +53,6 @@ html(lang="en")
             //- h1.text-white.animated.zoomIn= Service.serviceName
             img(src=Service.bannerImageUrl alt="" width="100%")
 
-
-        //- #popup1.overlay
-        //-     .popup
-        //-         h2 To Download File
-        //-         a.close(href="#") &times;
-        //-         .form-container
-        //-             form#emailContact(method="post" name="emailContact")
-        //-                 .input-row
-        //-                     label Name<em>*</em>
-        //-                     input.form-control(type="text" placeholder="Enter your Name" name="userName", required)
-        //-                 .input-row
-        //-                     label Email<em>*</em>
-        //-                     input.form-control(type="email" placeholder="Enter your Email" name="userEmail", required)
-        //-                 .input-row
-        //-                     label Phone<em>*</em>
-        //-                     input.form-control(type="number" placeholder="Enter your Mobile Number" name="userPhone", required)
-
-        //-                 .input-row
-        //-                     input.btn(type="submit" name="send" value="Submit")
-
         .container-fluid
             .row.pd
                 .col-md-3.col-lg-3.borderr
@@ -98,10 +78,10 @@ html(lang="en")
                         p.num
                             a(href="tel:9958575960") Contact Us Now
                     .pdfsection
-                        .sendq Send Query
-                        
+                        .send Send Query
+
                         .form-container
-                            form#emailContact(method="post" name="emailContact" action="/api/send-mail/info@zolexomart.in" onsubmit="return validatePhoneNumber()")
+                            form(method="post" name="emailContact" action="/api/send-mail/info@zolexomart.in" onsubmit="return validatePhoneNumber()")
                                 .input-row
                                     label Name<em>*</em>
                                     input.form-control(type="text" placeholder="Enter your Name" name="userName", required)
@@ -116,47 +96,6 @@ html(lang="en")
                                     textarea.form-control(name="userMessage" rows="3", required)
                                 .input-row
                                     input.btn(type="submit" name="send" value="Submit")
-                    //-     h2.text-center.mb-4 Company Profile
-                    //-     a.button(href="#popup1")
-                    //-         div.sectionadd.mb-4(style="border-bottom: 1px solid #c1c1c1;") 
-                    //-             div.d-flex.flex-row
-                    //-                 img(src="/img/icons/pdf.png")        
-                    //-                 h1 Document of SEO
-                    //-                     p Broucher  
-                    //-             div        
-                    //-                 <i class="fa-solid fa-download"></i>
-                    //-     a.button(href="#popup1")
-                    //-         div.sectionadd.mb-4(style="border-bottom: 1px solid #c1c1c1;") 
-                    //-             div.d-flex.flex-row
-                    //-                 img(src="/img/icons/pdf.png")        
-                    //-                 h1 Document of MetaAds
-                    //-                     p Broucher  
-                    //-             div        
-                    //-                 <i class="fa-solid fa-download"></i>
-                        //- a.button(href="#popup1")
-                        //-     div.sectionadd.mb-4(style="border-bottom: 1px solid #c1c1c1;") 
-                        //-         div.d-flex.flex-row
-                        //-             img(src="/img/icons/pdf.png")        
-                        //-             h1 Buyer-Generation
-                        //-                 p Broucher  
-                        //-         div        
-                        //-             <i class="fa-solid fa-download"></i>
-                        //- a.button(href="#popup1")
-                        //-     div.sectionadd.mb-4(style="border-bottom: 1px solid #c1c1c1;") 
-                        //-         div.d-flex.flex-row
-                        //-             img(src="/img/icons/pdf.png")        
-                        //-             h1 Document of Website
-                        //-                 p Broucher  
-                        //-         div        
-                        //-             <i class="fa-solid fa-download"></i>
-                        //- a.button(href="#popup1")            
-                        //-     div.sectionadd 
-                        //-         div.d-flex.flex-row
-                        //-             img(src="/img/icons/pdf.png")        
-                        //-             h1 Download Google Ads
-                        //-                 p Broucher  
-                        //-         div        
-                        //-             <i class="fa-solid fa-download"></i>
                 .col-md-9.col-lg-9
                     .contectservice.mb-5
                         h2 #{Service.serviceName}
@@ -186,7 +125,7 @@ html(lang="en")
                             .contectservice
                                 h2 Benefits Of  #{Service.serviceName} 
                                 p #{Service.benefits.description}
-                    
+
 
 
         .container-xxl.py-5.bglight
@@ -226,7 +165,7 @@ html(lang="en")
         .container-xxl.py-5.bglight(style="color:#000;")
             .container.px-lg-5
                 h2.mb-4 Key Planner
-                
+
                 .row.justify-content-center
                     .col-md-12
                         ul.key
@@ -249,16 +188,18 @@ html(lang="en")
         script(src="/js/main.js")
         script.
             function validatePhoneNumber() {
-            const phoneInput = document.forms['emailContact']['userPhone'];
-            const phoneNumber = phoneInput.value;
+                const phoneInput = document.forms['emailContact']['userPhone'];
+                const phoneNumber = phoneInput.value;
 
-            if (phoneNumber.length !== 10) {
-                alert("Please enter exactly 10 digits for the phone number.");
-                phoneInput.focus();
-                return false; // Prevent form submission
+                if (phoneNumber.length !== 10) {
+                    alert("Please enter exactly 10 digits for the phone number.");
+                    phoneInput.focus();
+                    return false;
+                }
+
+                return true;
             }
-            return true; // Allow form submission
-            }
+
             $(document).ready(function() {
                 $('.accordion-list > li > .answer').hide();
 
