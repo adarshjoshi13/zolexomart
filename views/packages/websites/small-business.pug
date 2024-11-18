@@ -57,6 +57,10 @@ html(lang="en")
         script(src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js" integrity="sha512-BdHyGtczsUoFcEma+MfXc71KJLv/cd+sUsUaYYf2mXpfG/PtBjNXsPo78+rxWjscxUYN2Qr2+DbeGGiJx81ifg==" crossorigin="anonymous")
 
     body
+        //- .popup-link
+        //-     a(href="") Click Me (Style 1)
+
+        include ../../components/poup.pug
         // Start of Tawk.to Script
         script(type="text/javascript"). 
             var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
@@ -85,17 +89,36 @@ html(lang="en")
 
 
         div.container-xxl.position-relative.p-0
-            include ../../components/nav.pug
+        include ../../components/nav.pug
+       
+
         //- .hero-header.bg
         //-     h1.text-white.animated.zoomIn Contact Us
         //-     img(src="./img/2149288184.jpg" alt="" width="100%")
-        .container-fluid.py-5
-            .containerl.px-lg-5
+       
+        .container-fluid.pb-5
+            
                 .row
-                    .box.my-5
+                    .box.py-5
                         h1.text-center Small Business Websites Plan
-                        p.text-center IMPROVE YOUR ENGAGEMENT
-                    .tableres
+                        p.text-center Web Design Development Packages for Small Businesses
+                        p.text-center In today’s digital era, businesses, whether large or small, are eager to establish an online presence. With 900 million internet users in India alone, the internet offers a powerful reach to potential customers. Despite this impressive figure, internet penetration in India is just over 50%, hinting at immense potential for growth as more people gain access. Given this unprecedented reach, businesses are seizing the opportunity to go digital, and the first step in this journey is developing a website that enables customers to interact with your business online.
+                        div.d-flex.flex.btnaddd                          
+                            a(href="#pack") View Package                       
+                            a.button(href="#popup1") Send Query               
+                    .addtext 
+                        h1.addh1 A business website is akin to a book cover
+                        p.py-2 it’s often the first impression potential customers will get of your business. Although people say not to judge a book by its cover, the reality is that 90% of users judge a business by its website. Website design goes beyond basic coding and images; it’s a form of art that transforms your ideas into a digital experience. If a visitor is impressed with your website and finds relevant, engaging information, they’re more likely to take the next steps with your business. Conversely, a poorly designed website can drive potential customers away, so investing in a well-built, aesthetically pleasing website is essential. That’s where Zolexomart comes in. We offer a range of website development packages tailored specifically for small businesses, ensuring that your online journey starts on the right foot.
+                    .addtext 
+                        h1.addh1 Choosing the Right Web Design Development Package for Your Small Business	
+                        p.py-2 At Zolexomart, our web design development packages for small businesses have been meticulously designed to strike the right balance between high-quality services and affordability. We understand that small businesses often work within tight budgets, so our packages are crafted to ensure you get the best value without overstretching your finances.
+                        p.py-2 Our packages are organized into three tiers: Basic, Star, and Silver. Each package is thoughtfully structured to cater to different business needs, ranging from startups and small-scale ventures to growing enterprises ready to enhance their online presence. Here’s an overview of our packages:
+                        p.py-2 Each package is designed to provide flexibility and scalability, ensuring your website can grow as your business does. Below is a comparison chart of our packages to help you select the one that best fits your goals.
+
+                    .toptext
+                        h1.text-center PICK YOUR PLAN
+                        p.text-center IMPROVE YOUR ENGAGEMENT    
+                    .tableres#pack
                         table                       
                             thead
                                 tr
@@ -451,6 +474,13 @@ html(lang="en")
                                         a(href="send-query") Send Query
                                     td.sila
                                         a(href="send-query") Send Query
+                    .addtext 
+                        h1.addh1 What Our Web Development Team Will Do for You
+                        p.py-2 At Zolexomart, our expert web development team goes beyond coding and design, understanding that every business is unique with distinct website needs. With the internet connecting over 5.3 billion people globally—a number expected to rise by 13% by 2030—the potential for business growth is immense. Our process begins with understanding your goals, audience, and competition to create a custom strategy. We prioritize user-focused design and development, effective SEO to increase visibility, and thorough testing for seamless functionality across all devices. Post-launch, we provide ongoing support and maintenance to keep your site updated and secure in an evolving digital landscape.           
+
+                    .addtext 
+                        h1.addh1 Why Choose Zolexomart’s Web Design Development Packages for Small Businesses?
+                        p.py-2 Zolexomart’s web design development packages stand out for their flexibility and extensive range, providing cost-effective solutions without compromising on quality. Tailored for small businesses, our packages cover a broad budget spectrum, offering essential features like custom web design, SEO, responsive layouts, and optional e-commerce capabilities. Each package is crafted to meet the goals of startups and small businesses seeking an impactful, user-friendly, and revenue-generating online presence. Committed to building brand credibility, we prioritize user experience, crafting visually appealing websites designed to engage and convert visitors. From design to ongoing support, Zolexomart ensures a valuable, growth-focused online presence for your business.    
     include ../../components/footer.pug
 
     // Scripts for Libraries
@@ -464,5 +494,20 @@ html(lang="en")
 
     // Template Scripts
     script(src="/js/main.js")
+    script.
+        // Ensure the page scrolls smoothly to the target with a 40px offset
+        $(document).ready(function() {
+            $('a[href^="#pack"]').on('click', function(e) {
+            e.preventDefault();  // Prevent default anchor behavior
+            
+            var target = $(this.getAttribute('href'));
+            
+            // Scroll to the target with an offset of 40px
+            $('html, body').animate({
+                scrollTop: target.offset().top - 150
+            }, 500); // Adjust the time (500ms) to control the speed of the scroll
+            });
+        });
+
 
 

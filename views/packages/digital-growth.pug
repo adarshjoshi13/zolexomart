@@ -57,6 +57,7 @@ html(lang="en")
         script(src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js" integrity="sha512-BdHyGtczsUoFcEma+MfXc71KJLv/cd+sUsUaYYf2mXpfG/PtBjNXsPo78+rxWjscxUYN2Qr2+DbeGGiJx81ifg==" crossorigin="anonymous")
 
     body
+        include ../components/poup.pug
         // Start of Tawk.to Script
         script(type="text/javascript"). 
             var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
@@ -89,13 +90,26 @@ html(lang="en")
         //- .hero-header.bg
         //-     h1.text-white.animated.zoomIn Contact Us
         //-     img(src="./img/2149288184.jpg" alt="" width="100%")
-        .container-fluid.py-5
-            .containerl.px-lg-5
+        .container-fluid.pb-5
+            
                 .row
-                    .box.my-5
+                    .box.py-5
                         h1.text-center Digital Growth Package
-                        p.text-center IMPROVE YOUR ENGAGEMENT
-                    .tableres
+                        
+                        p.text-center With over 34% of people using the internet for shopping, the digital landscape has become the world’s largest marketplace, growing year after year. As a result, an online presence is essential for any business aiming to succeed in today’s market. However, establishing a strong digital presence takes more than simply creating a website. It requires a strategic approach to attract visitors, build credibility, and convert leads into loyal customers.
+                        div.d-flex.flex.btnaddd                          
+                            a(href="#pack") View Package                       
+                            a.button(href="#popup1") Send Query
+                        
+                    .addtext 
+                        h1.addh1 Digital Growth Package of Zolexomart:
+                        p.py-2 To support businesses in their digital journey, Zolexomart offers the Digital Growth Package, a comprehensive solution that addresses every essential step in launching and growing a business online. This package includes everything from website development and search engine optimization (SEO) to lead generation through social media and other channels, along with strategies to turn those leads into customers.
+                        p.py-2 The Digital Growth Package is designed to be an all-inclusive, one-stop solution, providing businesses with every tool needed to succeed online. Recognizing that different businesses have different requirements, Zolexomart offers this package in two tiers: the Star and Silver packages. Each option is tailored to accommodate varying needs and budgets, allowing businesses to choose the package that best suits their specific goals. A detailed comparison table outlining the features of both packages is provided below, helping businesses make an informed decision.
+                    
+                    .toptext
+                        h1.text-center PICK YOUR PLAN
+                        p.text-center IMPROVE YOUR ENGAGEMENT    
+                    .tableres#pack
                        table
                             tr
                                 th.feature Features
@@ -312,7 +326,14 @@ html(lang="en")
                                     a(href="send-query") Send Query
                                 td.sila
                                     a(href="send-query") Send Query
-
+                    .addtext 
+                        h1.addh1 What Our Expert Team Delivers with the Digital Growth Package
+                        p.py-2 The Digital Growth Package is a robust and carefully crafted solution to meet all the digital needs of modern businesses. It allows clients to access all the necessary services within one cohesive package, making it easier for business owners to focus on growth without managing multiple vendors. At Zolexomart, we have a team of experts specializing in every aspect of digital business launching and growth. Working collaboratively on each project, our team aims to deliver exceptional results to help clients thrive in the digital landscape.
+                        p.py-2 Our process begins with Website Development. We build a professional, user-friendly website tailored to your brand and optimized for performance. The website is then prepared for search engines, making it easier for potential customers to find your business organically. Our team implements strategic Search Engine Optimization (SEO) to enhance your website’s visibility, increase its organic traffic, and improve its search engine ranking.
+                        p.py-2 In addition to SEO, we help establish your online presence through a Google My Business (GMB) profile and implement targeted campaigns using social media and Google ads to drive more traffic to your website. These campaigns are crafted to appeal to your target audience, generating high-quality leads that align with your business objectives.
+                        p.py-2 Our experts don’t just focus on generating leads—they also assist in converting them into customers. We employ data-driven strategies to ensure a seamless journey from initial interest to final purchase, optimizing conversion rates and maximizing your return on investment.
+                        p.py-2 Through the Digital Growth Package, Zolexomart aims to position your business effectively within the digital marketplace, enabling you to build a strong online presence and make a lasting impact. Our all-in-one solution is designed to empower businesses to thrive in the competitive digital environment, with each component working together to achieve measurable results.
+                        p.py-2 Zolexomart’sDigital Growth Package offers businesses the tools and expertise they need to establish, grow, and succeed online. Whether you choose the Star or Silver package, our team is dedicated to helping you build a powerful digital presence and achieve sustainable growth
                                
     include ../components/footer.pug
 
@@ -327,5 +348,20 @@ html(lang="en")
 
     // Template Scripts
     script(src="/js/main.js")
+    script.
+        // Ensure the page scrolls smoothly to the target with a 40px offset
+        $(document).ready(function() {
+            $('a[href^="#pack"]').on('click', function(e) {
+            e.preventDefault();  // Prevent default anchor behavior
+            
+            var target = $(this.getAttribute('href'));
+            
+            // Scroll to the target with an offset of 40px
+            $('html, body').animate({
+                scrollTop: target.offset().top - 150
+            }, 500); // Adjust the time (500ms) to control the speed of the scroll
+            });
+        });
+
 
 

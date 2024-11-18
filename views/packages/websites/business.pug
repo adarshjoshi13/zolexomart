@@ -57,6 +57,7 @@ html(lang="en")
         script(src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js" integrity="sha512-BdHyGtczsUoFcEma+MfXc71KJLv/cd+sUsUaYYf2mXpfG/PtBjNXsPo78+rxWjscxUYN2Qr2+DbeGGiJx81ifg==" crossorigin="anonymous")
 
     body
+        include ../../components/poup.pug
         // Start of Tawk.to Script
         script(type="text/javascript"). 
             var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
@@ -89,13 +90,30 @@ html(lang="en")
         //- .hero-header.bg
         //-     h1.text-white.animated.zoomIn Contact Us
         //-     img(src="./img/2149288184.jpg" alt="" width="100%")
-        .container-fluid.py-5
-            .containerl.px-lg-5
+        .container-fluid.pb-5
+            
                 .row
-                    .box.my-5
+                    .box.py-5
                         h1.text-center Business Websites Plan
-                        p.text-center IMPROVE YOUR ENGAGEMENT
-                    .tableres
+                        
+                        p.text-center A business website's primary goal is to present information about the company, its products, or services in a professional, user-friendly way to drive sales and increase revenue. Before creating a website, it’s essential to define its purpose and objectives. Identifying your target audience and understanding their needs helps shape the website's content, design, and functionality. By setting clear objectives, business owners can ensure that their website’s design and development efforts are focused on meeting both business and user needs. In today’s digital landscape, a website serves as the online face of a business, making high-quality design and functionality critical to a business’s success.
+                        div.d-flex.flex.btnaddd                          
+                            a(href="#pack") View Package                       
+                            a.button(href="#popup1") Send Query
+                        
+                    .addtext 
+                        h1.addh1 An ideal business website
+                        p.py-2 An ideal business website is visually appealing, user-friendly, mobile-responsive, and optimized for search engines. With a large percentage of users accessing websites via mobile devices, ensuring seamless mobile functionality is essential. Building a high-quality, multi-device-compatible website often requires professional expertise. Zolexomart offers a variety of website design and development packages tailored to different business sizes and needs, all while considering budget and specific requirements.
+                    .addtext 
+                        h1.addh1 Zolexomart's website design development packages	
+                        p.py-2 Zolexomart's website design development packages cater to three main categories: small business websites, business websites, and e-commerce websites. In this overview, we’ll discuss the business website packages designed for established businesses looking to elevate their online presence.
+                        p.py-2 Zolexomart’s business website packages are further divided into two tiers: Star and Silver. These tiers differ in terms of pricing and features, providing flexibility and choice depending on your business’s needs and budget. Each package is designed to be comprehensive yet budget-friendly, allowing businesses to select the features that best align with their goals. The specific features of each package are listed in the table below, making it easy to compare and choose the one that meets your requirements.
+                      
+
+                    .toptext
+                        h1.text-center PICK YOUR PLAN
+                        p.text-center IMPROVE YOUR ENGAGEMENT    
+                    .tableres#pack
                         table
                             tr
                                 th.feature Features
@@ -287,7 +305,12 @@ html(lang="en")
                                     
                                 td.sila
                                     a(href="send-query") Send Query
-                                
+                    .addtext 
+                        h1.addh1 What are team will provide you in Zolexomart's website design development packages
+                        p.py-2 At Zolexomart, our goal is to create a website that not only fulfills your business requirements but also goes beyond a simple layout or collection of images. We aim to develop websites that provide a seamless user experience across all platforms, optimizing ease of use and ensuring visitors can access your site with ease from any device. Each website we create is designed with search engine optimization (SEO) in mind, ensuring your site attracts organic traffic and stands out to potential customers. Customization is central to our approach, so we start by understanding the purpose of your website, the characteristics of your target audience, and the tools and features they’ll need for an optimal experience.         
+                        p.py-2 Our website design and development packages are structured to meet all your business requirements without exceeding your budget. The categorization of our packages blends affordability with a comprehensive range of services, providing excellent value for your investment. By choosing Zolexomart, you can avoid paying for unnecessary features and instead invest in functionalities that directly benefit your business. Each package is crafted to maximize your website's effectiveness, helping you create an online presence that’s both professional and engaging.
+                        p.py-2 With Zolexomart, you gain a partner committed to delivering a website that will drive business growth. We focus on user experience, creating websites that are not only visually appealing but designed to convert visitors into loyal customers. Our ongoing support ensures that your website remains functional and relevant in a constantly evolving digital landscape, providing lasting value and helping your business succeed online.
+                        p.py-2 Whether you’re a startup or a growing business, Zolexomart’s website design and development packages provide the flexibility, functionality, and affordability you need to thrive.
                                
     include ../../components/footer.pug
 
@@ -302,5 +325,18 @@ html(lang="en")
 
     // Template Scripts
     script(src="/js/main.js")
-
+    script.
+        // Ensure the page scrolls smoothly to the target with a 40px offset
+        $(document).ready(function() {
+            $('a[href^="#pack"]').on('click', function(e) {
+            e.preventDefault();  // Prevent default anchor behavior
+            
+            var target = $(this.getAttribute('href'));
+            
+            // Scroll to the target with an offset of 40px
+            $('html, body').animate({
+                scrollTop: target.offset().top - 150
+            }, 500); // Adjust the time (500ms) to control the speed of the scroll
+            });
+        });
 

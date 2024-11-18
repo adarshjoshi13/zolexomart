@@ -57,6 +57,7 @@ html(lang="en")
         script(src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js" integrity="sha512-BdHyGtczsUoFcEma+MfXc71KJLv/cd+sUsUaYYf2mXpfG/PtBjNXsPo78+rxWjscxUYN2Qr2+DbeGGiJx81ifg==" crossorigin="anonymous")
 
     body
+        include ../../components/poup.pug
         // Start of Tawk.to Script
         script(type="text/javascript"). 
             var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
@@ -89,13 +90,32 @@ html(lang="en")
         //- .hero-header.bg
         //-     h1.text-white.animated.zoomIn Contact Us
         //-     img(src="./img/2149288184.jpg" alt="" width="100%")
-        .container-fluid.py-5
-            .containerl.px-lg-5
+        .container-fluid.pb-5
+            
                 .row
-                    .box.my-5
+                    .box.py-5
                         h1.text-center E-Commerce Websites Plan
-                        p.text-center IMPROVE YOUR ENGAGEMENT
-                    .tableres
+                        
+                        p.text-center With 5.52 billion internet users worldwide—around 67% of the global population—there is immense potential for businesses to reach customers online. This vast online community uses the internet for various purposes, including research, education, entertainment, and shopping. Out of this number, approximately 2.71 billion people, or 34% of the world population, shop online. This figure has seen a 2.7% increase since last year, indicating the rapid expansion of the e-commerce sector. Businesses worldwide recognize this trend and are shifting to online models to tap into this growing digital marketplace.
+                        div.d-flex.flex.btnaddd                          
+                            a(href="#pack") View Package                       
+                            a.button(href="#popup1") Send Query
+                        
+                    .addtext 
+                        h1.addh1 Why E-commerce Websites Are Different
+                        p.py-2 E-commerce websites differ significantly from regular business websites. They require additional functionalities such as product listings, cart systems, payment gateways, and review sections to facilitate online shopping and payment. Because of their complexity, these websites demand a higher level of expertise in design and development to ensure seamless performance.
+                    .addtext 
+                        h1.addh1 Zolexomart E-commerce Website Design and Development Packages
+                        p.py-2 At Zolexomart, we offer specialized e-commerce website design and development packages that cater to the unique needs of e-commerce businesses. These packages are available in two categories:
+                            ul 
+                                li Star Package
+                                li Silver Package
+                        p.py-2 Each of the e-commerce website design and development packages provides flexibility in features and price, allowing customers to choose the package that best suits their needs and budget. The table below compares the specific features of each e-commerce website design and development packages, enabling customers to make informed decisions.
+
+                    .toptext
+                        h1.text-center PICK YOUR PLAN
+                        p.text-center IMPROVE YOUR ENGAGEMENT    
+                    .tableres#pack
                        table
                             tr
                                 th.feature Features
@@ -360,8 +380,37 @@ html(lang="en")
                                     a(href="send-query") Send Query
                                 td.sila
                                     a(href="send-query") Send Query
+                    .addtext 
+                        h1.addh1 What our team will provide you in E-commerce Website Design Development Packages.
+                        p.py-2 Our team is dedicated to creating e-commerce websites that are secure, user-friendly, and efficient. Here’s how we approach each aspect:          
 
-                               
+                    .addtext 
+                        h1.addh1 1. Security First
+                        p.py-2 Security is a top priority for e-commerce websites due to their payment and product-selling functionalities. To protect customers’ sensitive information, we implement:
+                        ul 
+                            li 
+                                p   
+                                    b SSL Encryption:      
+                                    | Ensures a secure connection between the server and user.
+                                p   
+                                    b Secure Payment Gateways:       
+                                    | Allows safe transactions to reduce potential fraud.
+                                p   
+                                    b Regular Monitoring:       
+                                    | Tracks potential threats to maintain a high-security environment.
+                        p.py-2 These measures help build customer trust and protect sensitive data, ensuring a safe shopping experience for your customers.
+
+                    .addtext 
+                        h1.addh1 2. User-Friendly Design
+                        p.py-2 A well-designed, easy-to-use website is crucial for customer retention. Research shows that if an e-commerce site is challenging to navigate, users may leave within minutes. Our team focuses on creating a user-friendly experience.This emphasis on user experience enhances customer satisfaction, making them more likely to return.
+                    .addtext 
+                        h1.addh1 3. Easy Contact Options for Improved User Experience
+                        p.py-2 Clear contact options are essential for customer trust and satisfaction. Our team integrates multiple contact methods. Easy contact options build user trust and improve customer experience, making it convenient for users to reach out with questions or concerns.
+
+                    .addtext 
+                        h1.addh1 Why Choose Zolexomart for Your E-commerce Website?
+                        p.py-2 At Zolexomart, we understand the unique requirements of e-commerce businesses. Our team combines technical expertise with an understanding of the digital market to create websites that meet your business objectives. Whether you’re just starting or looking to enhance your online presence, our flexible and affordable packages offer high-quality solutions tailored to your needs.
+                        p.py-2 With our approach, we don’t just build websites—we help you create a digital storefront that boosts revenue, builds credibility, and enhances user satisfaction. Our commitment to security, user experience, and ongoing support makes us the ideal choice for businesses looking to thrive in the e-commerce space   
     include ../../components/footer.pug
 
     // Scripts for Libraries
@@ -375,5 +424,20 @@ html(lang="en")
 
     // Template Scripts
     script(src="/js/main.js")
+    script.
+        // Ensure the page scrolls smoothly to the target with a 40px offset
+        $(document).ready(function() {
+            $('a[href^="#pack"]').on('click', function(e) {
+            e.preventDefault();  // Prevent default anchor behavior
+            
+            var target = $(this.getAttribute('href'));
+            
+            // Scroll to the target with an offset of 40px
+            $('html, body').animate({
+                scrollTop: target.offset().top - 150
+            }, 500); // Adjust the time (500ms) to control the speed of the scroll
+            });
+        });
+
 
 

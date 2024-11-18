@@ -1,0 +1,20 @@
+.popup-container(id="popup1")
+            .popup-content
+                a(href="#" class="close") &times;
+                h3 Send your Query
+                .form-container
+                        form(method="post" name="emailContact" action="/api/send-mail/info@zolexomart.in" onsubmit="return validatePhoneNumber()")
+                            .input-row
+                                label Name<em>*</em>
+                                input.form-control(type="text" placeholder="Enter your Name" name="userName", required)
+                            .input-row
+                                label Email<em>*</em>
+                                input.form-control(type="email" placeholder="Enter your Email" name="userEmail", required)
+                            .input-row
+                                label Phone<em>*</em>
+                                input.form-control(type="text" placeholder="Enter your Mobile Number" name="userPhone" required)
+                            .input-row
+                                label Message<em>*</em>
+                                textarea.form-control(name="userMessage" rows="4", required)
+                            .input-row
+                                input.btn(type="submit" name="send" value="Submit")

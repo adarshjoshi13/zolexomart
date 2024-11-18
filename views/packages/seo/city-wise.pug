@@ -57,6 +57,7 @@ html(lang="en")
         script(src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js" integrity="sha512-BdHyGtczsUoFcEma+MfXc71KJLv/cd+sUsUaYYf2mXpfG/PtBjNXsPo78+rxWjscxUYN2Qr2+DbeGGiJx81ifg==" crossorigin="anonymous")
 
     body
+        include ../../components/poup.pug
         // Start of Tawk.to Script
         script(type="text/javascript"). 
             var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
@@ -89,13 +90,32 @@ html(lang="en")
         //- .hero-header.bg
         //-     h1.text-white.animated.zoomIn Contact Us
         //-     img(src="./img/2149288184.jpg" alt="" width="100%")
-        .container-fluid.py-5
-            .containerl.px-lg-5
+        .container-fluid.pb-5
+            
                 .row
-                    .box.my-5
+                    .box.py-5
                         h1.text-center City Wise SEO Plan
-                        p.text-center IMPROVE YOUR ENGAGEMENT
-                    .tableres
+                        
+                        p.text-center Setting up an online business is a crucial decision for modern entrepreneurs. Today, it’s not only a popular trend but a necessity. With around 64% of the world’s population, including half of India’s population, actively using the internet for various purposes like entertainment, education, information, and shopping, having a strong online presence has become essential.
+                        div.d-flex.flex.btnaddd                          
+                            a(href="#pack") View Package                       
+                            a.button(href="#popup1") Send Query
+                        
+                    .addtext 
+                        //- h1.addh1 Why E-commerce Websites Are Different
+                        p.py-2 However, with countless websites available across industries, the key question remains: how can a business attract customer attention and improve its visibility in Google searches? This is where search engine optimization (SEO) comes into play. SEO is the strategic process of enhancing organic traffic to a business website through search engines, making it easier for customers to find your services or products.
+                    .addtext 
+                        //- h1.addh1 Zolexomart E-commerce Website Design and Development Packages
+                        p.py-2 SEO is an extensive process that requires the expertise of a skilled team capable of optimizing a website to improve its search engine ranking. At Zolexomart, we offer a comprehensive range of SEO service packages designed to increase website traffic and strengthen online presence. Our SEO service packages are divided into two main categories: city-wise SEO packages and domestic SEO packages.
+                    .addtext 
+                        h1.addh1 City-Wise SEO Packages
+                        p.py-2 Our city-wise SEO packages are tailored to help businesses rank highly in city-based search results. This approach targets users searching for products or services within a specific city, making it an effective strategy for local businesses. City-wise SEO enhances local visibility, builds a strong online presence in your area, and helps boost conversion rates by focusing on nearby customers. Additionally, targeting a specific city is often more cost-effective than broader SEO strategies, allowing for a focused and budget-friendly approach to building a customer base.
+                        p.py-2 To provide flexibility and meet varying client needs, our city-wise SEO packages are divided into two categories: Star and Silver. These packages differ in features and pricing, allowing businesses to select the one that best suits their requirements and budget. For a clear understanding of what each package includes, please refer to the detailed comparison table below.      
+                     
+                    .toptext
+                        h1.text-center PICK YOUR PLAN
+                        p.text-center IMPROVE YOUR ENGAGEMENT    
+                    .tableres#pack
                         table
                             thead
                                 tr
@@ -472,7 +492,29 @@ html(lang="en")
                                         a(href="send-query") Send Query
                                     td.sila
                                         a(href="send-query") Send Query
+                        .addtext 
+                        h1.addh1 What Our Team of Experts Will Do for You
+                        p.py-2 Our team of SEO experts at Zolexomart works strategically to boost a website's ranking on search engine results pages (SERPs) and drive organic traffic. The process begins with a comprehensive website audit and analysis. This crucial first step helps us understand the website’s current performance, detect any weaknesses, and identify key areas for improvement.          
+                        p.py-2 Once the initial analysis is complete, our team develops a customized SEO strategy tailored to meet your business goals. This plan includes specific steps to improve site ranking, increase traffic, and enhance user engagement. With the help of advanced SEO tools, we optimize various site elements, focusing on:
+                   
+                        ul 
+                            li 
+                                p   
+                                    b Primary keywords       
+                                    | relevant to your business and frequently searched by your target audience.
+                                p   
+                                    b Mobile-friendliness       
+                                    | to ensure a seamless user experience across devices, which is critical for ranking.
+                                p   
+                                    b Image optimization       
+                                    | enhance site speed and improve loading times
+                                p 
+                                    b 	Overall website speed
+                                    | including code and script minimization, to ensure fast performance.
+                        p.py-2 In addition to these core optimizations, a quality SEO provider like Zolexomart continues to provide ongoing optimization after the initial setup. This ensures that your site adapts to any changes in search engine algorithms, helping it maintain or improve its rankings over time. Regular adjustments also help prevent drops in traffic and keep your website competitive in its industry.
+                        p.py-2 Transparency is key to our approach. With regular analytics reports, we keep clients updated on their website’s progress and performance. These reports include essential metrics, such as keyword rankings, traffic sources, traffic volume, and the success of implemented SEO strategies. Our commitment to detailed, transparent reporting allows clients to stay informed and confident in the results being achieved.
 
+                
 
 
                                
@@ -489,5 +531,20 @@ html(lang="en")
 
     // Template Scripts
     script(src="/js/main.js")
+    script.
+        // Ensure the page scrolls smoothly to the target with a 40px offset
+        $(document).ready(function() {
+            $('a[href^="#pack"]').on('click', function(e) {
+            e.preventDefault();  // Prevent default anchor behavior
+            
+            var target = $(this.getAttribute('href'));
+            
+            // Scroll to the target with an offset of 40px
+            $('html, body').animate({
+                scrollTop: target.offset().top - 150
+            }, 500); // Adjust the time (500ms) to control the speed of the scroll
+            });
+        });
+
 
 

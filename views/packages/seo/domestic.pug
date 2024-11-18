@@ -57,6 +57,7 @@ html(lang="en")
         script(src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js" integrity="sha512-BdHyGtczsUoFcEma+MfXc71KJLv/cd+sUsUaYYf2mXpfG/PtBjNXsPo78+rxWjscxUYN2Qr2+DbeGGiJx81ifg==" crossorigin="anonymous")
 
     body
+        include ../components/poup.pug
         // Start of Tawk.to Script
         script(type="text/javascript"). 
             var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
@@ -89,13 +90,26 @@ html(lang="en")
         //- .hero-header.bg
         //-     h1.text-white.animated.zoomIn Contact Us
         //-     img(src="./img/2149288184.jpg" alt="" width="100%")
-        .container-fluid.py-5
-            .containerl.px-lg-5
+        .container-fluid.pb-5
+            
                 .row
-                    .box.my-5
+                    .box.py-5
                         h1.text-center Domestic SEO Plan
-                        p.text-center IMPROVE YOUR ENGAGEMENT
-                    .tableres
+                        
+                        p.text-center SEO services are becoming increasingly popular as businesses face the challenge of standing out among countless websites offering similar products or services. In today's competitive landscape, SEO has become a necessity. It leverages the unique features of your website to attract quality traffic. Achieving this requires in-depth analysis and technical expertise, including keyword analysis, content optimization, and a clear understanding of search engine algorithms. This complex process often requires professional expertise to ensure success.
+                        div.d-flex.flex.btnaddd                          
+                            a(href="#pack") View Package                       
+                            a.button(href="#popup1") Send Query
+                        
+                    .addtext 
+                        h1.addh1 Domestic SEO Service PackageByZolexomart
+                        p.py-2 At Zolexomart, we offer comprehensive SEO service packages tailored to meet the diverse needs of businesses. Our SEO service packages are divided into two main categories: city-wise SEO and domestic SEO. The city-wise SEO service focuses on improving local visibility by targeting city-based search results, while the domestic SEO service targets a broader, national audience. Domestic SEO, which aims to reach a large and varied market, requires specialized knowledge and a strategic approach. Zolexomart’s custom domestic SEO campaigns are designed to elevate brand visibility, improve search engine rankings, and attract organic traffic from highly competitive keywords. With over 60% of online purchases originating from organic search results, having a strong domestic SEO strategy is vital for domestic businesses looking to boost lead generation and revenue.
+                        p.py-2 Our domestic SEO services packages are further categorized into two options—Star and Silver. These packages are differentiated by pricing and the range of services offered, allowing clients to select a plan that best suits their specific business needs. Below is a detailed comparison table of the Star and Silver domestic SEO service packages.
+                    
+                    .toptext
+                        h1.text-center PICK YOUR PLAN
+                        p.text-center IMPROVE YOUR ENGAGEMENT    
+                    .tableres#pack
                         table
                             thead
                                 tr
@@ -499,8 +513,13 @@ html(lang="en")
                                         a(href="send-query") Send Query
                                     td.sila
                                         a(href="send-query") Send Query
-
-
+                    .addtext 
+                        h1.addh1 What services our experts at Zolexomart will provide in Domestic SEO Service Package
+                        p.py-2 At Zolexomart, our approach to SEO begins with On-Page SEO, where we focus on optimizing website content with relevant keywords to improve user experience and search engine rankings. We ensure that internal links are strategically placed and balanced with authoritative outbound links. Additionally, we organize the content structure to meet search engine requirements for better indexing.
+                        p.py-2 Our Off-Page SEO services concentrate on building valuable backlinks from authoritative domains such as .edu, .org, and .gov sites. These backlinks enhance your website’s credibility and drive more targeted traffic.
+                        p.py-2 The Research phase involves competitor analysis, website evaluation, and SEO auditing to identify areas for improvement. Once the current performance is assessed, we develop strategies to optimize and create Content that resonates with your target audience, including blog posts, guides, infographics, and more, all tailored to rank for high-value keywords.
+                        p.py-2 In the Optimization phase, we improve your website's structure and usability, set up Google Analytics, refine title tags, and resolve any technical SEO issues. Our Keyword Strategy involves in-depth keyword research to identify the most valuable and relevant terms for your business.
+                        p.py-2 Lastly, our Testing phase ensures continuous improvement. We analyze the effectiveness of calls-to-action (CTAs), conversion paths, and monitor ROI to identify new opportunities for growth. At Zolexomart, we are committed to delivering long-term SEO results that help your website rank higher and attract valuable traffic, ensuring sustained business success.
 
                                
     include ../../components/footer.pug
@@ -516,5 +535,20 @@ html(lang="en")
 
     // Template Scripts
     script(src="/js/main.js")
+    script.
+        // Ensure the page scrolls smoothly to the target with a 40px offset
+        $(document).ready(function() {
+            $('a[href^="#pack"]').on('click', function(e) {
+            e.preventDefault();  // Prevent default anchor behavior
+            
+            var target = $(this.getAttribute('href'));
+            
+            // Scroll to the target with an offset of 40px
+            $('html, body').animate({
+                scrollTop: target.offset().top - 150
+            }, 500); // Adjust the time (500ms) to control the speed of the scroll
+            });
+        });
+
 
 
