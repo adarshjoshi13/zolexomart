@@ -2430,6 +2430,7 @@ background: #6783e3;
 .addh1{
     text-align: center;
     padding: 20px;
+    text-transform: capitalize;
     font-size: 35px;
     color: #005b6d;
 }

@@ -159,7 +159,7 @@ router.get('/city-wise-seo', (req, res) => {
 
 //domestic-seo
 router.get('/domestic-seo', (req, res) => {
-    res.render('packages/seo/domestic');
+    res.render('packages/seo/domestic.pug');
 });
 
 module.exports = router;
