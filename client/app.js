@@ -3,7 +3,6 @@ const nodemailer = require('nodemailer');
 const bodyParser = require('body-parser');
 const path = require('path');
 const cors = require('cors');
-const axios = require('axios'); // Import Axios
 const ApiRoutes = require('./src/routes/api');
 const HomeRoutes = require('./src/routes/home');
 const { Connection, Services } = require('./src/models');
@@ -48,40 +47,6 @@ app.use(async (req, res, next) => {
 
 app.use('/', HomeRoutes);
 app.use('/api', ApiRoutes);
-
-// Add a new route for the blog
-app.get('/blog', async (req, res) => {
-    try {
-        const response = await axios.get('https://public-api.wordpress.com/wp/v2/sites/zolexomartforblog.wordpress.com/posts');
-        const posts = response.data; // Get blog posts
-
-        // console.log('check posts', JSON.stringify(posts, null, 2));
-
-        res.render('blog', { posts: posts });
-    } catch (error) {
-        console.error('Error fetching blog posts:', error);
-        res.status(500).send('Unable to fetch blog posts.');
-    }
-});
-
-// Add a new route for the blog
-app.get('/blog/:id', async (req, res) => {
-    try {
-        const blogId = req.params.id;
-        const siteName = 'zolexomartforblog.wordpress.com'; // Replace with your WordPress site name
-        const response = await axios.get(`https://public-api.wordpress.com/wp/v2/sites/${siteName}/posts/${blogId}`);
-        
-        const post = response.data; // Get the specific blog post
-
-        // console.log('Blog post details:', JSON.stringify(post, null, 2));
-
-        res.render('specific-blog.pug', { post: post });
-    } catch (error) {
-        console.error('Error fetching the blog post:', error.response?.data || error.message);
-        res.status(500).send('Unable to fetch the blog post.');
-    }
-});
-
 
 // Start the server
 Connection().then(() => {

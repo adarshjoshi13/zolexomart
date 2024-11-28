@@ -1,5 +1,6 @@
 const express = require('express')
 const { Services } = require('../models/index');
+const axios = require('axios'); // Import Axios
 require('dotenv').config();
 
 const router = express.Router();
@@ -53,7 +54,7 @@ router.get('/service/:id/:route', async (req, res) => {
         Service.seo.keywordsPlanner = Service.seo.keywordsPlanner.split(',').map(keyword => keyword.trim());
 
         // console.log(Service, "this is the service")
-        
+
         res.render('service', { Service, OurServices, ServiceBenefitsIcons });
     } catch (error) {
         console.error('Error fetching service:', error);
@@ -76,10 +77,6 @@ router.get('/about', (req, res) => {
     res.render('about');
 });
 
-//blog route
-router.get('/blogs', (req, res) => {
-    res.render('blogs');
-});
 //seo blog route
 router.get('/seo-blog', (req, res) => {
     res.render('seo-blog');
@@ -161,5 +158,37 @@ router.get('/city-wise-seo', (req, res) => {
 router.get('/domestic-seo', (req, res) => {
     res.render('packages/seo/domestic.pug');
 });
+
+// Add a new route for the blog
+router.get('/blogs', async (req, res) => {
+    try {
+        const response = await axios.get('https://public-api.wordpress.com/wp/v2/sites/zolexomartforblog.wordpress.com/posts');
+        const posts = response.data; 
+
+        res.render('blogs', { posts });
+    } catch (error) {
+        console.error('Error fetching blog posts:', error);
+        res.status(500).send('Unable to fetch blog posts.');
+    }
+});
+
+// Add a new route for the blog
+router.get('/blog/:id', async (req, res) => {
+    try {
+        const blogId = req.params.id;
+        const siteName = 'zolexomartforblog.wordpress.com'; // Replace with your WordPress site name
+        const response = await axios.get(`https://public-api.wordpress.com/wp/v2/sites/${siteName}/posts/${blogId}`);
+
+        const post = response.data; // Get the specific blog post
+
+        // console.log('Blog post details:', JSON.stringify(post, null, 2));
+
+        res.render('blog', { post: post });
+    } catch (error) {
+        console.error('Error fetching the blog post:', error.response?.data || error.message);
+        res.status(500).send('Unable to fetch the blog post.');
+    }
+});
+
 
 module.exports = router;

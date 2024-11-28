@@ -1,11 +1,10 @@
-
 doctype html
 html(lang="en")
     head
         meta(charset="utf-8")
         
         meta(name="viewport" content="width=device-width, initial-scale=1.0")
-        title Digital Marketing Blogs | Zolexo Mart Pvt. Ltd. | Contact Us: 9958575960
+        title Blog Post - #{post.title.rendered}
 
         meta(name="Description", content="Zolexo Mart's Blogs provides insights into various aspects of digital marketing, website development, SEO (Search Engine Optimization), and lead generation. Some of the highlighted blog topics include.")
         meta(name="Keywords", content="Digital Marketing Blogs, Best Digital Marketing, Top Digital Marketing Blogs")
@@ -80,7 +79,7 @@ html(lang="en")
             a(href="https://wa.me/9958575960")
                 img(src="/img/whatsapp.png" alt="WhatsApp")
 
-        .container-xxl.bg-white.p-0
+       
 
             
 
@@ -90,23 +89,17 @@ html(lang="en")
         .hero-header.bg
             h1.text-white.animated.zoomIn Our Blog
             img(src="./img/16124dsff.jpg", alt="", width="100%")
-       
-        .container-xxl.py-5
-            .container.px-lg-5
-                .row.g-5
-                    each post in posts
-                        .col-lg-6.wow.fadeInUp(data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;")
-                            .section-title.position-relative.mb-4.pb-2
-                                h2.mt-2= post.title
+        header
+          img(src=post.jetpack_featured_media_url, alt="")
+          h1 #{post.title.rendered} 
 
-                            p.mb-4.addt!= post.excerpt.rendered
+        main
+          if post.content && post.content.rendered
+            div!= post.content.rendered
 
-                            a.btnnew(href=`http://localhost:3000/blog/${post.id}`) Read More
-
-                        .col-lg-6.addimgs(style="margin-top: 50px; text-align: center;")
-                            img.img-fluid.wow.zoomIn(data-wow-delay="0.5s" src="./img/jdhs.jpg" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomIn;")
-
-
+        footer
+          p Written by: #{post.author} | Published on #{new Date(post.date).toLocaleDateString()}
+          a(href='/blogs') 
     include ./components/footer.pug
 
     // Scripts for Libraries
