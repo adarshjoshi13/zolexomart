@@ -94,7 +94,7 @@ html(lang="en")
 
             
             if post.content && post.content.rendered
-                != post.content.rendered
+                p.text-dark.py-3!= post.excerpt.rendered.replace(/<\/?[^>]+(>|$)/g, "")
 
             footer
             p Written by: #{post.author} | Published on #{new Date(post.date).toLocaleDateString()}

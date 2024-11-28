@@ -1110,6 +1110,9 @@ p{
 padding: 5px;
 color: #000;
 }
+#carouselblog h1{
+    font-size: 16px;
+}
 #carouselblog .owl-stage-outer{
         
         padding-top: 5px;
@@ -1118,6 +1121,7 @@ color: #000;
 #carouselblog img {
     height: 250px;
     border-radius: 10px;
+    width: 100%;
 }
 
 /* #carouselblog .owl-height{
@@ -1127,6 +1131,8 @@ color: #000;
     display: -webkit-box;
     display: -webkit-flex;
     display: -ms-flexbox;
+    
+    justify-content: center;
     display: flex;
     flex-wrap: wrap;
     background: #fff;
@@ -2909,3 +2915,13 @@ background: #6783e3;
   #gallery .item{
     padding: 0 10px;
   }
+  .textblog {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 6; /* number of lines to show */
+            line-clamp: 6; 
+    -webkit-box-orient: vertical;
+ }
+ .img{
+    width: 100%;
+ }

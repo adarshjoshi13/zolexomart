@@ -375,11 +375,12 @@ html(lang="en")
                                         .indus-btn Machinery
                     
                         
-        .container-xxl.py-5
+        .container-xxl.py-5(style="background:#c1c1c1")
             .container.px-lg-5
                 .row
-                    .section-title.position-relative.text-center.mb-5.pb-2.wow.fadeInUp(data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;")
+                    .mb-5.pb-2.wow.fadeInUp(data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;")
                         h2.mt-2 Our Blogs
+                        p.text-dark UNLIMITED CHOICES | BEST PRICES | HAPPY MEMORIES | HOT DEALS
                     .owl-slider
                         #carouselblog.owl-carousel
                             each post in posts
@@ -388,8 +389,10 @@ html(lang="en")
                                         a(href=`/blog/${post.id}`)
                                             .newindus-slide
                                                 .img
-                                                    img.img-fluid(width="280" height="419" decoding="async" src=post.jetpack_featured_media_url alt="Real Estate")
-                                                .indus-btn.textadd!= post.excerpt.rendered.replace(/<\/?[^>]+(>|$)/g, "")
+                                                    img.img-fluid( decoding="async" src=post.jetpack_featured_media_url alt="Real Estate")
+                                                div    
+                                                    h1.text-center #{post.title.rendered}     
+                                                    .indus-btn.textadd.text-center!= post.excerpt.rendered.replace(/<\/?[^>]+(>|$)/g, "")
 
         .container-fluid.bg-primary.testimonial.py-5.wow.fadeInUp(data-wow-delay="0.1s")
             .container
@@ -507,7 +510,7 @@ html(lang="en")
                     margin: 10,
                     nav: false,
                     dots: true,
-                    autoplay: true,
+                    autoplay: false ,
                     responsive: {
                         0: {
                             items: 1
