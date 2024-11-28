@@ -3,21 +3,21 @@ doctype html
 html(lang="en")
     head
         meta(charset="utf-8")
-        
+
         meta(name="viewport" content="width=device-width, initial-scale=1.0")
         title Digital Marketing Blogs | Zolexo Mart Pvt. Ltd. | Contact Us: 9958575960
 
-        meta(name="Description", content="Zolexo Mart's Blogs provides insights into various aspects of digital marketing, website development, SEO (Search Engine Optimization), and lead generation. Some of the highlighted blog topics include.")
-        meta(name="Keywords", content="Digital Marketing Blogs, Best Digital Marketing, Top Digital Marketing Blogs")
-        meta(name="robots", content="Index, follow")
-        link(rel="canonical", href="https://www.zolexomart.in/blogs")
+        meta(name="Description" content="Zolexo Mart's Blogs provides insights into various aspects of digital marketing, website development, SEO (Search Engine Optimization), and lead generation. Some of the highlighted blog topics include.")
+        meta(name="Keywords" content="Digital Marketing Blogs, Best Digital Marketing, Top Digital Marketing Blogs")
+        meta(name="robots" content="Index, follow")
+        link(rel="canonical" href="https://www.zolexomart.in/blogs")
 
-        meta(property="og:locale", content="en_IN")
-        meta(property="og:type", content="Website")
-        meta(property="og:title", content="Digital Marketing Blogs | Zolexo Mart Pvt. Ltd. | Contact Us: 9958575960")
-        meta(property="og:description", content="Zolexo Mart's Blogs provides insights into various aspects of digital marketing, website development, SEO (Search Engine Optimization), and lead generation. Some of the highlighted blog topics include.")
-        meta(property="og:site_name", content="Zolexo Mart Pvt. Ltd.")
-        meta(property="og:url", content="https://www.zolexomart.in/blogs")
+        meta(property="og:locale" content="en_IN")
+        meta(property="og:type" content="Website")
+        meta(property="og:title" content="Digital Marketing Blogs | Zolexo Mart Pvt. Ltd. | Contact Us: 9958575960")
+        meta(property="og:description" content="Zolexo Mart's Blogs provides insights into various aspects of digital marketing, website development, SEO (Search Engine Optimization), and lead generation. Some of the highlighted blog topics include.")
+        meta(property="og:site_name" content="Zolexo Mart Pvt. Ltd.")
+        meta(property="og:url" content="https://www.zolexomart.in/blogs")
 
         link(href="/img/Logo.jpg" rel="icon")
 
@@ -82,34 +82,45 @@ html(lang="en")
 
         .container-xxl.bg-white.p-0
 
-            
 
-                
+
+
         div.container-xxl.position-relative.p-0
             include ./components/nav.pug
-        .hero-header.bg
-            h1.text-white.animated.zoomIn Our Blog
-            img(src="./img/16124dsff.jpg", alt="", width="100%")
-       
+        //- .hero-header.bg
+        //-     h1.text-white.animated.zoomIn Our Blog
+        //-     img(src="./img/16124dsff.jpg" alt="" width="100%")
+
         .container-xxl.py-5
             .container.px-lg-5
+                h1.text-center.pb-4 Blogs
                 .row.g-5
                     if posts.length === 0
                         p No blog posts available at the moment.
                     else
-                        each post in posts
-                            .col-lg-6.wow.fadeInUp(data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;")
-                                .section-title.position-relative.mb-4.pb-2
-                                    h2.mt-2= post.title.rendered
+                        each post, index in posts
+                            // For alternating content and image layout
+                            if index % 2 === 0
+                                // Content first, Image second
+                                .col-lg-6.wow.fadeInUp(data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;")
+                                    .section-title.position-relative.mb-4.pb-2
+                                        h2.mt-2= post.title.rendered
+                                    p.mb-4.addt!= post.excerpt.rendered.replace(/<\/?[^>]+(>|$)/g, "")
+                                    a.btnnew(href=`/blog/${post.id}`) Read More
 
-                                p.mb-4.addt!= post.excerpt.rendered.replace(/<\/?[^>]+(>|$)/g, "")
+                                .col-lg-6.addimgs(style="text-align: center;")
+                                    img.img-fluid.wow.zoomIn(data-wow-delay="0.5s" src=post.jetpack_featured_media_url alt="no-image" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomIn;")
 
+                            else
+                                // Image first, Content second
+                                .col-lg-6.addimgs(style="text-align: center;")
+                                    img.img-fluid.wow.zoomIn(data-wow-delay="0.5s" src=post.jetpack_featured_media_url alt="no-image" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomIn;")
 
-                                a.btnnew(href=`/blog/${post.id}`) Read More
-
-                            .col-lg-6.addimgs(style="margin-top: 50px; text-align: center;")
-                                img.img-fluid.wow.zoomIn(data-wow-delay="0.5s" src=post.jetpack_featured_media_url alt='no-image' style="visibility: visible; animation-delay: 0.5s; animation-name: zoomIn;")
-
+                                .col-lg-6.wow.fadeInUp(data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;")
+                                    .section-title.position-relative.mb-4.pb-2
+                                        h2.mt-2= post.title.rendered
+                                    p.mb-4.addt!= post.excerpt.rendered.replace(/<\/?[^>]+(>|$)/g, "")
+                                    a.btnnew(href=`/blog/${post.id}`) Read More
 
     include ./components/footer.pug
 
@@ -125,5 +136,5 @@ html(lang="en")
     // Template Scripts
     script(src="/js/main.js")
 
-  
-            
+
+

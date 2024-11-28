@@ -78,28 +78,22 @@ html(lang="en")
         .whatsaap
             a(href="https://wa.me/9958575960")
                 img(src="/img/whatsapp.png" alt="WhatsApp")
-
-       
-
-            
-
-                
+ 
         div.container-xxl.position-relative.p-0
             include ./components/nav.pug
         .hero-header.bg
-            h1.text-white.animated.zoomIn Our Blog
-            img(src="./img/16124dsff.jpg", alt="", width="100%")
-        header
-          img(src=post.jetpack_featured_media_url, alt="")
-          h1 #{post.title.rendered} 
+            h1.text-white.animated.zoomIn #{post.title.rendered} 
+            img(src=post.jetpack_featured_media_url, alt="", width="100%")
+        .container.py-5
+            h1 #{post.title.rendered} 
 
-        main
-          if post.content && post.content.rendered
-            div!= post.content.rendered
+            
+            if post.content && post.content.rendered
+                != post.content.rendered
 
-        footer
-          p Written by: #{post.author} | Published on #{new Date(post.date).toLocaleDateString()}
-          a(href='/blogs') 
+            footer
+            p Written by: #{post.author} | Published on #{new Date(post.date).toLocaleDateString()}
+            a(href='/blogs') 
     include ./components/footer.pug
 
     // Scripts for Libraries

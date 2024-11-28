@@ -1539,6 +1539,7 @@ body{
 .addimgs img {
     border-radius: 10px;
     height: 300px;
+    width: 100%;
 }
 .bgservice{
     margin-bottom: 70px;
