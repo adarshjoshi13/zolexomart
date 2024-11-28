@@ -17,7 +17,16 @@ router.get('/', async (req, res) => {
         { title: 'Improve conversion rates', imgSrc: './img/icons/Improve-conversion-rate.webp', description: 'Attract numerous leads, businesses, conversions, opportunities, and users to your brand products and services.' }
     ]
 
-    res.render('index', { businessNeeds: BusinessNeeds });
+    const response = await axios.get('https://public-api.wordpress.com/wp/v2/sites/zolexomartforblog.wordpress.com/posts', {
+        params: {
+            per_page: 6,
+            page: 1
+        }
+    });
+
+    const posts = response.data;
+
+    res.render('index', { businessNeeds: BusinessNeeds, posts: posts });
 });
 
 // Service route
@@ -114,7 +123,7 @@ router.get('/digital-marketing-blog', (req, res) => {
 
 //digital-marketing-blog
 router.get('/industry', (req, res) => {
-    res.render('industry');
+    res.render('industries');
 });
 //All Services
 router.get('/view-all-services', (req, res) => {
@@ -163,7 +172,7 @@ router.get('/domestic-seo', (req, res) => {
 router.get('/blogs', async (req, res) => {
     try {
         const response = await axios.get('https://public-api.wordpress.com/wp/v2/sites/zolexomartforblog.wordpress.com/posts');
-        const posts = response.data; 
+        const posts = response.data;
 
         res.render('blogs', { posts });
     } catch (error) {

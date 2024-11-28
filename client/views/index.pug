@@ -382,62 +382,15 @@ html(lang="en")
                         h2.mt-2 Our Blogs
                     .owl-slider
                         #carouselblog.owl-carousel
-                            .item
-                                div
-                                    a(href="buyer-lead-blog")
-                                        .newindus-slide
-                                            .img
-                                                img.img-fluid(width="280" height="419" decoding="async" src="/img/bloglead.jpg" alt="Real Estate")
-                                            .indus-btn.textadd Buyer Leads Impact on Revenue and Reasons to Invest in Them
+                            each post in posts
+                                .item
+                                    div
+                                        a(href=`/blog/${post.id}`)
+                                            .newindus-slide
+                                                .img
+                                                    img.img-fluid(width="280" height="419" decoding="async" src=post.jetpack_featured_media_url alt="Real Estate")
+                                                .indus-btn.textadd!= post.excerpt.rendered.replace(/<\/?[^>]+(>|$)/g, "")
 
-                            .item
-                                a(href="seo-blog")
-                                    .newindus-slide
-                                        .img
-                                            img.img-fluid(width="280" height="419" decoding="async" src="/img/laptop-7669027_1280.jpg" alt="Real Estate")
-                                        .indus-btn.textadd SEO, or Search Engine Optimization, refers to the process of improving a website's visibility on search engine results pages (SERPs).
-
-                            .item
-                                a(href="business-blog")
-                                    .newindus-slide
-                                        .img
-                                            img.img-fluid(width="280" height="419" decoding="async" src="/img/desk-3139127_640.jpg" alt="Real Estate")
-                                        .indus-btn.textadd Transform Your Business Revenue with Content Marketing
-
-                            .item
-                                a(href="development-blog")
-                                    .newindus-slide
-                                        .img
-                                            img.img-fluid(width="280" height="419" decoding="async" src="/img/Picture2.png" alt="Real Estate")
-                                        .indus-btn.textadd The Power of Web Development in Boosting Your Digital Marketing Strategy
-
-                            .item
-                                a(href="smo-blog")
-                                    .newindus-slide
-                                        .img
-                                            img.img-fluid(width="280" height="419" decoding="async" src="/img/Picture3.png" alt="Real Estate")
-                                        .indus-btn.textadd SMO: Strategy to use Social-Media to Boost Up Your Business
-
-                            .item
-                                a(href="gmb-blog")
-                                    .newindus-slide
-                                        .img
-                                            img.img-fluid(width="280" height="419" decoding="async" src="/img/Picture4.png" alt="Real Estate")
-                                        .indus-btn.textadd Google My Business: A Powerful Tool for All Businesses
-
-                            .item
-                                a(href="msmes-blog")
-                                    .newindus-slide
-                                        .img
-                                            img.img-fluid(width="280" height="419" decoding="async" src="/img/0.jpg" alt="Real Estate")
-                                        .indus-btn.textadd How MSMEs Can Grow Using Digital Marketing
-
-                            .item
-                                a(href="digital-marketing-blog")
-                                    .newindus-slide
-                                        .img
-                                            img.img-fluid(width="280" height="419" decoding="async" src="/img/jdhs.jpg" alt="Real Estate")
-                                        .indus-btn.textadd Digital marketing is essential for businesses in today
         .container-fluid.bg-primary.testimonial.py-5.wow.fadeInUp(data-wow-delay="0.1s")
             .container
                 .row
