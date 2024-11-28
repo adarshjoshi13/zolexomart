@@ -65,6 +65,10 @@ html(lang="en")
         link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css")
         link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css")
 
+        //  smooth slider
+        link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css")
+        //- link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css")
+
 
         link(rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css")
         //- link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css")
@@ -100,6 +104,7 @@ html(lang="en")
         // jQuery
         script(src="https://code.jquery.com/jquery-3.4.1.min.js")
         script(src="https://code.jquery.com/jquery-3.6.0.min.js")
+        
         // Typed.js Script
         script(src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js" integrity="sha512-BdHyGtczsUoFcEma+MfXc71KJLv/cd+sUsUaYYf2mXpfG/PtBjNXsPo78+rxWjscxUYN2Qr2+DbeGGiJx81ifg==" crossorigin="anonymous")
 
@@ -130,7 +135,7 @@ html(lang="en")
             div.container-fluid.position-relative.p-0
                 include ./components/nav.pug
         .container-fluid.bgbanner
-                    div.container-fluid.hero-header.mb-5#tsparticles
+                    div.container-fluid.hero-header#tsparticles
                    
                     
                             div.container.addp.px-lg-5
@@ -187,14 +192,32 @@ html(lang="en")
                                         div 
                                             p.text-white.text-center Digital Marketing Services for SMEs, MSMEs, B2B, and B2C businesses Specializing in SMM, PPC, Web Development, and Verified Quality Buyer and Lead Generation, We Generate Quality Leads for sustainable business success 
 
-        div.container-xxl.py-5
+      
+        .container-xxl.py-5(style="    background: #f1f1f1;")
+            div.container-fluid.px-lg-5
+                div.section-title.position-relative.text-center.mb-5.pb-2.wow.fadeInUp(data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;")
+                    //- h6.position-relative.d-inline.text-primary.ps-4 Our Services
+                    h2.mt-2 What Solutions We Provide
+                div.row.g-4
+                    each service in Services.slice(0, 6)
+                        div.col-lg-6.col-md-6.wow.zoomIn(data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: zoomIn;")
+                            div.service-item.d-flex.flex-column.justify-content-center.text-center.rounded
+                                div.service-icon.flex-shrink-0
+                                    .imgbox.col-md-6
+                                        img(src=service.subImageUrl alt="not image")
+                                    .textbox.col-md-6    
+                                        h3.text1.mb-3 #{service.serviceName}
+                                        p.textsec #{service.subDescription}
+                                        a.btn.px-3.mt-auto.mx-auto(href=`/service/${service.id}/${service.route}`) Read More
+       
+        div.container-xxl.py-5.aboutsec
             div.container.px-lg-5
                 div.row.g-5
                     div.col-lg-6.wow.fadeInUp(data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;")
-                        div.section-title.position-relative.mb-4.pb-2
-                            h6.position-relative.text-primary.ps-4 About Us
-                            h2.mt-2 Zolexo Mart Pvt Ltd
-                        p.mb-4.addt
+                        div.mb-4.pb-2
+                            //- h6.position-relative.text-primary.ps-4 About Us
+                            h2.mt-2 Zolexo Mart
+                        p.mb-4.text-white
                             At Zolexo Mart Pvt Ltd, We are Dedicated to Revolutionizing the Digital Marketing Landscape. With a deep Passion for Innovation and results, Our Mission is to help Businesses grow and thrive in the ever-evolving Digital World. We believe in creating Tailored Marketing Strategies that not only drive traffic but also Convert Leads into Loyal customers.
 
                         div.d-flex.align-items-center.mt-4
@@ -214,99 +237,144 @@ html(lang="en")
 
                     div.col-lg-6.border-radias
                         img.img-fluid.wow.zoomIn(data-wow-delay="0.5s" src="/img/digital-marketing.png" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomIn;")
+        section 
+            section.bg-secondary.newsection
+                .container
+                    .mb-1-9.mb-md-6.text-center.wow.fadeIn(data-wow-delay="200ms", style="visibility: visible; animation-delay: 200ms; animation-name: fadeIn;")
+                        //- span.sm-title Work Process
+                        h4.mb-0.h1.text-white Our Working Process
 
-        .container-xxl.py-5(style="    background: #f1f1f1;")
-            div.container-fluid.px-lg-5
-                div.section-title.position-relative.text-center.mb-5.pb-2.wow.fadeInUp(data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;")
-                    h6.position-relative.d-inline.text-primary.ps-4 Our Services
-                    h2.mt-2 What Solutions We Provide
-                div.row.g-4
-                    each service in Services.slice(0, 6)
-                        div.col-lg-6.col-md-6.wow.zoomIn(data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: zoomIn;")
-                            div.service-item.d-flex.flex-column.justify-content-center.text-center.rounded
-                                div.service-icon.flex-shrink-0
-                                    .imgbox.col-md-6
-                                        img(src=service.subImageUrl alt="not image")
-                                    .textbox.col-md-6    
-                                        h3.text1.mb-3 #{service.serviceName}
-                                        p.textsec #{service.subDescription}
-                                        a.btn.px-3.mt-auto.mx-auto(href=`/service/${service.id}/${service.route}`) Read More
+                    .main-process.text-center
+                        .line-shape.wow.fadeIn(data-wow-delay="200ms", style="visibility: visible; animation-delay: 200ms; animation-name: fadeIn;")
+                            img.imgstyle(src="img/process-line.png", alt="...")
+
+                        .row.mt-n6
+                            .process-style-01.process-style-02.col-lg-4.col-md-6.mt-6.wow.fadeInUp(data-wow-delay="200ms", style="visibility: visible; animation-delay: 200ms; animation-name: fadeInUp;")
+                                .item
+                                    .thumb
+                                        img(src="img/1395.jpg", alt="...")
+                                        span 01
+                                    h4.text-white Discovery and Analysis
+                                    p.w-lg-80.mx-auto.mb-0.text-white We begin by understanding your business goals, target audience, and current challenges through an in-depth consultation.
+
+                            .process-style-01.col-lg-4.col-md-6.mt-6.wow.fadeInUp(data-wow-delay="300ms", style="visibility: visible; animation-delay: 300ms; animation-name: fadeInUp;")
+                                .item
+                                    .thumb
+                                        img(src="img/18705.jpg", alt="...")
+                                        span 02
+                                    h4.text-white Strategy Development
+                                    p.w-lg-80.mx-auto.mb-0.text-white Customized Solutions: Based on the insights gathered, we develop a customized digital marketing and branding strategy tailored to your specific needs and objectives.
+
+                            .process-style-01.col-lg-4.col-md-6.mt-6.wow.fadeInUp(data-wow-delay="400ms", style="visibility: visible; animation-delay: 400ms; animation-name: fadeInUp;")
+                                .item
+                                    .thumb
+                                        img(src="img/2150461327.jpg", alt="...")
+                                        span 03
+                                    h4.text-white Implementation and Execution
+                                    p.w-lg-80.mx-auto.mb-0.text-white Campaign Launch: Upon approval, we commence the implementation phase, setting up campaigns across various channels such as social media, search engines, and business portals.
+
+                img(src="img/about3.png", class="position-absolute bottom-0 left", alt="...")
 
         section.mobileapp-dev
             .container-xxl.py-5
-                .container.px-lg-5
-                .section-title.position-relative.text-center.mb-5.pb-2.wow.fadeInUp(data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;")
-                    h2.mt-2 Why Your Business Needs Digital Marketing Services?
+                .container
+                    .mb-5.pb-2.wow.fadeInUp(data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;")
+                    h2.text-white.mt-2 Why Your Business Needs Digital Marketing Services?
+                    p.text-white.mb-4 In today's fast-paced and digitally-driven world, digital marketing services have become an essential part of any business strategy, regardless of its size or industry. The internet provides businesses with an unparalleled opportunity to reach a global audience 24/7, overcoming the limitations of traditional marketing methods like print, TV, and radio ads. Through various digital marketing channels such as social media, search engine optimization (SEO), content marketing, and email marketing, businesses can not only expand their reach but also target specific demographics, interests, and behaviors, ensuring that their message reaches the right audience.
 
                 .container
                     .row
                         each service in businessNeeds
                             .col-md-6.col-lg-4.wow.zoomIn(data-wow-delay="0.6s" style="visibility: visible; animation-delay: 0.6s; animation-name: zoomIn;")
-                                .services-wrapper
-                                    .services-inner-img
-                                        img( decoding="async" src=service.imgSrc alt=service.title class="entered lazyloaded")
-                                    h3= service.title
-                                    p= service.description
+                                .box-container
+                                    .box-item
+                                        .flip-box
+                                            .flip-box-front.text-center
+                                                .inner.color-white
+                                                   
+                                                        .services-inner-img
+                                                            img( decoding="async" src=service.imgSrc alt=service.title class="entered lazyloaded")
+                                                        h3= service.title
+                                                        
+                                                       
+                                                   
+                                            .flip-box-back.text-center(style="background-image: url('/img/18777126_6005990.jpg');")
+                                                .inner.color-white
+                                                    //- .services-inner-img
+                                                        //- img( decoding="async" src=service.imgSrc alt=service.title class="entered lazyloaded")
+                                                    p= service.description
+  
+                                //- .services-wrapper
+                                //-     .services-inner-img
+                                //-         img( decoding="async" src=service.imgSrc alt=service.title class="entered lazyloaded")
+                                //-     h3= service.title
+                                //-     p= service.description
+        //-  .container-xxl.py-5.industry-new-block
+        //-     .container.px-lg-5
+        //-         .row
+        //-             .mb-5.pb-2.wow.fadeInUp(data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;")
+        //-                 h2.mt-2 Industries We Cater
+        //-                 p.mb-4.text-dark Our Verified Quality Buyer Generation services meets needs of  various Industries with Advanced Techniques our Digital Marketing Company help in generating Verified Quality Buyers for Medical,  Machinery, Handicraft, Education, Industrial Categories and many Others All to enhance customer engagement Streamline Operation and Drive Growth  
+        //-                 .main-banner-button
+        //-                 a(href="industry")
+        //-                     button View All Industries
+                   
+        
 
-
-       
-        .container-xxl.py-5.industry-new-block
-            .container.px-lg-5
-                .row
-                    .col-lg-3.col-md-5.col-12.mb-2
-                        h3 Industries We Cater
-                        p(style="font-size: 15px;") Our Verified Quality Buyer Generation services meets needs of
-                        | various Industries with Advanced Techniques our Digital Marketing Company help in generating Verified Quality Buyers for Medical,
-                        | Machinery, Handicraft, Education, Industrial Categories and many Others All to enhance customer
-                        | engagement Streamline Operation and Drive Growth
-                        .main-banner-button
+        .industry-new-block.pt-5
+            
+                        .container
+                            .wow.fadeInUp(data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;")
+                                h2.mt-2 Industries We Cater
+                                p.mb-4.text-dark Our Verified Quality Buyer Generation services meets needs of  various Industries with Advanced Techniques our Digital Marketing Company help in generating Verified Quality Buyers for Medical,  Machinery, Handicraft, Education, Industrial Categories and many Others All to enhance customer engagement Streamline Operation and Drive Growth  
+                               
+                                
+                                                       
+                        #gallery
                             a(href="industry")
-                                button View All Industries
-
-                    .col-lg-9.col-md-7.col-12
-                        .owl-slider
-                            #carousel.owl-carousel
                                 .item
                                     .newindus-slide
                                         .img
                                             img.img-fluid(width="280" height="419" decoding="async" src="/img/2176.jpg" alt="Healthcare")
                                         .indus-btn Healthcare
-
-                                .item
-                                    .newindus-slide
-                                        .img
-                                            img.img-fluid(width="280" height="419" decoding="async" src="/img/real-estate-6688945_1280.jpg" alt="Real Estate")
-                                        .indus-btn Real Estate
-
+                            a(href="industry")            
+                                    .item
+                                        .newindus-slide
+                                            .img
+                                                img.img-fluid(width="280" height="419" decoding="async" src="/img/real-estate-6688945_1280.jpg" alt="Real Estate")
+                                            .indus-btn Real Estate
+                            a(href="industry")
                                 .item
                                     .newindus-slide
                                         .img
                                             img.img-fluid(width="280" height="419" decoding="async" src="/img/containers-2018438_1280.jpg" alt="Logistic")
                                         .indus-btn Logistic
-
+                            a(href="industry")            
                                 .item
                                     .newindus-slide
                                         .img
                                             img.img-fluid(width="280" height="419" decoding="async" src="/img/library-488690_1280.jpg" alt="Education")
                                         .indus-btn Education
-
+                            a(href="industry")            
                                 .item
                                     .newindus-slide
                                         .img
                                             img.img-fluid(width="280" height="419" decoding="async" src="/img/worker-4395768_1280.jpg" alt="Automobile")
                                         .indus-btn Automobile
-
+                            a(href="industry")            
                                 .item
                                     .newindus-slide
                                         .img
                                             img.img-fluid(width="280" height="419" decoding="async" src="/img/laboratory-563423_1280.jpg" alt="Medical")
                                         .indus-btn Medical
-
+                            a(href="industry")            
                                 .item
                                     .newindus-slide
                                         .img
                                             img.img-fluid(width="280" height="419" decoding="async" src="/img/factory-671598_1280.jpg" alt="Machinery")
                                         .indus-btn Machinery
+                    
+                        
         .container-xxl.py-5
             .container.px-lg-5
                 .row
@@ -430,10 +498,37 @@ html(lang="en")
         script(src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js")
 
         // Template Scripts
-        script(src="js/main.js")
+        script(src="js/main.js")    
+
+        //- smooth slider 
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js")
+       
 
         // Typed.js Initialization
         script.
+           $('#gallery').slick({
+                slidesToShow: 6, // Show 6 slides by default on larger screens
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 0,
+                nav: false,
+                dots: false,
+                speed: 8000,
+                pauseOnHover: true,
+                cssEase: 'linear',
+                responsive: [
+                    {
+                    breakpoint: 768, // Below 768px (phones and smaller tablets)
+                    settings: {
+                        slidesToShow: 1, // Show 1 slide on mobile devices
+                        slidesToScroll: 1, // Scroll 1 slide at a time
+                        autoplaySpeed: 2000, // Adjust autoplay speed for mobile
+                        speed: 500, // Adjust transition speed for mobile
+                        pauseOnHover: true, // Enable pause on hover for mobile
+                    }
+                    }
+                ]
+                });
             $(document).ready(function() {
 
 
@@ -452,24 +547,7 @@ html(lang="en")
                 };
                 new Typed('.text', options);
 
-                $('#carousel').owlCarousel({
-                    loop: true,
-                    margin: 10,
-                    nav: false,
-                    dots: true,
-                    autoplay: true,
-                    responsive: {
-                        0: {
-                            items: 1
-                        },
-                        600: {
-                            items: 3
-                        },
-                        1000: {
-                            items: 3.5
-                        }
-                    }
-                });
+                
 
                 $('#carouselblog').owlCarousel({
                     loop: true,

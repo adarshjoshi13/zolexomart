@@ -173,3 +173,4 @@ jQuery("#carouselblog").owlCarousel({
     },
   },
 });
+

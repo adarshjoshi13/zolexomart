@@ -1,17 +1,117 @@
 doctype html
-html
-  head
-    title Blog Post - #{post.title.rendered}
-    meta(charset='UTF-8')
-    meta(name='viewport', content='width=device-width, initial-scale=1.0')
-  body
-    header
-      h1 #{post.title.rendered} 
+html(lang="en")
+    head
+        meta(charset="utf-8")
+        
+        meta(name="viewport" content="width=device-width, initial-scale=1.0")
+        title Blog Post - #{post.title.rendered}
 
-    main
-      if post.content && post.content.rendered
-        div!= post.content.rendered
+        meta(name="Description", content="Zolexo Mart's Blogs provides insights into various aspects of digital marketing, website development, SEO (Search Engine Optimization), and lead generation. Some of the highlighted blog topics include.")
+        meta(name="Keywords", content="Digital Marketing Blogs, Best Digital Marketing, Top Digital Marketing Blogs")
+        meta(name="robots", content="Index, follow")
+        link(rel="canonical", href="https://www.zolexomart.in/blogs")
 
-    footer
-      p Written by: #{post.author} | Published on #{new Date(post.date).toLocaleDateString()}
-      a(href='/blogs')
+        meta(property="og:locale", content="en_IN")
+        meta(property="og:type", content="Website")
+        meta(property="og:title", content="Digital Marketing Blogs | Zolexo Mart Pvt. Ltd. | Contact Us: 9958575960")
+        meta(property="og:description", content="Zolexo Mart's Blogs provides insights into various aspects of digital marketing, website development, SEO (Search Engine Optimization), and lead generation. Some of the highlighted blog topics include.")
+        meta(property="og:site_name", content="Zolexo Mart Pvt. Ltd.")
+        meta(property="og:url", content="https://www.zolexomart.in/blogs")
+
+        link(href="/img/Logo.jpg" rel="icon")
+
+        // Carousel CSS
+        link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css")
+        link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css")
+
+        // Google Web Fonts
+        link(rel="preconnect" href="https://fonts.googleapis.com")
+        link(rel="preconnect" href="https://fonts.gstatic.com", crossorigin)
+        link(href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet")
+
+        // Fontawesome
+        link(rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer")
+        link(href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet")
+        link(href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet")
+
+        // Libraries Stylesheet
+        link(href="/lib/animate/animate.min.css" rel="stylesheet")
+        link(href="/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet")
+        link(href="/lib/lightbox/css/lightbox.min.css" rel="stylesheet")
+
+        // Customized Bootstrap Stylesheet
+        link(href="/css/bootstrap.min.css" rel="stylesheet")
+
+        // Template Stylesheet
+        link(href="/css/style.css" rel="stylesheet")
+
+        // Font style
+        link(rel="preconnect" href="https://fonts.googleapis.com")
+        link(rel="preconnect" href="https://fonts.gstatic.com", crossorigin)
+        link(href="https://fonts.googleapis.com/css2?family=Playwrite+CU:wght@100..400&display=swap" rel="stylesheet")
+
+        // jQuery
+        script(src="https://code.jquery.com/jquery-3.4.1.min.js")
+
+        // Typed.js Script
+        script(src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js" integrity="sha512-BdHyGtczsUoFcEma+MfXc71KJLv/cd+sUsUaYYf2mXpfG/PtBjNXsPo78+rxWjscxUYN2Qr2+DbeGGiJx81ifg==" crossorigin="anonymous")
+
+    body
+        // Start of Tawk.to Script
+        script(type="text/javascript"). 
+            var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
+            (function () {
+                var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
+                s1.async = true;
+                s1.src = 'https://embed.tawk.to/66e3ba6e50c10f7a00a93578/1i7kp0gnm';
+                s1.charset = 'UTF-8';
+                s1.setAttribute('crossorigin', '*');
+                s0.parentNode.insertBefore(s1, s0);
+            })();
+        // End of Tawk.to Script
+
+        #customerQuery_btn_right
+            a.modal-body.querypop-page-start.getfq(href="/contact")
+                span.pulse-button 
+                    img(src="/img/icons/contact-us.png" )
+
+        .whatsaap
+            a(href="https://wa.me/9958575960")
+                img(src="/img/whatsapp.png" alt="WhatsApp")
+
+       
+
+            
+
+                
+        div.container-xxl.position-relative.p-0
+            include ./components/nav.pug
+        .hero-header.bg
+            h1.text-white.animated.zoomIn Our Blog
+            img(src="./img/16124dsff.jpg", alt="", width="100%")
+        header
+          h1 #{post.title.rendered} 
+
+        main
+          if post.content && post.content.rendered
+            div!= post.content.rendered
+
+        footer
+          p Written by: #{post.author} | Published on #{new Date(post.date).toLocaleDateString()}
+          a(href='/blogs') 
+    include ./components/footer.pug
+
+    // Scripts for Libraries
+    script(src="/lib/wow/wow.min.js")
+    script(src="/lib/easing/easing.min.js")
+    script(src="/lib/owlcarousel/owl.carousel.min.js")
+    script(src="/lib/lightbox/js/lightbox.min.js")
+
+    // Carousel JS
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js")
+
+    // Template Scripts
+    script(src="/js/main.js")
+
+  
+            
