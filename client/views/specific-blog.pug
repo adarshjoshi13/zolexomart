@@ -1,0 +1,17 @@
+doctype html
+html
+  head
+    title Blog Post - #{post.title.rendered}
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  body
+    header
+      h1 #{post.title.rendered} 
+
+    main
+      if post.content && post.content.rendered
+        div!= post.content.rendered
+
+    footer
+      p Written by: #{post.author} | Published on #{new Date(post.date).toLocaleDateString()}
+      a(href='/blogs')
