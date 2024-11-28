@@ -123,7 +123,7 @@ router.get('/digital-marketing-blog', (req, res) => {
 
 //digital-marketing-blog
 router.get('/industry', (req, res) => {
-    res.render('industry');
+    res.render('industries');
 });
 //All Services
 router.get('/view-all-services', (req, res) => {
