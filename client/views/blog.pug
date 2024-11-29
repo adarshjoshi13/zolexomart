@@ -96,7 +96,7 @@ html(lang="en")
                     != post.content.rendered
 
             footer.text-end
-                p Written by: #{post.authorName} | Published on #{new Date(post.date).toLocaleDateString('en-IN')}
+                p Published on #{new Date(post.date).toLocaleDateString('en-IN')}
                 a.blogbtn(href='/blogs') Back to Blog List
 
     include ./components/footer.pug

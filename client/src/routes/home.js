@@ -159,14 +159,6 @@ router.get('/blog/:id', async (req, res) => {
 
         const post = response.data; // Get the specific blog post
 
-        const authorResponse = await axios.get(
-            `https://public-api.wordpress.com/wp/v2/sites/zolexomartforblog.wordpress.com/users/${post.author}`
-        );
-
-        const author = authorResponse.data;
-
-        post.authorName = author.name;
-
         // Decode HTML entities in the title and content
         post.title.rendered = entities.decodeHTML(post.title.rendered);
         post.content.rendered = entities.decodeHTML(post.content.rendered);
