@@ -375,7 +375,7 @@ html(lang="en")
                                         .indus-btn Machinery
                     
                         
-        .container-xxl.py-5(style="background:#c1c1c1")
+        .container-xxl.py-5(style="background:#ebddf7")
             .container.px-lg-5
                 .row
                     .mb-5.pb-2.wow.fadeInUp(data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;")
@@ -386,13 +386,14 @@ html(lang="en")
                             each post in posts
                                 .item
                                     div
-                                        a(href=`/blog/${post.id}`)
+                                        a.img(href=`/blog/${post.id}`)
                                             .newindus-slide
                                                 .img
                                                     img.img-fluid( decoding="async" src=post.jetpack_featured_media_url alt="Real Estate")
-                                                div    
-                                                    h1.text-center #{post.title.rendered}     
-                                                    .indus-btn.textadd.text-center!= post.excerpt.rendered.replace(/<\/?[^>]+(>|$)/g, "")
+                                                div.paddingadd    
+                                                    h1 #{post.title.rendered}     
+                                                    .indus-btn.textadd!= post.excerpt.rendered.replace(/<\/?[^>]+(>|$)/g, "")
+                                                    a(href="#").readbtn READ MORE
 
         .container-fluid.bg-primary.testimonial.py-5.wow.fadeInUp(data-wow-delay="0.1s")
             .container
@@ -406,24 +407,24 @@ html(lang="en")
                                 i.fa.fa-quote-left.fa-2x.mb-3
                                 p Best organisation for working and deliver best services in B2B market..
                                 .d-flex.align-items-center
-                                img.img-fluid.flex-shrink-0.rounded-circle(src="img/images.jpeg" style="width: 50px; height: 50px;")
-                                .ps-3
+                                //- img.img-fluid.flex-shrink-0.rounded-circle(src="img/images.jpeg" style="width: 50px; height: 50px;")
+                                //- .ps-3
                                     //- h6.text-white.mb-1 Raj Katiyar
                                     //- small Businessman
                             .testimonial-item.bg-transparent.border.rounded.text-white.p-4
                                 i.fa.fa-quote-left.fa-2x.mb-3
                                 p Their expertise in SEO, social media marketing, and content creation has significantly increased our online visibility and engagement. We saw a noticeable boost in website traffic within just a few months!
                                 .d-flex.align-items-center
-                                img.img-fluid.flex-shrink-0.rounded-circle(src="img/client-1.jpg" style="width: 50px; height: 50px;")
-                                .ps-3
+                                //- img.img-fluid.flex-shrink-0.rounded-circle(src="img/client-1.jpg" style="width: 50px; height: 50px;")
+                                //- .ps-3
                                     //- h6.text-white.mb-1 Harry
                                     //- small owner
                             .testimonial-item.bg-transparent.border.rounded.text-white.p-4
                                 i.fa.fa-quote-left.fa-2x.mb-3
                                 p Their technical skills are top-notch, and they used the latest technologies to create a robust and scalable solution. The project was completed on time and within budget, which is always a plus!
                                 .d-flex.align-items-center
-                                img.img-fluid.flex-shrink-0.rounded-circle(src="img/imagesjhwds.jpeg" style="width: 50px; height: 50px;")
-                                .ps-3
+                                //- img.img-fluid.flex-shrink-0.rounded-circle(src="img/imagesjhwds.jpeg" style="width: 50px; height: 50px;")
+                                //- .ps-3
                                     //- h6.text-white.mb-1 Sophia
 
                         div.newbtn 
@@ -510,7 +511,7 @@ html(lang="en")
                     margin: 10,
                     nav: false,
                     dots: true,
-                    autoplay: false ,
+                    autoplay: true  ,
                     responsive: {
                         0: {
                             items: 1

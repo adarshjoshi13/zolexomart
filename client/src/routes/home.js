@@ -1,6 +1,7 @@
 const express = require('express')
 const { Services } = require('../models/index');
-const axios = require('axios'); // Import Axios
+const axios = require('axios');
+const entities = require('entities')
 require('dotenv').config();
 
 const router = express.Router();
@@ -71,11 +72,6 @@ router.get('/service/:id/:route', async (req, res) => {
     }
 });
 
-//celebrity route
-router.get('/celebrity-endorsement', (req, res) => {
-    res.render('celebrity-endorsement');
-});
-
 //contact route
 router.get('/contact', (req, res) => {
     res.render('contact');
@@ -86,73 +82,41 @@ router.get('/about', (req, res) => {
     res.render('about');
 });
 
-//seo blog route
-router.get('/seo-blog', (req, res) => {
-    res.render('seo-blog');
-});
-//buyer leadblog route
-router.get('/buyer-lead-blog', (req, res) => {
-    res.render('buyer-lead-blog');
-});
-
-//business-blog
-router.get('/business-blog', (req, res) => {
-    res.render('business-blog');
-});
-
-//development-blog
-router.get('/development-blog', (req, res) => {
-    res.render('development-blog');
-});
-//smo-blog
-router.get('/smo-blog', (req, res) => {
-    res.render('smo-blog');
-});
-//gmb-blog-blog
-router.get('/gmb-blog', (req, res) => {
-    res.render('gmb-blog');
-});
-//msmes-blog-blog
-router.get('/msmes-blog', (req, res) => {
-    res.render('msmes-blog');
-});
-//digital-marketing-blog
-router.get('/digital-marketing-blog', (req, res) => {
-    res.render('digital-marketing-blog');
-});
-
-//digital-marketing-blog
-router.get('/industry', (req, res) => {
-    res.render('industries');
-});
 //All Services
 router.get('/view-all-services', (req, res) => {
     res.render('allServices');
 });
-//PAy now
+
+//Pay now
 router.get('/paynow', (req, res) => {
     res.render('paynow');
 });
+
 //small-business-websites 
 router.get('/small-business-websites', (req, res) => {
     res.render('packages/websites/small-business.pug');
 });
+
 //business-websites 
 router.get('/business-websites', (req, res) => {
     res.render('packages/websites/business.pug');
 });
+
 //e-commerce-websites 
 router.get('/e-commerce', (req, res) => {
     res.render('packages/websites/e-commerce.pug');
 });
+
 //city-digital-seo
 router.get('/city-digital-seo', (req, res) => {
     res.render('city-digital-seo');
 });
+
 //digital-booster-package 
 router.get('/digital-growth-package', (req, res) => {
     res.render('packages/digital-growth.pug');
 });
+
 //send Query
 router.get('/send-query', (req, res) => {
     res.render('send-query');
@@ -174,6 +138,12 @@ router.get('/blogs', async (req, res) => {
         const response = await axios.get('https://public-api.wordpress.com/wp/v2/sites/zolexomartforblog.wordpress.com/posts');
         const posts = response.data;
 
+        posts.forEach(post => {
+            post.title.rendered = entities.decodeHTML(post.title.rendered);
+            post.content.rendered = entities.decodeHTML(post.content.rendered);
+        });
+
+
         res.render('blogs', { posts });
     } catch (error) {
         console.error('Error fetching blog posts:', error);
@@ -181,7 +151,6 @@ router.get('/blogs', async (req, res) => {
     }
 });
 
-// Add a new route for the blog
 router.get('/blog/:id', async (req, res) => {
     try {
         const blogId = req.params.id;
@@ -189,8 +158,13 @@ router.get('/blog/:id', async (req, res) => {
         const response = await axios.get(`https://public-api.wordpress.com/wp/v2/sites/${siteName}/posts/${blogId}`);
 
         const post = response.data; // Get the specific blog post
+        
+        // Decode HTML entities in the title and content
+        post.title.rendered = entities.decodeHTML(post.title.rendered);
+        post.content.rendered = entities.decodeHTML(post.content.rendered);
+        post.excerpt.rendered = entities.decodeHTML(post.excerpt.rendered);
 
-        // console.log('Blog post details:', JSON.stringify(post, null, 2));
+        console.log('Blog post details:', JSON.stringify(post, null, 2));
 
         res.render('blog', { post: post });
     } catch (error) {

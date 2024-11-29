@@ -2,7 +2,6 @@ doctype html
 html(lang="en")
     head
         meta(charset="utf-8")
-        
         meta(name="viewport" content="width=device-width, initial-scale=1.0")
         title Blog Post - #{post.title.rendered}
 
@@ -58,7 +57,7 @@ html(lang="en")
 
     body
         // Start of Tawk.to Script
-        script(type="text/javascript"). 
+        script(type="text/javascript").
             var Tawk_API = Tawk_API || {}, Tawk_LoadStart = new Date();
             (function () {
                 var s1 = document.createElement("script"), s0 = document.getElementsByTagName("script")[0];
@@ -72,33 +71,34 @@ html(lang="en")
 
         #customerQuery_btn_right
             a.modal-body.querypop-page-start.getfq(href="/contact")
-                span.pulse-button 
+                span.pulse-button
                     img(src="/img/icons/contact-us.png" )
 
         .whatsaap
             a(href="https://wa.me/9958575960")
                 img(src="/img/whatsapp.png" alt="WhatsApp")
 
-       
-
-            
-
-                
         div.container-xxl.position-relative.p-0
             include ./components/nav.pug
         .hero-header.bg
-            h1.text-white.animated.zoomIn #{post.title.rendered} 
-            img(src=post.jetpack_featured_media_url, alt="", width="100%")
+            //- h1.text-white.animated.zoomIn #{post.title.rendered}
+            if post.jetpack_featured_media_url
+                img(src=post.jetpack_featured_media_url, alt=post.title.rendered, width="100%")
+            else
+                p No image available
+
         .container.py-5
-            h1 #{post.title.rendered} 
+            h1 #{post.title.rendered}
 
-            
+            // Display the content with proper HTML formatting
             if post.content && post.content.rendered
-                p.text-dark.py-3!= post.excerpt.rendered.replace(/<\/?[^>]+(>|$)/g, "")
+                .post-content
+                    != post.content.rendered
 
-            footer
-            p Written by: #{post.author} | Published on #{new Date(post.date).toLocaleDateString()}
-            a(href='/blogs') 
+            footer.text-end
+                p Written by: #{post.author} | Published on #{new Date(post.date).toLocaleDateString('en-IN')}
+                a.blogbtn(href='/blogs') Back to Blog List
+
     include ./components/footer.pug
 
     // Scripts for Libraries
@@ -112,6 +112,3 @@ html(lang="en")
 
     // Template Scripts
     script(src="/js/main.js")
-
-  
-            
