@@ -1,0 +1,23 @@
+nav.navbar.navbar-main.navbar-expand-lg.px-0.shadow-none.border-radius-xl#navbarBlur(navbar-scroll="true")
+    .container-fluid.py-1.px-3
+        nav(aria-label="breadcrumb")
+            ol.breadcrumb.bg-transparent.mb-0.pb-0.pt-1.px-0.me-sm-6.me-5
+                li.breadcrumb-item.text-sm
+                //-   a.opacity-5.text-white(href="javascript:;") Pages
+                //- li.breadcrumb-item.text-sm.text-white.active(aria-current="page") Dashboard
+            h6.font-weight-bolder.mb-0 Dashboard
+        .collapse.navbar-collapse.mt-sm-0.mt-2.me-md-0.me-sm-4#navbar
+            .ms-md-auto.pe-md-3.d-flex.align-items-center
+            ul.navbar-nav.justify-content-end
+                li.nav-item.d-flex.align-items-center
+                    .dropdown
+                        a(href="#", class="dropbtn", onclick="myFunction()")
+                            i.bi.bi-person-circle.fs-3
+                        .dropdown-content#myDropdown
+                            a(href="/logout") Sign Out
+
+
+script. 
+    function myFunction() {
+      $("#myDropdown").toggleClass("show");
+    }

@@ -1,0 +1,228 @@
+extends ../layout
+
+block content
+  include ../components/nav.pug
+
+  .container.mt-5
+    .row
+      h1.text-center.mb-4 Services Management
+
+      h2 Edit Service - #{service.serviceName}
+      form(action=`/services/edit/${service.id}` method="POST" class="mb-4 border p-4 rounded shadow" enctype="multipart/form-data" )
+        .mb-3
+          label(for="serviceName" class="form-label") Service Name
+          input(type="text" name="serviceName" value=service.serviceName placeholder="Enter service name" class="form-control" )
+
+        .mb-3
+          label.col-sm-2.col-form-label(for="subImage" class="form-label") Sub Image
+          img(src=service.subImageUrl alt="Sub Image" style="max-width: 200px; display: block;" id="existingSubImage")
+          input#subImage(type="file" name="subImage" accept="image/*" class="form-control")
+          img#subImagePreview.mt-2(src="#" alt="Sub Image Preview" style="max-width: 200px; display: none;")
+          input#subImageURL(type="hidden" name="subImageURL" value=service.subImageUrl)
+
+        .mb-3
+          label.col-sm-2.col-form-label(for="mainImage" class="form-label") Main Image
+          img(src=service.mainImageUrl alt="Main Image" style="max-width: 200px; display: block;" id="existingMainImage")
+          input#mainImage(type="file" name="mainImage" accept="image/*" class="form-control")
+          img#mainImagePreview.mt-2(src="#" alt="Main Image Preview" style="max-width: 200px; display: none;")
+          input#mainImageURL(type="hidden" name="mainImageURL" value=service.mainImageUrl)
+
+        .mb-3
+          label(for="subDescription" class="form-label") Sub Description
+          textarea(name="subDescription" class="form-control" placeholder="Enter a sub description" )= service.subDescription
+
+        h5.my-4 Detailed Description
+        .mb-3
+          label(for="description1" class="form-label") Short Description 1
+          textarea(name="description1" class="form-control" placeholder="Enter a short description 1" )= service.details.description1
+
+        .mb-3
+          label(for="description2" class="form-label") Short Description 2 
+          textarea(name="description2" class="form-control" placeholder="Enter a short description 2" )= service.details.description2
+
+        // Cards Section
+        h5.mt-4 Service Cards
+        .card-section
+          each card, index in service.cards
+            .card.mb-4
+              .card-body
+                label(for=`card${index + 1}Name` class="form-label") Card #{index + 1} Name
+                input(type="text" name=`card${index + 1}Name` value=card.name placeholder=`Enter Card ${index + 1} name` class="form-control" )
+                label(for=`card${index + 1}Desc` class="form-label") Card #{index + 1} Description
+                input(type="text" name=`card${index + 1}Desc` value=card.desc placeholder=`Enter Card ${index + 1} description` class="form-control" )
+
+          if service.cards.length < 3
+            button(type="button" id="addCardBtn" class="btn btn-secondary") Add Card
+
+        // Benefits Section
+        h5.mt-4 Benefits
+        .benefit-section
+          .mb-3
+            label(for="benefitsDescription" class="form-label") Benefit Description
+            input(type="text" name="benefitsDescription" value=service.benefits.description placeholder="Enter benefit description" class="form-control" )
+          each point, index in service.benefits.points
+            .mb-3
+              label(for=`benefit${index + 1}` class="form-label") Benefit Point #{index + 1}
+              input(type="text" name=`benefit${index + 1}` value=point placeholder=`Enter benefit point ${index + 1}` class="form-control" )
+
+          if service.benefits.points.length < 3
+            button(type="button" id="addBenefitBtn" class="btn btn-secondary") Add Benefit
+
+        // FAQ Section
+        h5.mt-4 Frequently Asked Questions
+        .faq-section
+          .row.mb-3
+            label.col-sm-2.col-form-label.fw-bold(for="faqDescription" class="form-label") FAQ Description
+            .col-sm-10
+              textarea(name="faqDescription" class="form-control" )= service.faq.description
+
+          each qa, index in service.faq.qa
+            .mb-3
+              label( class="form-label")
+                strong 
+              input(type="text"   placeholder="Enter FAQ question" class="form-control" )
+              label( class="form-label")
+                strong 
+              input(type="text"   placeholder="Enter FAQ answer" class="form-control" )
+
+          if service.faq.qa.length < 3
+            button(type="button" id="addFAQBtn" class="btn btn-secondary") Add FAQ
+
+        // SEO Section
+        .section.mb-5
+          h5.mt-4 SEO Section
+          .row.mb-3
+            label.col-sm-2.col-form-label(for="metaTitle" class="form-label") Meta Title
+            .col-sm-10
+              input(type="text" name="metaTitle"  placeholder="Enter meta title" class="form-control" )
+          
+          .row.mb-3
+            label.col-sm-2.col-form-label(for="metaDescription" class="form-label") Meta Description
+            .col-sm-10
+              textarea(name="metaDescription" class="form-control" placeholder="Enter meta description" required)
+          
+          .row.mb-3
+            label.col-sm-2.col-form-label(for="metaKeywords" class="form-label") Meta Keywords
+            .col-sm-10
+              input(type="text" name="metaKeywords"  placeholder="Enter meta keywords" class="form-control" required)
+          
+          .row.mb-3
+            label.col-sm-2.col-form-label(for="canonical" class="form-label") Canonical URL
+            .col-sm-10
+              input(type="url" name="canonical"  placeholder="Enter canonical URL" class="form-control" required)
+          
+          .row.mb-3
+            label.col-sm-2.col-form-label(for="robots" class="form-label") Robots
+            .col-sm-10
+              select(name="robots" class="form-control" required)
+                option(value="index, follow" selected=service.seo.robots === 'index, follow') index, follow
+                option(value="noindex, nofollow" selected=service.seo.robots === 'noindex, nofollow') Noindex, Nofollow
+
+        // Route Section
+        div.section.mb-5
+          h5.mt-4 Route Section
+          .row.mb-3
+            label.col-sm-2.col-form-label(for="route" class="form-label") Route
+            .col-sm-10
+              input(type="text" name="route" placeholder="Enter route" class="form-control" value=service.route required)
+
+        // Submit Button
+        button(type="submit" class="btn btn-primary w-100 mt-4") Update Service
+
+    // jQuery for dynamic fields
+    script.
+      $(document).ready(function() {
+        let cardCount = #{service.cards.length}; // Start with the existing number of cards
+        let benefitCount = #{service.benefits.points.length}; // Start with the existing number of benefits
+        let faqCount = #{service.faq.qa.length}; // Start with the existing number of FAQs
+
+        // Add Card Button
+        $('#addCardBtn').on('click', function() {
+          if (cardCount < 3) {
+            cardCount++;
+            const newCard = `
+              <div class="card mb-4">
+                <div class="card-body">
+                  <label for="card${cardCount}Name" class="form-label">Card ${cardCount} Name</label>
+                  <input type="text" name="card${cardCount}Name" placeholder="Enter Card ${cardCount} name" class="form-control" >
+                  <label for="card${cardCount}Desc" class="form-label">Card ${cardCount} Description</label>
+                  <input type="text" name="card${cardCount}Desc" placeholder="Enter Card ${cardCount} description" class="form-control" >
+                </div>
+              </div>`;
+            $('.card-section').append(newCard);
+          }
+          if (cardCount === 3) {
+            $('#addCardBtn').hide(); // Hide button after 3 cards
+          }
+        });
+
+        // Add Benefit Button
+        $('#addBenefitBtn').on('click', function() {
+          if (benefitCount < 3) {
+            benefitCount++;
+            const newBenefit = `
+              <div class="mb-3">
+                <label for="benefit${benefitCount}" class="form-label">Benefit Point ${benefitCount}</label>
+                <input type="text" name="benefit${benefitCount}" placeholder="Enter benefit ${benefitCount}" class="form-control" >
+              </div>`;
+            $('.benefit-section').append(newBenefit);
+          }
+          if (benefitCount === 3) {
+            $('#addBenefitBtn').hide(); // Hide button after 3 benefits
+          }
+        });
+
+        // Add FAQ Button
+        $('#addFAQBtn').on('click', function() {
+          if (faqCount < 3) {
+            faqCount++;
+            const newFAQ = `
+              <div class="mb-3">
+                <label for="faqQuestion${faqCount}" class="form-label"> <strong>Q${faqCount}</strong></label>
+                <input type="text" name="faqQuestion${faqCount}" placeholder="Enter FAQ question" class="form-control" >
+                <label for="faqAnswer${faqCount}" class="form-label"> <strong>A${faqCount}</strong></label>
+                <input type="text" name="faqAnswer${faqCount}" placeholder="Enter FAQ Answer" class="form-control" >
+              </div>`;
+            $('.faq-section').append(newFAQ);
+          }
+          if (faqCount === 3) {
+            $('#addFAQBtn').hide(); // Hide button after 3 FAQs
+          }
+        });
+
+        function uploadToImageKit(fileInput, hiddenInputId, previewId) {
+          const file = fileInput.files[0];
+          if (file) {
+            const formData = new FormData();
+            formData.append('file', file);
+            formData.append('fileName', file.name);
+
+            $.ajax({
+              url: '/upload-image', // Server route for uploading to ImageKit
+              type: 'POST',
+              data: formData,
+              processData: false,
+              contentType: false,
+              success: function(response) {
+                if (response.url) {
+                  $(hiddenInputId).val(response.url); // Store uploaded image URL in hidden input
+                  $(previewId).attr('src', response.url).show(); // Show the uploaded image preview
+                }
+              },
+              error: function(error) {
+                console.error("Image upload failed", error);
+              }
+            });
+          }
+        }
+
+        // Sub Image
+        $('#subImage').change(function() {
+          uploadToImageKit(this, '#subImageURL', '#subImagePreview');
+        });
+
+        // Main Image
+        $('#mainImage').change(function() {
+          uploadToImageKit(this, '#mainImageURL', '#mainImagePreview');
+        });
+      });

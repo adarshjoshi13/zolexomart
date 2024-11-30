@@ -1,0 +1,28 @@
+extends ../layout
+
+block content
+    include ../components/nav.pug
+    h1 Packages Section
+    // DataTables CSS
+    link(rel='stylesheet' href='https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css')
+    link(rel='stylesheet' href='https://cdn.datatables.net/1.12.1/css/dataTables.bootstrap5.min.css')
+    link(rel='stylesheet' href='https://cdn.datatables.net/buttons/2.3.0/css/buttons.dataTables.min.css')
+    link(rel='stylesheet' href='https://cdn.datatables.net/responsive/2.2.9/css/responsive.dataTables.min.css')
+
+    // jQuery
+    script(src="https://code.jquery.com/jquery-3.6.0.min.js")
+
+    // DataTables JS
+    script(src='https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js')
+    script(src='https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js')
+    script(src="https://cdn.datatables.net/buttons/2.3.0/js/dataTables.buttons.min.js")
+    script(src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js")
+    script.
+        $(document).ready(function () {
+            $('#service-datatable').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    'excelHtml5'
+                ]
+            });
+        });

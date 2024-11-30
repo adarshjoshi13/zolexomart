@@ -1,0 +1,341 @@
+extends ../layout
+
+block content
+  include ../components/nav.pug
+
+  .container
+    .row
+      // Form for adding new service
+     
+      form(action="/services/add" method="POST" class="mb-4 border p-4 rounded shadow" enctype="multipart/form-data")
+        div.section.mb-5
+          .row.mb-3
+            label.col-sm-2.col-form-label(for="serviceName" class="form-label") Service Name
+            .col-sm-10
+              input(type="text" name="serviceName" placeholder="Enter service name" class="form-control" required)
+
+          .row.mb-3
+            label.col-sm-2.col-form-label(for="subImage" class="form-label") Sub Image
+            .col-sm-10
+              input#subImage(type="file" name="subImage" accept="image/*" class="form-control" required)
+              img#subImagePreview.mt-2(src="#" alt="Sub Image Preview" style="max-width: 200px; display: none;")
+              input#subImageURL(type="hidden" name="subImageURL")
+
+          .row.mb-3
+            label.col-sm-2.col-form-label(for="bannerImage" class="form-label") Banner Image
+            .col-sm-10
+              input#bannerImage(type="file" name="bannerImage" accept="image/*" class="form-control" required)
+              img#bannerImagePreview.mt-2(src="#" alt="banner Image Preview" style="max-width: 200px; display: none;")
+              input#bannerImage(type="hidden" name="bannerImageURL")
+
+
+          .row.mb-3
+            label.col-sm-2.col-form-label(for="mainImage" class="form-label") Main Image
+            .col-sm-10
+              input#mainImage(type="file" name="mainImage" accept="image/*" class="form-control" required)
+              img#mainImagePreview.mt-2(src="#" alt="Main Image Preview" style="max-width: 200px; display: none;")
+              input#mainImageURL(type="hidden" name="mainImageURL")
+
+          .row.mb-3
+            label.col-sm-2.col-form-label(for="subDescription" class="form-label") Sub Description
+            .col-sm-10
+              textarea(name="subDescription" class="form-control" placeholder="Enter a sub description" required)
+          
+        div.section.mb-5  
+          h5.my-4 Detailed Description
+          .row.mb-3
+            label.col-sm-2.col-form-label(for="description1" class="form-label") Short Description 1
+            .col-sm-10  
+              textarea(name="description1" class="form-control" placeholder="Enter a short description  1" required)
+
+          .row.mb-3
+            label.col-sm-2.col-form-label(for="description2" class="form-label") Short Description 2 
+            .col-sm-10  
+              textarea(name="description2" class="form-control" placeholder="Enter a short description 2" required)
+
+        // Cards Section
+        div.section.mb-5 
+          h5.mt-4 Service Cards
+          .card-section                          
+            .row.mb-3
+              label.col-sm-2.col-form-label(for="card1Name" class="form-label") Card One Name
+              .col-sm-10
+                input(type="text" name="card1Name" placeholder="Enter Card One name" class="form-control" required)
+            .row.mb-3
+              label.col-sm-2.col-form-label(for="card1Desc" class="form-label") Card One Description
+              .col-sm-10
+                input(type="text" name="card1Desc" placeholder="Enter Card One description" class="form-control" required)
+            
+          button(type="button" id="addCardBtn" class="btn btn-secondary mt-3") Add Card
+
+        // Benefits Section
+        div.section.mb-5 
+          h5.mt-4 Benefits
+          .benefit-section
+
+            .row.mb-3
+              label.col-sm-2.col-form-label(for="benefitImage" class="form-label") Benefit Image
+              .col-sm-10
+                input#benefitImage(type="file" name="benefitImage" accept="image/*" class="form-control" required)
+                img#benefitImagePreview.mt-2(src="#" alt="benefit Image Preview" style="max-width: 200px; display: none;")
+                input#benefitImageURL(type="hidden" name="benefitImageURL")
+
+            .row.mb-3
+              label.col-sm-2.col-form-label(for="benefitsDescription" class="form-label") Benefit Description
+              .col-sm-10
+                textarea(name="benefitsDescription" class="form-control" placeholder="Enter benefit description" required)
+            .row.mb-3
+              label.col-sm-2.col-form-label(for="benefit1" class="form-label") Benefit Point 1
+              .col-sm-10
+                input(type="text" name="benefit1" placeholder="Enter first benefit" class="form-control" required)
+          button(type="button" id="addBenefitBtn" class="btn btn-secondary mt-3") Add Benefit
+
+        // Our Approach Section
+        div.section.mb-5 
+          h5.mt-4 Our Approach
+          .our-approach-section
+            .row.mb-3
+              label.col-sm-2.col-form-label(for="ourApproachImage" class="form-label") Our Approach Image
+              .col-sm-10
+                input#ourApproachImage(type="file" name="ourApproachImage" accept="image/*" class="form-control" required)
+                img#ourApproachImagePreview.mt-2(src="#" alt="our Approach Image Preview" style="max-width: 200px; display: none;")
+                input#ourApproachImageURL(type="hidden" name="ourApproachImageURL")
+
+            .row.mb-3
+              label.col-sm-2.col-form-label(for="OurApproachDescription" class="form-label") Our Approach Description
+              .col-sm-10
+                textarea(name="OurApproachDescription" class="form-control" placeholder="Enter Our Approach description" required)
+
+        // User Friendly Section
+        div.section.mb-5 
+          h5.mt-4 User Friendly
+          .user-friendly-section
+            .row.mb-3
+              label.col-sm-2.col-form-label(for="userFriendlyImage" class="form-label") user Friendly Image
+              .col-sm-10
+                input#userFriendlyImage(type="file" name="userFriendlyImage" accept="image/*" class="form-control" required)
+                img#userFriendlyImagePreview.mt-2(src="#" alt="user Friendly Image Preview" style="max-width: 200px; display: none;")
+                input#userFriendlyImageURL(type="hidden" name="userFriendlyImageURL")
+
+            .row.mb-3
+              label.col-sm-2.col-form-label(for="userFriendlyDescription" class="form-label") User Friendly Description
+              .col-sm-10
+                textarea(name="userFriendlyDescription" class="form-control" placeholder="Enter user Friendly description" required)
+
+        // FAQ Section
+        div.section.mb-5 
+          h5.my-4 Frequently Asked Questions
+          .faq-section
+            .row.mb-3
+              label.col-sm-2.col-form-label.fw-bold(for="faqDescription" class="form-label") FAQ Description
+              .col-sm-10
+                textarea(name="faqDescription" class="form-control" placeholder="Enter benefit description" required)
+            .row.mb-3
+              label.col-sm-2.col-form-label(for="faqQuestion1" class="form-label")
+                strong Q1
+              .col-sm-10
+                input(type="text" name="faqQuestion1" placeholder="Enter FAQ question" class="form-control" required)
+            .row.mb-3
+              label.col-sm-2.col-form-label(for="faqAnswer1" class="form-label")
+                strong A1
+              .col-sm-10
+                input(type="text" name="faqAnswer1" placeholder="Enter FAQ answer" class="form-control" required)
+
+          button(type="button" id="addFAQBtn" class="btn btn-secondary mt-3") Add FAQ
+
+        // SEO Section
+        div.section.mb-5
+          h5.mt-4 SEO Section
+          .row.mb-3
+            label.col-sm-2.col-form-label(for="metaTitle" class="form-label") Meta Title
+            .col-sm-10
+              input(type="text" name="metaTitle" placeholder="Enter meta title" class="form-control" required)
+          
+          .row.mb-3
+            label.col-sm-2.col-form-label(for="metaDescription" class="form-label") Meta Description
+            .col-sm-10
+              textarea(name="metaDescription" class="form-control" placeholder="Enter meta description" required)
+          
+          .row.mb-3
+            label.col-sm-2.col-form-label(for="metaKeywords" class="form-label") Meta Keywords
+            .col-sm-10
+              input(type="text" name="metaKeywords" placeholder="Enter meta keywords" class="form-control" required)
+          
+          .row.mb-3
+            label.col-sm-2.col-form-label(for="keywordsPlanner" class="form-label") Keywords Planner
+            .col-sm-10
+              input(type="text" name="keywordsPlanner" placeholder="Enter planned keywords" class="form-control" required)
+          
+          .row.mb-3
+            label.col-sm-2.col-form-label(for="canonical" class="form-label") Canonical URL
+            .col-sm-10
+              input(type="url" name="canonical" placeholder="Enter canonical URL" class="form-control" required)
+          
+          .row.mb-3
+            label.col-sm-2.col-form-label(for="robots" class="form-label") Robots
+            .col-sm-10
+              select(name="robots" class="form-control" required)
+                option(value="index, follow") index, follow
+                option(value="noindex, nofollow") Noindex, Nofollow
+
+        // Route Section
+        div.section.mb-5
+          h5.mt-4 Route Section
+          .row.mb-3
+            label.col-sm-2.col-form-label(for="route" class="form-label") Route
+            .col-sm-10
+              input(type="text" name="route" placeholder="Enter route" class="form-control" required)
+
+        // Submit Button
+        button(type="submit" class="btn btn-primary  mt-4") Add Service
+
+    // Include jQuery
+    script(src="https://code.jquery.com/jquery-3.6.0.min.js")
+
+    // jQuery for dynamic fields
+    script.
+      $(document).ready(function() {
+        let cardCount = 1;
+        let benefitCount = 1;
+        let faqCount = 1;
+
+        // Add Card Button
+        $('#addCardBtn').on('click', function() {
+          if (cardCount < 3) {
+            cardCount++;
+            const newCard = `
+                <div class="borderadd">
+                  <div class="row mb-3">
+                    <label for="card${cardCount}Name" class="col-sm-2 col-form-label form-label">Card ${cardCount} Name</label>
+                    <div class="col-sm-10">
+                      <input type="text" name="card${cardCount}Name" placeholder="Enter Card ${cardCount} name" class="form-control" required>
+                    </div>
+                  </div>
+                  <div class="row mb-3">  
+                    <label for="card${cardCount}Desc" class="col-sm-2 col-form-label form-label">Card ${cardCount} Description</label>
+                    <div class="col-sm-10">
+                      <input type="text" name="card${cardCount}Desc" placeholder="Enter Card ${cardCount} description" class="form-control" required>
+                    </div>
+                  </div>
+                </div>`
+            $('.card-section').append(newCard);
+          }
+          if (cardCount === 3) {
+            $('#addCardBtn').hide(); // Hide button after 3 cards
+          }
+        });
+
+        // Add Benefit Button
+        $('#addBenefitBtn').on('click', function() {
+          if (benefitCount < 3) {
+            benefitCount++;
+            const newBenefit = `
+            <div class="borderadd">
+              <div class="row mb-3">
+                <label for="benefit${benefitCount}" class="col-sm-2 col-form-label form-label">Benefit Point ${benefitCount}</label>
+                <div class="col-sm-10">
+                <input type="text" name="benefit${benefitCount}" placeholder="Enter benefit ${benefitCount}" class="form-control" required>
+             </div>
+             </div>
+              </div>`;
+            $('.benefit-section').append(newBenefit);
+          }
+          if (benefitCount === 3) {
+            $('#addBenefitBtn').hide(); // Hide button after 3 benefits
+          }
+        });
+
+                // Add FAQ Button
+        $('#addFAQBtn').on('click', function() {
+          if (faqCount < 5) {
+            faqCount++;
+            const newFAQ = `
+              <div class="borderadd">
+                <div class="row mb-3">
+                  <label for="faqQuestion${faqCount}" class="col-sm-2 col-form-label form-label"> <strong>Q${faqCount}</strong></label>
+                  <div class="col-sm-10">
+                    <input type="text" name="faqQuestion${faqCount}" placeholder="Enter FAQ question" class="form-control" required>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <label for="faqAnswer${faqCount}" class="col-sm-2 col-form-label form-label"> <strong>A${faqCount}</strong></label>
+                  <div class="col-sm-10">
+                    <input type="text" name="faqAnswer${faqCount}" placeholder="Enter FAQ Answer" class="form-control" required>
+                  </div>
+                </div>
+              </div>`;
+            $('.faq-section').append(newFAQ);
+          }
+          if (faqCount === 5) {
+            $('#addFAQBtn').hide();
+          }
+        });
+
+        function readURL(input, previewId) {
+          if (input.files && input.files[0]) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+              $(previewId).attr('src', e.target.result).show();
+            };
+            reader.readAsDataURL(input.files[0]);
+          }
+        }
+
+        function handleImageChange(input, previewId, hiddenInputId) {
+          const file = input.files[0];
+          if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+              $(previewId).attr('src', e.target.result).show();
+            };
+            reader.readAsDataURL(file);
+
+            const formData = new FormData();
+            formData.append('file', file);
+            formData.append('fileName', file.name);
+
+            $.ajax({
+              url: '/upload-image', 
+              type: 'POST',
+              data: formData,
+              processData: false,
+              contentType: false,
+              success: function(response) {
+                if (response.url) {
+                  $(hiddenInputId).val(response.url); 
+                  $(previewId).attr('src', response.url).show(); 
+                }
+              },
+              error: function(error) {
+                console.error("Image upload failed", error);
+              }
+            });
+          }
+        }
+
+        // Sub Image
+        $('#subImage').change(function() {
+          handleImageChange(this, '#subImagePreview', '#subImageURL');
+        });
+
+        $('#mainImage').change(function() {
+          handleImageChange(this, '#mainImagePreview', '#mainImageURL');
+        });
+
+        $('#bannerImage').change(function() {
+          handleImageChange(this, '#bannerImagePreview', '#bannerImageURL');
+        });
+
+        $('#benefitImage').change(function() {
+          handleImageChange(this, '#benefitImagePreview', '#benefitImageURL');
+        });
+    
+        $('#ourApproachImage').change(function() {
+          handleImageChange(this, '#ourApproachImagePreview', '#ourApproachImageURL');
+        });
+
+        $('#userFriendlyImage').change(function() {
+          handleImageChange(this, '#userFriendlyImagePreview', '#userFriendlyImageURL');
+        });
+
+      });

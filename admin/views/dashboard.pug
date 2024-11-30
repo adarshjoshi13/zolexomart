@@ -1,0 +1,36 @@
+extends layout
+
+block content
+  include ./components/nav.pug
+
+  .container.mt-5
+    h1.text-left.mb-4 Services Dashboard
+
+    // Row for services stats
+    .row
+      .col-md-4
+        .card.border-0.shadow-sm
+          .card-body
+            .d-flex.align-items-center.justify-content-between
+              .icon
+                i.bi.bi-briefcase-fill.text-primary.display-6
+              .text-left
+                h5.card-title.text-uppercase.mb-1 Total Services
+                p.lead.font-weight-bold.mb-0 #{totalServices} / #{totalActiveServices}
+            .row.mt-3
+              .col-12
+                a.btn.btn-outline-primary.w-100(href="/services") View All Services
+
+  script.
+    // Close the dropdown if the user clicks outside of it
+    window.onclick = function(event) {
+      if (!event.target.matches('.dropbtn')) {
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        for (var i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+      }
+    }
