@@ -126,7 +126,10 @@ router.get('/send-query', (req, res) => {
 router.get('/city-wise-seo', (req, res) => {
     res.render('packages/seo/city-wise.pug');
 });
-
+//industries
+router.get('/industries', (req, res) => {
+    res.render('industries');
+});
 //domestic-seo
 router.get('/domestic-seo', (req, res) => {
     res.render('packages/seo/domestic.pug');
