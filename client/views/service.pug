@@ -61,9 +61,9 @@ html(lang="en")
                         ul.pbmit-all-post-list
                             each serviceItem in OurServices
                                 li(class=(serviceItem.id === Service.id ? 'pbmit-post-active' : ''))
-                                    a(href=`/service/${serviceItem.id}/${serviceItem.route}`) #{serviceItem.serviceName}
+                                    a(href=`/${serviceItem.route}/${serviceItem.id}`) #{serviceItem.serviceName}
                         li.newbtn 
-                            a(href="/view-all-services") View All Services
+                            a(href="/services") View All Services
                 .col-md-9.col-lg-9
                     .imgheight
                         img(src=Service.mainImageUrl, alt=Service.serviceName)
@@ -244,6 +244,4 @@ html(lang="en")
                         }
                     });
                 });
-
-
             });

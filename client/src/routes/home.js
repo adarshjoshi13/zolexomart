@@ -31,7 +31,7 @@ router.get('/', async (req, res) => {
 });
 
 // Service route
-router.get('/service/:id/:route', async (req, res) => {
+router.get('/:route/:id', async (req, res) => {
     try {
 
         const { id } = req.params;
@@ -83,7 +83,7 @@ router.get('/about', (req, res) => {
 });
 
 //All Services
-router.get('/view-all-services', (req, res) => {
+router.get('/services', (req, res) => {
     res.render('allServices');
 });
 
@@ -151,7 +151,7 @@ router.get('/blogs', async (req, res) => {
     }
 });
 
-router.get('/blog/:id', async (req, res) => {
+router.get('/blog/:id/:title', async (req, res) => {
     try {
         const blogId = req.params.id;
         const siteName = 'zolexomartforblog.wordpress.com'; // Replace with your WordPress site name

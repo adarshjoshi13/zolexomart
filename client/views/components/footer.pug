@@ -25,7 +25,7 @@ div.container-fluid.bg-dark.text-light.footer.wow.fadeIn(data-wow-delay="0.1s" s
           div.col-md-6.col-lg-3
               h5.text-white.mb-4 Our Services
                 each service in Services.slice(0, 6)
-                    a.btn.btn-link(href=`/service/${service.id}/${service.route}`) #{service.serviceName}
+                    a.btn.btn-link(href=`/${service.route}/${service.id}`) #{service.serviceName}
 
           div.col-md-6.col-lg-3.addc
               h5.text-white.mb-4 Contact Us

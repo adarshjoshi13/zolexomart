@@ -3,8 +3,6 @@ const router = express.Router();
 const authController = require('../controllers/authController');
 
 router.get('/login', (req, res) => {
-    console.log('aya?')
-    console.log(req.session, "show")
     if (req.session.user) {
         res.redirect('/dashboard');
     } else {

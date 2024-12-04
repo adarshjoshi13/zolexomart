@@ -106,11 +106,10 @@ html(lang="en")
                                     .section-title.position-relative.mb-4.pb-2
                                         h2.mt-2.textblogheading= post.title.rendered
                                     p.mb-4.addt.textblog!= post.excerpt.rendered.replace(/<\/?[^>]+(>|$)/g, "")
-                                    a.btnnew(href=`/blog/${post.id}`) Read More
+                                    a.btnnew(href=`/blog/${post.id}/${post.title.rendered.replace(/&nbsp;/g, ' ').replace(/\s+/g, '-').replace(/[^a-zA-Z0-9-]+/g, '').replace(/^-+|-+$/g, '')}`) Read More
 
                                 .col-lg-6.addimgs(style="text-align: center;")
                                     img.img-fluid.wow.zoomIn(data-wow-delay="0.5s" src=post.jetpack_featured_media_url alt="no-image" style="visibility: visible; animation-delay: 0.5s; animation-name: zoomIn;")
-
                             else
                                 // Image first, Content second
                                 .col-lg-6.addimgs(style="text-align: center;")
@@ -120,7 +119,7 @@ html(lang="en")
                                     .section-title.position-relative.mb-4.pb-2
                                         h2.mt-2.textblogheading= post.title.rendered
                                     p.mb-4.addt.textblog!= post.excerpt.rendered.replace(/<\/?[^>]+(>|$)/g, "")
-                                    a.btnnew(href=`/blog/${post.id}`) Read More
+                                    a.btnnew(href=`/blog/${post.id}/${post.title.rendered.replace(/&nbsp;/g, ' ').replace(/\s+/g, '-').replace(/[^a-zA-Z0-9-]+/g, '').replace(/^-+|-+$/g, '')}`) Read More
 
     include ./components/footer.pug
 

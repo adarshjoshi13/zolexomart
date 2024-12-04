@@ -155,7 +155,7 @@ html(lang="en")
                                                                 div.overlayadd
                                                                     h1.text1 #{service.serviceName}
                                                                     p.textadd #{service.subDescription}
-                                                                    a.btn.bt.px-2.mt-3.mx-auto(href=`/service/${service.id}/${service.route}`) Read More
+                                                                    a.btn.bt.px-2.mt-3.mx-auto(href=`/${service.route}/${service.id}`) Read More
                                                         //- .swiper-slide
                                                         //-     img(src="https://github.com/ecemgo/mini-samples-great-tricks/assets/13468728/2d165721-fe2e-4cf0-a63e-20bc5bc3f847")
                                                         //-     .cost from $380 per group
@@ -208,7 +208,7 @@ html(lang="en")
                                     .textbox.col-md-6    
                                         h3.text1.mb-3 #{service.serviceName}
                                         p.textsec #{service.subDescription}
-                                        a.btn.px-3.mt-auto.mx-auto(href=`/service/${service.id}/${service.route}`) Read More
+                                        a.btn.px-3.mt-auto.mx-auto(href=`/service/${service.route}/${service.id}`) Read More
        
         div.container-xxl.py-5.aboutsec
             div.container.px-lg-5
@@ -384,14 +384,14 @@ html(lang="en")
                             each post in posts
                                 .item
                                     div
-                                        a.img(href=`/blog/${post.id}`)
+                                        a.img(href=`/blog/${post.id}/${post.title.rendered.replace(/&nbsp;/g, ' ').replace(/\s+/g, '-').replace(/[^a-zA-Z0-9-]+/g, '').replace(/^-+|-+$/g, '')}`)
                                             .newindus-slide
                                                 .img
                                                     img.img-fluid( decoding="async" src=post.jetpack_featured_media_url alt="Real Estate")
                                                 div.paddingadd    
-                                                    h1 #{post.title.rendered}     
+                                                    h1= post.title.rendered.replace(/&nbsp;/g, ' ')     
                                                     .indus-btn.textadd!= post.excerpt.rendered.replace(/<\/?[^>]+(>|$)/g, "")
-                                                    a(href="#").readbtn READ MORE
+                                                    a(href=`/blog/${post.id}/${post.title.rendered.replace(/&nbsp;/g, ' ').replace(/\s+/g, '-').replace(/[^a-zA-Z0-9-]+/g, '').replace(/^-+|-+$/g, '')}`).readbtn READ MORE
 
         .container-fluid.bg-primary.testimonial.py-5.wow.fadeInUp(data-wow-delay="0.1s")
             .container

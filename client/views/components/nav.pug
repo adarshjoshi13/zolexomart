@@ -109,7 +109,7 @@ div.container-fluid.position-relative.p-0(style="z-index:999")
                             path(fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z")
                     div.dropdown-menu.m-0
                         each service in Services
-                            a(href=`/service/${service.id}/${service.route}` class="dropdown-item")
+                            a(href=`/${service.route}/${service.id}` class="dropdown-item")
                                 span.menuInfo
                                     img(src=service.subImageUrl alt="not image") 
                                     span.menuTitle #{service.serviceName}
