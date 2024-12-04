@@ -115,7 +115,7 @@ h6,
 @media (max-width: 991.98px) {
     .sticky-top.navbar-light {
         position: relative;
-        background: linear-gradient(151deg, rgb(0 0 0) 50%, rgb(0 91 109) 50%);
+        background: linear-gradient(151deg, rgb(0 0 0) 50%, #008099 50%);
         border-bottom: 1px solid #2e3a69;
     }
 
@@ -152,7 +152,7 @@ h6,
 
     .sticky-top.navbar-light {
         position: fixed;
-        background: linear-gradient(151deg, rgb(0 0 0) 50%, rgb(0 91 109) 50%);
+        background: linear-gradient(151deg, rgb(0 0 0) 50%, #008099 50%);
         border-bottom: 1px solid #2e3a69;
     }
 
@@ -1178,7 +1178,7 @@ p {
 
 .navbar-light {
     position: initial;
-    background: linear-gradient(151deg, rgb(0 0 0) 50%, rgb(0 91 109) 50%);
+    background: linear-gradient(151deg, rgb(0 0 0) 50%, #008099 50%);
     border-bottom: 1px solid #2e3a69;
 }
 
@@ -1449,7 +1449,7 @@ p {
 @media (max-width: 991.98px) {
     .sticky-top.navbar-light {
         position: relative;
-        background: linear-gradient(151deg, rgb(0 0 0) 50%, rgb(0 91 109) 50%);
+        background: linear-gradient(151deg, rgb(0 0 0) 50%, #008099 50%);
         border-bottom: 1px solid #2e3a69;
     }
 }
